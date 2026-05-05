@@ -22,9 +22,13 @@
   @media(max-width:900px){ html { font-size: 20px; } }
   body { font-family:'Noto Sans JP',sans-serif; background:var(--warm-white); color:var(--dark); overflow-x:hidden; }
 
-  /* FIXED HEADER（廃止） */
-  .site-header { display: none; }
-  .mobile-drawer { display: none !important; }
+  /* FIXED HEADER */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: var(--bark);
+    box-shadow: 0 2px 20px rgba(0,0,0,.25);
+    transition: opacity .4s ease;
+  }
   .header-inner {
     display: flex; align-items: center;
     justify-content: space-between;
@@ -53,9 +57,9 @@
   .header-nav li { height: 70px; display: flex; align-items: center; }
   .header-nav a {
     font-family: 'Noto Sans JP', 'Jost', sans-serif;
-    font-size: .65rem; font-weight: 600; letter-spacing: .05em;
+    font-size: clamp(.45rem, 0.9vw, .7rem); font-weight: 600; letter-spacing: .05em;
     color: rgba(255,255,255,.78); text-decoration: none;
-    padding: 0 .7rem; height: 100%; display: flex; align-items: center;
+    padding: 0 clamp(.3rem, 0.8vw, 1rem); height: 100%; display: flex; align-items: center;
     transition: all .25s; white-space: normal; text-align: center; word-break: keep-all;
     border-bottom: 2px solid transparent;
   }
@@ -80,11 +84,11 @@
     text-decoration: none;
     display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: .1rem;
     padding: 0 .7rem;
-    border: none;
+    border: 1px solid rgba(255,255,255,.5);
     transition: all .25s;
     height: 100%;
   }
-  .header-tel-num:hover { background: rgba(255,255,255,.12); }
+  .header-tel-num:hover { background: rgba(255,255,255,.12); border-color: white; }
 
   /* 予約ボタン */
   .header-reserve {
@@ -103,8 +107,8 @@
   /* HERO */
   .hero {
     position: relative;
-    margin-top: 0;
-    height: 100vh;
+    margin-top: 70px;
+    height: calc(100vh - 70px);
     min-height: 500px;
     overflow: hidden;
   }
@@ -123,9 +127,9 @@
     position: absolute; inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(0,0,0,.15) 0%,
-      rgba(0,0,0,.25) 50%,
-      rgba(0,0,0,.2) 100%
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.55) 50%,
+      rgba(0, 0, 0, 0.35) 100%
     );
   }
   /* テキストエリア */
@@ -134,227 +138,29 @@
     position: relative; z-index: 1;
     height: 100%;
     display: flex; flex-direction: column;
-    justify-content: center; align-items: flex-start;
+    justify-content: center; align-items: center;
     gap: 1.8rem;
     padding: 3rem 2rem;
     width: 100%;
-    text-align: left;
+    text-align: center;
     color: white;
   }
   .hero-sub {
-    font-family: 'Noto Serif JP', serif;
+    font-family: 'Noto Sans JP', sans-serif;
     font-size: 1rem; font-weight: 300;
     letter-spacing: .5em;
     color: rgba(255,255,255,.85);
-    text-shadow: 0 1px 8px rgba(0,0,0,.5);
-  }
-  .hero-text-block {
-    display: flex; flex-direction: column;
-    align-items: flex-start; text-align: left;
-  }
-  .hero-info-block { display: none; }
-  .hero-logo-mobile { display: none; }
-  .hero-concept-block { display: none; }
-
-  /* ===== HERO PC: 左画像 / 右情報パネル ===== */
-  @media(min-width:901px) {
-    .hero {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      height: 870px !important;
-      min-height: 870px !important;
-      overflow: hidden !important;
-      padding: 0 !important;
-      background: #f5f0eb !important;
-    }
-    .hero-inner {
-      display: flex !important;
-      flex-direction: row !important;
-      align-items: flex-start !important;
-      justify-content: flex-start !important;
-      max-width: 1100px !important;
-      width: 100% !important;
-      height: 870px !important;
-      position: relative !important;
-      gap: 0 !important;
-    }
-    /* 左: 画像（残り全幅） */
-    .hero-slideshow {
-      position: relative !important;
-      flex: 1 1 auto !important;
-      height: calc(870px - 6rem) !important;
-      width: auto !important;
-      inset: auto !important;
-      margin: 4.5rem 0 1.5rem 1.5rem !important;
-      border-radius: 16px !important;
-      overflow: hidden !important;
-    }
-    .hero-slide {
-      position: absolute !important;
-      top: 0 !important; right: 0 !important;
-      bottom: 0 !important; left: 0 !important;
-      background-size: cover !important;
-      background-position: center !important;
-    }
-    /* グラデーションオーバーレイ：PC版は非表示 */
-    .hero-overlay { display: none !important; }
-    /* PC版ロゴ：画像左上に絶対配置 */
-    .pc-float-logo {
-      position: absolute !important;
-      top: 1.2rem !important;
-      left: 1.2rem !important;
-      z-index: 10 !important;
-    }
-    .pc-float-logo img { width: 110px; height: auto; display: block; }
-    /* 右: 情報パネル（固定幅） */
-    .hero-content {
-      position: relative !important;
-      width: 400px !important;
-      min-width: 400px !important;
-      height: 870px !important;
-      flex-shrink: 0 !important;
-      flex-grow: 0 !important;
-      background: #f5f0eb !important;
-      color: #1a1a1a !important;
-      padding: 48px 36px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      align-items: flex-start !important;
-      gap: 1.8rem !important;
-      overflow: hidden !important;
-      text-align: left !important;
-    }
-    /* キャッチコピー（スマホと同スタイル） */
-    .hero-sub {
-      color: #000 !important;
-      text-shadow: none !important;
-      font-size: 21px !important;
-      font-weight: 500 !important;
-      letter-spacing: .2em !important;
-      white-space: nowrap !important;
-    }
-    .hero-sub strong {
-      display: inline-block !important;
-      background: none !important;
-      color: #b8860b !important;
-      font-weight: 700 !important;
-      font-family: 'Jost', sans-serif !important;
-      letter-spacing: .05em !important;
-      border-bottom: 2px solid #b8860b !important;
-      padding-bottom: .05em !important;
-    }
-    .hero-salon-name {
-      color: #1a1a1a !important;
-      text-shadow: none !important;
-      font-size: 46px !important;
-      font-weight: 300 !important;
-      white-space: nowrap !important;
-      margin-top: 0.5rem !important;
-    }
-    /* 情報ブロック表示 */
-    .hero-info-block {
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 0 !important;
-      width: 100% !important;
-      border-top: 1px solid rgba(0,0,0,.12) !important;
-      margin-top: 0 !important;
-    }
-    /* 情報アイテム（縦積み＋右アイコン） */
-    .hero-info-item {
-      display: grid !important;
-      grid-template-columns: 1fr auto !important;
-      grid-template-rows: auto auto !important;
-      column-gap: 1rem !important;
-      row-gap: .3rem !important;
-      padding: .75rem 0 !important;
-      border-bottom: 1px solid rgba(0,0,0,.07) !important;
-      background: none !important; border-radius: 0 !important;
-    }
-    .hero-info-item:last-child { border-bottom: none !important; }
-    .hero-info-label {
-      grid-column: 1 !important;
-      grid-row: 1 !important;
-    }
-    .hero-info-value {
-      grid-column: 1 !important;
-      grid-row: 2 !important;
-      flex: unset !important;
-    }
-    /* アイコン：右側に縦中央固定 */
-    .hero-info-icon {
-      grid-column: 2 !important;
-      grid-row: 1 / 3 !important;
-      display: flex !important;
-      align-self: center !important;
-    }
-    /* アイコン（丸） */
-    .hero-info-icon {
-      display: flex !important; align-items: center !important; justify-content: center !important;
-      width: 36px !important; height: 36px !important; flex-shrink: 0 !important;
-      background: #2d5a3d !important; border-radius: 50% !important;
-      color: white !important; text-decoration: none !important; transition: background .2s !important;
-    }
-    .hero-info-icon--deco { pointer-events: none !important; opacity: .75 !important; }
-    /* ラベル */
-    .hero-info-label {
-      font-family: 'Noto Sans JP', sans-serif !important;
-      font-size: 17px !important; font-weight: 600 !important;
-      color: #2d5a3d !important; letter-spacing: .05em !important;
-      white-space: nowrap !important; min-width: 72px !important;
-    }
-    /* 値 */
-    .hero-info-value {
-      font-family: 'Noto Sans JP', sans-serif !important;
-      font-size: 18px !important; font-weight: 400 !important;
-      color: #333 !important; line-height: 1.7 !important;
-    }
-    .hero-info-value a { color: #333 !important; text-decoration: none !important; }
-    /* 営業時間テキスト */
-    .hero-hours-main {
-      font-size: 18px !important; font-weight: 500 !important;
-      color: #1a1a1a !important; letter-spacing: .03em !important;
-      -webkit-font-smoothing: antialiased; display: inline !important;
-    }
-    .hero-hours-sub {
-      font-size: 18px !important; font-weight: 500 !important;
-      color: #1a1a1a !important; -webkit-font-smoothing: antialiased;
-    }
-    a.hero-hours-main { color: #1a1a1a !important; }
-    a.hero-hours-sub  { color: #1a1a1a !important; }
-    /* 予約行 */
-    .hero-reserve-row { padding: .65rem 0 !important; border-bottom: none !important; margin-top: .3rem !important; }
-    .hero-reserve-row .hero-info-label { color: #2d5a3d !important; }
-    .hero-reserve-num {
-      font-size: 18px !important; font-weight: 500 !important;
-      color: #1a1a1a !important; letter-spacing: .03em !important; text-decoration: none !important;
-    }
-    /* SCROLLボタン非表示 */
-    .hero-scroll-btn { display: none !important; }
   }
   .hero-scroll-btn {
-    display: flex; flex-direction: column; align-items: center; gap: 0;
+    display: flex; flex-direction: column; align-items: center; gap: .6rem;
     text-decoration: none; cursor: pointer;
-    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    margin-top: 1rem;
   }
   .hero-scroll-label {
-    font-family: 'Jost', sans-serif;
-    font-size: .6rem; font-weight: 400;
-    letter-spacing: .35em;
-    color: rgba(255,255,255,.7);
-    margin-bottom: .6rem;
-  }
-  .hero-scroll-line {
-    width: 1px; height: 48px;
-    background: linear-gradient(to bottom, rgba(255,255,255,.7), rgba(255,255,255,0));
-    animation: heroScrollLine 2s ease-in-out infinite;
-  }
-  @keyframes heroScrollLine {
-    0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
-    50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-    100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem; font-weight: 400;
+    letter-spacing: .4em;
+    color: rgba(255,255,255,.8);
   }
   @keyframes heroArrowBounce {
     0%, 100% { transform: rotate(45deg) translateY(0); opacity: .8; }
@@ -366,25 +172,22 @@
   .hero-anim-3 { animation: heroFadeUp .8s ease .5s both; }
   .hero-anim-4 { animation: heroFadeUp .8s ease .7s both; }
   .hero-anim-5 { animation: heroFadeUp .8s ease .9s both; }
+    to { opacity: 1; transform: translateY(0); }
+  }
   @media(max-width:900px){
-    .hero-sub { font-size: 20px !important; letter-spacing: .2em; white-space: nowrap; color: #000 !important; text-shadow: none !important; font-weight: 500 !important; }
-    .hero-salon-name { color: #000 !important; text-shadow: none !important; font-size: 54px !important; font-weight: 500 !important; -webkit-font-smoothing: antialiased; }
-    .hero-sub strong {
-      display: inline-block;
-      background: none;
-      color: #b8860b !important;
-      font-weight: 700;
-      font-family: 'Jost', sans-serif;
-      letter-spacing: .05em;
-      border-bottom: 2px solid #b8860b;
-      padding-bottom: .05em;
-    }
+    .hero-content { padding: 2rem 1.5rem; gap: 1.2rem; }
+      .hero-sub { font-size: .75rem; letter-spacing: .3em; }
+  }
+    width: 50px; height: 2px;
+    background: linear-gradient(90deg, var(--sage), transparent);
+    margin: 1.8rem 0;
+
   }
   /* HERO PRO */
   .hero {
     position: relative;
-    margin-top: 0;
-    height: 100vh;
+    margin-top: 70px;
+    height: calc(100vh - 70px);
     min-height: 600px;
     overflow: hidden;
     display: flex; align-items: center; justify-content: center;
@@ -404,8 +207,8 @@
     background: linear-gradient(
       to bottom,
       rgba(0,0,0,.15) 0%,
-      rgba(0,0,0,.25) 50%,
-      rgba(0,0,0,.2) 100%
+      rgba(0,0,0,.55) 50%,
+      rgba(0,0,0,.65) 100%
     );
   }
 
@@ -413,8 +216,8 @@
   .hero-content {
     position: relative; z-index: 1;
     display: flex; flex-direction: column;
-    align-items: flex-start; justify-content: center;
-    text-align: left;
+    align-items: center; justify-content: center;
+    text-align: center;
     width: 100%;
     padding: 0 2rem;
     gap: 0;
@@ -451,7 +254,7 @@
     color: white;
     white-space: nowrap;
     opacity: 0; animation: heroFadeUp .8s ease .5s forwards;
-    text-shadow: 0 2px 16px rgba(0,0,0,.5);
+    text-shadow: 0 2px 40px rgba(0,0,0,.3);
   }
   .hero-scroll-hint {
     position: absolute;
@@ -484,7 +287,8 @@
 
   @media(max-width:900px){
     .hero { min-height: 500px; }
-    .hero-salon-name { font-size: 44px !important; }
+    .hero-salon-name { font-size: 52px !important; }
+    .hero-address { font-size: 11px !important; letter-spacing: .35em; }
   }
 
   .btn-primary {
@@ -504,7 +308,7 @@
   /* SHARED */
   section { padding:7rem 0; }
   .section-label { font-family:'Jost',sans-serif; font-size:.72rem; font-weight:300; letter-spacing:.5em; text-transform:uppercase; color:var(--sage); margin-bottom:1rem; }
-  .section-title { font-family:'Noto Sans JP',sans-serif; font-size:2rem; font-weight:400; color:var(--bark); line-height:1.2; }
+  .section-title { font-family:'Noto Sans JP',sans-serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:400; color:var(--bark); line-height:1.2; }
   .section-title em { color:var(--bark); font-style:normal; }
   .section-divider { width:3rem; height:1px; background:var(--sand); margin:1.5rem 0; }
   .container { max-width:1200px; margin:0 auto; padding:0 4rem; }
@@ -518,29 +322,22 @@
   .about-strip-sep { width:1px; height:3.5rem; background:rgba(201,180,154,.3); }
 
   /* MENU */
-  .menu-section { background:#f5f0eb; }
-  .menu-section-img { display: none; }
-  .section-top-img { display: none; }
+  .menu-section { background:var(--parchment); }
   .menu-tabs {
-    display:flex; flex-wrap:nowrap; gap:.5rem;
-    margin: 0; padding: .6rem 0;
+    display:flex; flex-wrap:wrap; gap:.6rem;
+    margin: 0; padding: 1rem 0;
     position: sticky; top: 70px; z-index: 50;
     background: var(--parchment);
     border-bottom: 2px solid var(--sand);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
   }
-  .menu-tabs::-webkit-scrollbar { display: none; }
   .menu-tab {
     font-family:'Noto Sans JP',sans-serif;
-    font-size:.75rem; font-weight:500; letter-spacing:.03em;
+    font-size:.95rem; font-weight:500; letter-spacing:.05em;
     color:var(--bark); background:white;
-    border: 1.5px solid var(--sand);
-    padding:.45rem .9rem;
+    border: 2px solid var(--sand);
+    padding:.75rem 1.4rem;
     cursor:pointer; transition:all 0.25s;
     border-radius: 2px;
-    white-space: nowrap; flex-shrink: 0;
   }
   .menu-tab:hover {
     background: var(--parchment);
@@ -555,200 +352,43 @@
   }
   .menu-panel { display:none; }
   .menu-panel.active { display:block; }
-  .menu-category-heading {
-    display: none;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 1rem; font-weight: 700;
-    color: var(--bark);
-    padding: 1.2rem 0 .5rem;
-    border-bottom: 2px solid var(--sand);
-    margin-bottom: .8rem;
-    letter-spacing: .05em;
-  }
   .menu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; background:var(--sand); }
   .menu-grid-2 { grid-template-columns:repeat(2,1fr); }
-  .menu-card { background:var(--cream); padding:0; transition:background 0.3s; overflow:hidden; border-radius:6px; }
+  .menu-card { background:var(--cream); padding:0; transition:background 0.3s; overflow:hidden; }
   .menu-card:hover { background:var(--warm-white); }
   .menu-card-img { width:100%; aspect-ratio:16/9; object-fit:cover; object-position:center; display:block; }
-  .menu-card-img-placeholder { width:100%; height:80px; background:white; display:block; }
   .menu-card-body { padding:1.5rem 1.8rem 1.8rem; }
   .menu-card-icon { font-size:1.5rem; margin-bottom:.9rem; display:block; padding:1.5rem 1.8rem 0; }
   .menu-card-name { font-family:'Noto Sans JP',sans-serif; font-size:1.4rem; font-weight:400; color:var(--bark); margin-bottom:.5rem; }
   .menu-card-desc { font-size:1rem; font-weight:400; line-height:1.9; color:var(--clay); margin-bottom:1.2rem; }
-  .menu-card-price { display:flex; gap:.6rem; flex-wrap:wrap; padding-top:.5rem; }
-  /* ポップアップ（スマホのみ） */
-  @media(max-width:900px){
-    .menu-card { cursor: pointer; }
-    .menu-card-body { padding: .8rem; }
-    .menu-card-name { display:flex; flex-direction:column; align-items:flex-start; margin-bottom:0; font-size:1rem; }
-    .menu-card-name::after { content:'詳細を見る'; font-size:.72rem; font-weight:400; color:var(--sage); margin-top:.4rem; letter-spacing:.05em; border-bottom: 1px dotted var(--sage); padding-bottom:1px; }
-    .menu-card-desc,
-    .menu-card-price { display:none; }
-  }
-  /* モーダル */
-  .menu-modal-overlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 1000;
-    background: rgba(0,0,0,.45);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    align-items: flex-end;
-    justify-content: center;
-    overscroll-behavior: contain;
-    touch-action: none;
-    animation: modalFade .25s ease;
-  }
-  .menu-modal-overlay.open { display: flex; }
-  .menu-modal {
-    background: #f5f0eb;
-    width: 100%;
-    max-height: 85vh;
-    border-radius: 24px 24px 0 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 -8px 40px rgba(0,0,0,.25);
-    animation: sheetUp .3s cubic-bezier(.32,.72,0,1);
-  }
-  .menu-modal-inner {
-    overflow-y: auto;
-    padding: 1.5rem 1.5rem 1rem;
-    flex: 1;
-    overscroll-behavior: contain;
-    touch-action: pan-y;
-  }
-  .menu-modal-footer {
-    padding: 0;
-    background: #f5f0eb;
-    border-top: 1px solid rgba(0,0,0,.1);
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: row;
-    gap: 0;
-    align-items: stretch;
-  }
-  @keyframes modalFade {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  @keyframes sheetUp {
-    from { transform: translateY(100%); }
-    to   { transform: translateY(0); }
-  }
-  .menu-modal-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
-  .menu-modal-category {
-    font-family: 'Noto Serif JP', serif;
-    font-size: .68rem; font-weight: 400;
-    color: #2d5a3d; letter-spacing: .15em;
-    margin-bottom: .3rem;
-    -webkit-font-smoothing: antialiased;
-  }
-  .menu-modal-name {
-    font-family:'Noto Sans JP',sans-serif;
-    font-size:1.1rem; font-weight:700; color:#1a1a1a;
-    display: inline-block;
-    border-bottom: 2px solid #2d5a3d;
-    padding-bottom: .25rem;
-    margin-bottom: .8rem;
-    -webkit-font-smoothing:antialiased;
-  }
-  .menu-modal-price-divider {
-    width: 100%; height: 1px;
-    background: rgba(0,0,0,.12);
-    margin: .8rem 0;
-  }
-  .menu-modal-price-card {
-    background: white;
-    border-radius: 8px;
-    padding: .4rem .8rem;
-  }
-  .menu-modal-desc { font-family:'Noto Sans JP',sans-serif; font-size:.9rem; line-height:1.9; color:#1a1a1a; margin-bottom:1rem; -webkit-font-smoothing:antialiased; }
-  .menu-modal-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }
-  .menu-modal-tag {
-    font-family:'Noto Sans JP',sans-serif;
-    font-size:.75rem; font-weight:500;
-    color:#2d5a3d;
-    background:rgba(45,90,61,.1);
-    border-radius:20px;
-    padding:.3rem .8rem;
-    -webkit-font-smoothing:antialiased;
-    white-space:nowrap;
-  }
-  .menu-modal-price {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0;
-  }
-  .menu-modal-price .price-duration { color: #1a1a1a; }
-  .menu-modal-price .price-amount { color: #1a1a1a; }
-  .menu-modal-price .price-new { color: #c0392b !important; }
-  .menu-modal-price .price-old { color: #999 !important; }
-  .menu-modal-tel-btn {
-    display: flex; align-items: center; justify-content: center;
-    gap: .7rem; flex: 0 0 65%;
-    margin-bottom: 0; padding: .75rem 1rem;
-    border-radius: 0;
-    background: #f5f0eb;
-    text-decoration: none;
-    box-shadow: none;
-  }
-  .menu-modal-tel-btn:active { opacity: .7; }
-  .modal-tel-icon {
-    display: flex; align-items: center; justify-content: center;
-    width: 32px; height: 32px; flex-shrink: 0;
-    background: #2d5a3d; border-radius: 50%;
-  }
-  .modal-tel-body {
-    display: flex; flex-direction: column; align-items: flex-start; gap: .15rem;
-  }
-  .modal-tel-label {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: .62rem; font-weight: 600;
-    color: #2d5a3d; letter-spacing: .05em;
-    -webkit-font-smoothing: antialiased;
-    line-height: 1;
-  }
-  .modal-tel-num {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: .88rem; font-weight: 500;
-    color: #1a1a1a; letter-spacing: .02em;
-    -webkit-font-smoothing: antialiased;
-    white-space: nowrap; line-height: 1;
-  }
-  .menu-modal-close {
-    display: block;
-    padding: .9rem 0;
-    background: #e0e0e0;
-    border: none; border-radius: 0;
-    border-left: 1px solid rgba(0,0,0,.1);
-    font-family:'Noto Sans JP',sans-serif; font-size:.88rem;
-    color: #666; cursor: pointer;
-    margin: 0; flex: 1;
-  }
+  .menu-card-price { display:flex; gap:.6rem; flex-wrap:wrap; border-top:1px solid rgba(74,124,89,.15); padding-top:1rem; }
   .price-item {
-    display: flex; align-items: center; justify-content: flex-start;
-    gap: 1.2rem;
-    padding: .55rem .4rem;
-    background: transparent;
-    border-bottom: none;
-    text-decoration: none;
+    display: flex; align-items: center; gap: .5rem;
+    background: var(--parchment); padding: .35rem .7rem; border-radius: 2px;
+    text-decoration: none; cursor: pointer;
+    transition: all .2s; position: relative;
+    border: 1px solid transparent;
   }
-  .price-duration { font-family:'Noto Sans JP',sans-serif; font-size:.82rem; font-weight:500; color:#1a1a1a; min-width: 3rem; }
-  .price-amount { font-family:'Noto Sans JP',sans-serif; font-size:.88rem; font-weight:500; color:#1a1a1a; }
-  .menu-card-price::before {
-    content: '▼ タップで予約';
-    display: block; width: 100%;
-    font-size: .68rem; color: #c0392b;
-    letter-spacing: .03em; margin-bottom: .4rem; opacity: .8;
+  a.price-item::after {
+    content: none;
   }
-  .price-old { text-decoration:line-through; color:#999; font-size:.82rem; }
-  .price-new { color:#c0392b; font-weight:700; }
-  .price-arrow { font-size:.8rem; color:#1a1a1a; margin: 0 .1rem; white-space:nowrap; }
-  .price-item { white-space: nowrap; }
-  .price-parts { font-size:.72rem; font-weight:400; color:#888; margin-left:.3rem; white-space:nowrap; }
-  .stretch-group { background:white; border-radius:8px; padding:.4rem .8rem; }
-  .menu-modal-price-card + .menu-modal-price-card { margin-top:.6rem; }
-  .stretch-note { font-family:'Noto Sans JP',sans-serif; font-size:.7rem; color:#1a1a1a; margin-top:.3rem; -webkit-font-smoothing:antialiased; }
+  a.price-item:hover {
+    background: var(--bark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45,90,61,.25);
+    border-color: var(--bark);
+  }
+  a.price-item:hover .price-duration,
+  a.price-item:hover .price-amount { color: white; }
+  a.price-item:active {
+    background: var(--bark); transform: scale(.97);
+  }
+  a.price-item:active .price-duration,
+  a.price-item:active .price-amount { color: white; }
+  .price-duration { font-family:'Noto Sans JP',sans-serif; font-size:.95rem; font-weight:500; color:var(--bark); }
+  .price-amount { font-family:'Noto Sans JP',sans-serif; font-size:1rem; font-weight:500; color:var(--bark); }
+  .price-old { text-decoration:line-through; color:var(--sand); font-size:.85rem; }
+  .price-new { color:#c0392b; }
   .menu-note { font-size:1rem; font-weight:300; line-height:2; color:var(--clay); margin-top:2rem; padding:1.2rem 1.5rem; background:rgba(201,180,154,.15); border-left:3px solid var(--sand); }
 
   /* SURCHARGE */
@@ -797,7 +437,7 @@
   }
 
   /* STAFF */
-  .staff-section { background:#f5f0eb; }
+  .staff-section { background:var(--warm-white); }
   .staff-owner { display:grid; grid-template-columns:280px 1fr; gap:4rem; align-items:start; margin-bottom:4rem; padding-bottom:4rem; border-bottom:1px solid rgba(201,180,154,.3); }
   .owner-avatar { aspect-ratio:3/4; background:var(--parchment); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
   .owner-avatar img { width:100%; height:100%; object-fit:contain; display:block; }
@@ -823,10 +463,9 @@
   .owner-role { font-family:'Jost',sans-serif; font-size:.6rem; letter-spacing:.3em; color:var(--sage); text-transform:uppercase; margin-bottom:1.5rem; }
   .owner-bio { font-size:.92rem; font-weight:400; line-height:2.2; color:var(--clay); }
   .owner-hobbies { margin-top:1rem; font-family:'Jost',sans-serif; font-size:.65rem; letter-spacing:.15em; color:var(--sand); }
-  .staff-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1.5rem; margin-top:1rem; align-items: start; }
-  .staff-avatar { aspect-ratio: 1 !important; width: 100% !important; }
+  .staff-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:1rem; align-items: start; }
   .staff-card { position:relative; }
-  .staff-avatar { width:100%; aspect-ratio:1; display:flex; align-items:center; justify-content:center; margin-bottom:.8rem; overflow:hidden; background: var(--parchment); flex-shrink:0; border-radius:6px; }
+  .staff-avatar { width:100%; aspect-ratio:1; display:flex; align-items:center; justify-content:center; margin-bottom:.8rem; overflow:hidden; background: var(--parchment); flex-shrink:0; }
   .staff-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
   .staff-avatar-emoji { font-size:2rem; opacity:.6; }
   .staff-role { font-family:'Jost',sans-serif; font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; color:var(--sage); margin-bottom:.25rem; }
@@ -838,8 +477,6 @@
   .access-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:2rem; margin-top:3.5rem; align-items:start; }
   .access-map { aspect-ratio:4/3; overflow:hidden; position:relative; }
   .access-gaikan { aspect-ratio:4/3; overflow:hidden; }
-  .access-gaikan-side { display: none; }
-  .noson-pc-side { display: none; }
   .map-grid-bg { position:absolute; inset:0; opacity:.05; background-image:linear-gradient(var(--sand) 1px,transparent 1px),linear-gradient(90deg,var(--sand) 1px,transparent 1px); background-size:40px 40px; }
   .map-icon-wrap { position:relative; z-index:1; text-align:center; }
   .map-placeholder-text { font-family:'Jost',sans-serif; font-size:.62rem; letter-spacing:.2em; color:var(--sand); position:relative; z-index:1; }
@@ -851,7 +488,7 @@
   .access-card span { font-family:'Jost',sans-serif; font-size:.6rem; letter-spacing:.1em; color:var(--sand); border:1px solid rgba(201,180,154,.3); padding:.2rem .6rem; }
 
   /* RESERVE */
-  .reserve-section { background:#f5f0eb; }
+  .reserve-section { background:var(--warm-white); }
   .reserve-center { text-align:left; max-width:100%; margin:0; }
   .reserve-body { font-size:1.05rem; font-weight:400; line-height:2.2; color:var(--clay); margin:1.5rem 0 2.5rem; }
   .reserve-options {
@@ -871,8 +508,8 @@
   }
   .btn-tel:hover { background: var(--clay); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,90,61,.25); }
   .btn-tel svg { flex-shrink: 0; width: 18px; height: 18px; }
-  .btn-hpb { display:inline-flex; align-items:center; gap:.8rem; padding:1.1rem 3rem; background:#9e9e9e; color:#fff; font-family:'Jost',sans-serif; font-size:.75rem; font-weight:400; letter-spacing:.18em; text-transform:uppercase; text-decoration:none; transition:all 0.3s; width:100%; justify-content:center; max-width:320px; }
-  .btn-hpb:hover { background:#888; transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,0,0,.15); }
+  .btn-hpb { display:inline-flex; align-items:center; gap:.8rem; padding:1.1rem 3rem; background:#e8001c; color:#fff; font-family:'Jost',sans-serif; font-size:.75rem; font-weight:400; letter-spacing:.18em; text-transform:uppercase; text-decoration:none; transition:all 0.3s; width:100%; justify-content:center; max-width:320px; }
+  .btn-hpb:hover { background:#c20018; transform:translateY(-2px); box-shadow:0 8px 28px rgba(232,0,28,.25); }
   .reserve-note { font-size:.9rem; font-weight:300; line-height:2; color:var(--clay); margin-top:1.5rem; opacity:.8; }
   .reserve-caution { margin-top:1.5rem; padding:1rem 1.5rem; background:rgba(139,111,94,.08); border-left:3px solid var(--sand); font-size:.9rem; font-weight:300; line-height:2; color:var(--clay); text-align:left; }
 
@@ -944,79 +581,40 @@
   }
   .blog-card-btn { font-size: .95rem; font-weight: 600; color: var(--bark); }
   .blog-banner {
-    display: block; text-decoration: none;
+    display: flex; align-items: center; justify-content: space-between;
     margin: 2.5rem 0 0;
-    background: #2d5a3d url('blog.png') center/cover no-repeat;
-    border-radius: 10px;
-    overflow: hidden;
+    padding: 1.8rem 2.5rem;
+    background: linear-gradient(120deg, var(--bark) 0%, #1a4a2e 100%);
+    text-decoration: none;
     transition: opacity .3s, transform .3s;
+    gap: 1.5rem;
   }
-  .blog-banner:hover { opacity: .9; transform: translateY(-2px); }
-  .blog-banner-inner {
-    padding: 1.6rem 1.4rem;
-    text-align: center;
-    background: rgba(45,90,61,.72);
+  .blog-banner:hover { opacity: .92; transform: translateY(-2px); }
+  .blog-banner-left { flex: 1; }
+  .blog-banner-label {
+    font-family: 'Jost', sans-serif; font-size: .55rem; letter-spacing: .4em;
+    text-transform: uppercase; color: var(--sage); margin-bottom: .4rem;
   }
   .blog-banner-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 1.15rem; font-weight: 500;
-    color: white; letter-spacing: .15em;
-    -webkit-font-smoothing: antialiased;
-    margin-bottom: .2rem;
+    font-family: 'Noto Sans JP', sans-serif; font-size: 1.6rem; font-weight: 700;
+    color: white; letter-spacing: .1em; margin-bottom: .5rem;
   }
-  .blog-banner-en {
-    font-family: 'Jost', sans-serif;
-    font-size: .65rem; font-weight: 300;
-    letter-spacing: .3em; color: rgba(255,255,255,.6);
-    text-transform: uppercase;
+  .blog-banner-sub {
+    font-family: 'Noto Sans JP', sans-serif; font-size: .78rem; font-weight: 300;
+    line-height: 1.8; color: rgba(255,255,255,.75);
   }
-  .blog-banner-divider {
-    width: 100%; height: 1px;
-    background: rgba(255,255,255,.25);
-    margin: .9rem auto;
-  }
-  .blog-banner-desc {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: .78rem; font-weight: 400;
-    color: rgba(255,255,255,.8); line-height: 1.8;
-    -webkit-font-smoothing: antialiased;
-    margin-bottom: 1rem;
-  }
+  .blog-banner-right { flex-shrink: 0; }
   .blog-banner-btn {
-    display: inline-block;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: .78rem; font-weight: 600;
-    color: white; letter-spacing: .1em;
-    border-bottom: 1px solid rgba(255,255,255,.5);
-    padding-bottom: .1rem;
-    -webkit-font-smoothing: antialiased;
+    display: inline-flex; align-items: center; gap: .6rem;
+    font-family: 'Jost', sans-serif; font-size: .7rem; font-weight: 300;
+    letter-spacing: .2em; color: white;
+    border: 1px solid rgba(255,255,255,.4); padding: .8rem 1.6rem;
+    white-space: nowrap; transition: background .3s;
   }
-  /* SNSバナー */
-  .sns-banner {
-    display: block;
-    margin: 1rem 0 0;
-    background: white;
-    border: 2px solid rgba(0,0,0,.15);
-    border-radius: 10px; overflow: hidden;
+  .blog-banner:hover .blog-banner-btn { background: rgba(255,255,255,.1); }
+  @media(max-width:900px){
+    .blog-banner { flex-direction: column; align-items: flex-start; }
   }
-  .sns-banner-inner { padding: 1.2rem 1.4rem; }
-  .sns-banner-title { font-family: 'Noto Serif JP', serif; font-size: 1.15rem; font-weight: 500; color: #1a1a1a; letter-spacing: .15em; text-align: center; margin-bottom: 1rem; -webkit-font-smoothing: antialiased; }
-  .sns-banner-row { display: flex; flex-direction: column; gap: .8rem; }
-  .sns-banner-link { display: flex; align-items: center; justify-content: center; gap: .8rem; text-decoration: none; padding: .8rem 1rem; transition: opacity .3s; }
-  .sns-banner-link:hover { opacity: .75; }
-  .sns-banner-icon { width: 72px; height: 72px; border-radius: 12px; flex-shrink: 0; }
-  .sns-banner-name { font-family: 'Noto Sans JP', sans-serif; font-size: .95rem; font-weight: 400; color: #1a1a1a; letter-spacing: .05em; -webkit-font-smoothing: antialiased; }
-
-  /* 白まいのブログバナー */
-  .shiromain-banner {
-    display: block; text-decoration: none;
-    margin: 1rem 0 0;
-    background: #7a5c44;
-    border-radius: 10px; overflow: hidden;
-    transition: opacity .3s, transform .3s;
-  }
-  .shiromain-banner:hover { opacity: .9; transform: translateY(-2px); }
-  .shiromain-banner-inner { padding: 1.6rem 1.4rem; text-align: center; background: rgba(60,35,15,.55); }
   /* ROOM THERAPIS */
   .roomtherapis-section { background: #c8a96e; padding: 5rem 0; }
   .roomtherapis-section .section-title { color: #2c1f0e; }
@@ -1043,6 +641,13 @@
     text-decoration: none; transition: all .3s;
   }
   .roomtherapis-tel-btn:hover { background: #1a1005; opacity: .85; }
+    display: inline-flex; align-items: center; gap: .7rem;
+    padding: 1rem 2.5rem;
+    background: #2c1f0e; color: #e8d5b0;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    text-decoration: none; transition: all .3s;
+  }
   .roomtherapis-btn {
     display: inline-flex; align-items: center; gap: .7rem;
     padding: 1rem 2.5rem; margin-top: 1rem;
@@ -1054,9 +659,9 @@
   }
   .roomtherapis-btn:hover { background: #1a1005; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
   /* ===== CONCEPT / INTRO ===== */
-  #intro { background: #f5f0eb; }
+  #intro { background: var(--dark); }
   .concept-img-wrap {
-    width: 100%; aspect-ratio: 4/3; overflow: hidden; border-radius: 6px;
+    width: 100%; aspect-ratio: 4/3; overflow: hidden;
   }
   .concept-img-wrap img {
     width: 100%; height: 100%;
@@ -1074,17 +679,16 @@
   }
   .concept-headline {
     font-family: 'Noto Serif JP', serif;
-    font-size: clamp(22px, 5vw, 42px);
-    font-weight: 300; color: var(--bark);
+    font-size: clamp(15px, 4vw, 30px);
+    font-weight: 300; color: white;
     letter-spacing: .1em; line-height: 1.6;
-    margin-top: -1.5rem;
     margin-bottom: 10px;
     white-space: nowrap;
   }
   .concept-sub {
     font-family: 'Noto Serif JP', serif;
     font-size: clamp(12px, 3vw, 18px);
-    font-weight: 300; color: var(--clay);
+    font-weight: 300; color: rgba(255,255,255,.5);
     letter-spacing: .12em; margin-bottom: 28px;
   }
   .concept-divider {
@@ -1092,71 +696,30 @@
     background: var(--sage); margin: 0 auto 28px;
   }
   .concept-desc {
-    font-size: 17px; font-weight: 300;
-    line-height: 2.4; color: var(--clay);
+    font-size: 14px; font-weight: 300;
+    line-height: 2.4; color: rgba(255,255,255,.65);
     margin-bottom: 36px; text-align: left;
   }
-  /* 続きを読む */
-  .concept-desc-wrap {
-    position: relative;
-    margin-bottom: 1.2rem;
-  }
-  .concept-desc-wrap .concept-desc {
-    margin-bottom: 0;
-    overflow: hidden;
-    max-height: 4.8em;
-    transition: max-height .6s ease;
-  }
-  .concept-desc-wrap.open .concept-desc {
-    max-height: 100em;
-  }
-  .concept-desc-fade {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 2.5em;
-    background: linear-gradient(to bottom, transparent, var(--warm-white));
-    pointer-events: none;
-    transition: opacity .4s ease;
-  }
-  @media(min-width:901px){
-    .concept-desc-fade { background: linear-gradient(to bottom, transparent, white); }
-  }
-  .concept-desc-wrap.open .concept-desc-fade { opacity: 0; }
-  .concept-read-more {
-    display: inline-flex; align-items: center; gap: .4rem;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: .78rem; font-weight: 500;
-    color: var(--bark); background: none; border: none;
-    cursor: pointer; padding: 0;
-    letter-spacing: .05em;
-    transition: opacity .2s;
-  }
-  .concept-read-more:active { opacity: .6; }
-  .concept-read-more-arrow {
-    display: inline-block;
-    transition: transform .4s ease;
-    font-size: .7rem;
-  }
-  .concept-desc-wrap.open .concept-read-more-arrow { transform: rotate(180deg); }
   .concept-info {
     display: flex; flex-direction: column;
-    border-top: 1px solid rgba(74,124,89,.2);
+    border-top: 1px solid rgba(158,207,170,.15);
     margin-bottom: 32px;
   }
   .concept-info-item {
     display: flex; align-items: baseline;
     gap: 16px; padding: 16px 0;
-    border-bottom: 1px solid rgba(74,124,89,.15);
+    border-bottom: 1px solid rgba(158,207,170,.1);
     text-align: left;
   }
   .concept-info-item:last-child { border-bottom: none; }
   .concept-info-label {
-    font-family: 'Noto Sans JP', sans-serif; font-size: 13px;
-    letter-spacing: .1em;
-    color: var(--sage); min-width: 70px; flex-shrink: 0; font-weight: 500;
+    font-family: 'Jost', sans-serif; font-size: 10px;
+    letter-spacing: .4em; text-transform: uppercase;
+    color: var(--sage); min-width: 52px; flex-shrink: 0;
   }
   .concept-info-value {
     font-size: 14px; font-weight: 300;
-    line-height: 2; color: var(--dark);
+    line-height: 2; color: rgba(255,255,255,.8);
   }
   .concept-reserve-btn {
     display: block; width: 100%;
@@ -1170,27 +733,15 @@
   .concept-reserve-btn:hover { background: var(--sand); }
   @media(min-width: 900px){
     .concept-wrap-desktop {
-      display: grid; grid-template-columns: 55% 45%;
+      display: grid; grid-template-columns: 45% 55%;
       min-height: 700px;
-      max-width: 1100px !important;
-      margin: 0 auto !important;
-      width: 100% !important;
     }
-    #intro { padding: 0 !important; }
-    .concept-img-wrap { aspect-ratio: unset; height: 100%; order: 2; margin: 1.5rem 1.5rem 1.5rem 0; border-radius: 16px; overflow: hidden; }
+    .concept-img-wrap { aspect-ratio: unset; height: 100%; }
     .concept-body {
-      padding: 0 56px; text-align: left;
+      padding: 64px 56px; text-align: left;
       display: flex; flex-direction: column; justify-content: center;
-      order: 1;
     }
-    .concept-title-wrap { width: fit-content; }
-    .concept-title-wrap .concept-divider { width: 100%; margin: 0.8rem 0 28px; background: rgba(0,0,0,.25) !important; }
-    .concept-headline { color: #1a1a1a !important; }
-    .concept-desc { color: #1a1a1a !important; font-size: 19px !important; line-height: 2.2 !important; }
-    /* PC: 続きを読む非表示・全文表示 */
-    .concept-read-more { display: none !important; }
-    .concept-desc-fade { display: none !important; }
-    .concept-desc-wrap .concept-desc { max-height: none !important; overflow: visible !important; }
+    .concept-divider { margin: 0 0 28px; }
     .concept-info { flex-direction: row; gap: 0; }
     .concept-info-item {
       flex-direction: column; flex: 1; gap: 8px;
@@ -1206,353 +757,6 @@
       border: 1px solid rgba(255,255,255,.35);
     }
     .concept-reserve-btn:hover { background: white; color: var(--dark); }
-    /* Room Therapis */
-    .roomtherapis-section { padding-top: 1.5rem !important; }
-    .roomtherapis-section .section-top-img {
-      display: block !important;
-      max-width: calc(1100px - 3rem) !important;
-      width: calc(100% - 3rem) !important;
-      margin: 0 auto 2.5rem !important;
-      aspect-ratio: 21/9; overflow: hidden;
-      border-radius: 16px !important;
-    }
-    .roomtherapis-section .section-top-img img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
-    .roomtherapis-section .section-title br { display: none !important; }
-    .roomtherapis-section .section-title span { font-size: inherit !important; font-weight: inherit !important; }
-    .roomtherapis-tel-btn { border-radius: 10px !important; }
-    .roomtherapis-btn { border-radius: 10px !important; }
-    /* セラピスト募集 スマホ同スタイル */
-    .recruit-grid { gap: .6rem !important; background: transparent !important; }
-    .recruit-card {
-      background: white !important; border-radius: 8px !important;
-      box-shadow: 0 2px 10px rgba(0,0,0,.07) !important;
-    }
-    .recruit-card:hover { background: white !important; }
-    .recruit-card-label { color: #2d5a3d !important; }
-    .recruit-card-text { color: #333 !important; font-weight: 400 !important; }
-    .recruit-card-text span { color: #555 !important; }
-    .recruit-card-text strong { color: #2d5a3d !important; }
-    .recruit-person { background: #2d5a3d !important; border-radius: 8px !important; }
-    .recruit-table { border-radius: 8px !important; overflow: hidden !important; }
-    .recruit-table th { background: #2d5a3d !important; font-size: 13px !important; }
-    .recruit-table td { font-size: 13px !important; color: #333 !important; border-bottom-color: rgba(0,0,0,.08) !important; }
-    .recruit-info-block {
-      display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 1rem !important;
-      border-top: none !important;
-      margin-top: 1.5rem !important;
-    }
-    .recruit-info-item {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      gap: .5rem !important;
-      padding: 1.2rem 1.5rem !important;
-      border-bottom: none !important;
-      background: white !important;
-      border-radius: 10px !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,.07) !important;
-    }
-    .recruit-info-label {
-      font-size: .72rem !important; font-weight: 700 !important;
-      color: #2d5a3d !important; white-space: nowrap !important;
-      min-width: auto !important; padding-top: 0 !important;
-      border-bottom: 1px solid rgba(45,90,61,.2) !important;
-      padding-bottom: .4rem !important; width: 100% !important;
-    }
-    .recruit-info-value {
-      font-size: .85rem !important; font-weight: 400 !important;
-      color: #1a1a1a !important; line-height: 1.8 !important; flex: none !important;
-    }
-    .recruit-info-value strong { color: #2d5a3d !important; font-weight: 700 !important; }
-    .recruit-info-sub { font-size: .78rem !important; color: #555 !important; }
-    .recruit-lead { color: #1a1a1a !important; }
-    .recruit-person { margin-top: 2.5rem !important; }
-    .recruit-section { padding-bottom: 3rem !important; margin-bottom: 0 !important; }
-    .recruit-contact-row {
-      display: flex !important;
-      flex-direction: row !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-      gap: 2rem !important;
-      text-align: left !important;
-      margin-top: 2rem !important;
-    }
-    .recruit-contact-text { margin-bottom: 0 !important; white-space: nowrap; }
-    /* ブログ横並び・同じ高さ */
-    .blog-row { display: flex; gap: 1rem; align-items: stretch; }
-    .blog-row .blog-banner,
-    .blog-row .shiromain-banner { flex: 1; margin: 0; display: flex; flex-direction: column; }
-    .blog-row .blog-banner-inner,
-    .blog-row .shiromain-banner-inner { flex: 1; box-sizing: border-box; }
-    /* SNS横並び */
-    .sns-banner-row { flex-direction: row !important; justify-content: center; gap: 2rem !important; }
-    /* 全セクションタイトル共通（PC） */
-    .section-title-wrap { width: fit-content; }
-    .section-title-wrap .section-title {
-      font-family: 'Noto Serif JP', serif !important;
-      color: #1a1a1a !important;
-      font-weight: 500 !important;
-    }
-    .section-title-wrap .section-divider {
-      width: 100% !important;
-      background: rgba(0,0,0,.25) !important;
-      margin: 0.8rem 0 !important;
-    }
-    /* 施術メニュー タイトル */
-    .menu-title-wrap { width: fit-content; }
-    .menu-section .section-title {
-      font-family: 'Noto Serif JP', serif !important;
-      color: #1a1a1a !important;
-      font-weight: 500 !important;
-    }
-    .menu-title-wrap .section-divider {
-      width: 100% !important;
-      background: rgba(0,0,0,.25) !important;
-      margin: 0.8rem 0 !important;
-    }
-    /* 施術メニュー ベージュ配色 */
-    .menu-tabs { background: #f5f0eb !important; border-bottom: none !important; top: 0 !important; }
-    .menu-tab {
-      color: #4a3020 !important;
-      background: white !important;
-      border-color: #c4a882 !important;
-      border-radius: 8px !important;
-    }
-    .menu-tab:hover { border-color: #4a3020 !important; }
-    .menu-tab.active {
-      background: #4a3020 !important;
-      color: white !important;
-      border-color: #4a3020 !important;
-    }
-    .menu-category-heading {
-      color: #4a3020 !important;
-      border-bottom-color: #c4a882 !important;
-      background: transparent !important;
-    }
-    .menu-grid { background: transparent !important; gap: .8rem !important; }
-    .menu-card { background: white !important; }
-    .menu-card:hover { background: white !important; }
-    .menu-card-name { color: #4a3020 !important; }
-    .menu-card-desc { color: #5c4030 !important; }
-    .menu-cancel-note {
-      background: none !important;
-      border-left: none !important;
-      padding: 0 !important;
-      font-size: 13px !important;
-    }
-    /* ▼タップで予約 非表示 */
-    .menu-card-price::before { display: none !important; }
-    /* カード名：モーダルと同スタイル */
-    .menu-card .menu-card-name {
-      font-weight: 700 !important;
-      border-bottom: 2px solid #2d5a3d !important;
-      padding-bottom: .25rem !important;
-      display: inline-block !important;
-      margin-bottom: .8rem !important;
-    }
-    /* 説明文：モーダルと同スタイル */
-    .menu-card .menu-card-desc {
-      font-size: .9rem !important;
-      line-height: 1.9 !important;
-      color: #1a1a1a !important;
-      margin-bottom: .8rem !important;
-    }
-    /* 料金ブロック：モーダルの price-card と同スタイル */
-    .menu-card .menu-card-price {
-      background: #f5f0eb !important;
-      border-radius: 8px !important;
-      padding: .4rem .8rem !important;
-      flex-direction: column !important;
-      gap: 0 !important;
-      border-top: none !important;
-      margin-top: .8rem !important;
-      padding-top: .8rem !important;
-    }
-    /* 各行：クリック無効・行スタイル */
-    .menu-card .price-item {
-      background: none !important;
-      border-radius: 0 !important;
-      padding: .35rem .4rem !important;
-      box-shadow: none !important;
-      pointer-events: none !important;
-      cursor: default !important;
-      text-decoration: none !important;
-      border-bottom: none !important;
-    }
-    /* 指名料・キャッシュレス 横並び */
-    .menu-bottom-row {
-      display: flex !important;
-      gap: 1rem;
-      margin-top: 1rem;
-      align-items: stretch;
-    }
-    .menu-bottom-row .menu-surcharge {
-      flex: 1;
-      margin-top: 0 !important;
-      border-radius: 8px !important;
-      overflow: hidden !important;
-      background: var(--bark) !important;
-    }
-    .menu-bottom-row .menu-cashless {
-      flex: 1;
-      margin-top: 0 !important;
-      background: white;
-      border-radius: 10px;
-      padding: 1rem 1.2rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,.07);
-      border-left: none !important;
-    }
-    .menu-bottom-row .menu-cashless-label {
-      display: block;
-      font-size: .85rem; font-weight: 500; letter-spacing: .15em;
-      color: #4a3020; margin-bottom: .7rem;
-    }
-    .menu-bottom-row .menu-cashless .payment-logos img { height: 36px; }
-    .menu-bottom-row .menu-surcharge-title {
-      font-size: 15px; color: white !important;
-      padding: .8rem 1.2rem;
-      border-bottom: 1px solid rgba(255,255,255,.15);
-    }
-    .menu-bottom-row .menu-surcharge-table {
-      width: 100%; border-collapse: collapse;
-      padding: .4rem 1.2rem; display: table;
-    }
-    .menu-bottom-row .menu-surcharge-table td { padding: .55rem 1.2rem; }
-    .menu-bottom-row .menu-surcharge-label {
-      font-size: 15px; color: white;
-      font-weight: 400;
-      border-bottom: 1px solid rgba(255,255,255,.15);
-    }
-    .menu-bottom-row .menu-surcharge-price {
-      font-size: 16px; color: white; font-weight: 600;
-      text-align: right; white-space: nowrap;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .menu-bottom-row .menu-surcharge-table tr:last-child td { border-bottom: none; }
-    /* ご予約セクション */
-    .reserve-body { color: #1a1a1a !important; }
-    .reserve-options {
-      flex-direction: row !important;
-      align-items: stretch !important;
-      gap: 1.5rem !important;
-      justify-content: flex-start;
-    }
-    .reserve-or { display: none !important; }
-    .btn-tel {
-      border-radius: 10px !important;
-      max-width: none !important;
-      width: auto !important;
-      flex: 1;
-    }
-    .btn-hpb {
-      border-radius: 10px !important;
-      max-width: none !important;
-      width: auto !important;
-      flex: 1;
-    }
-    .reserve-caution {
-      background: none !important;
-      border-left: none !important;
-      padding: 0 !important;
-      color: #1a1a1a !important;
-      margin-top: 1rem !important;
-    }
-    /* キャンセルポリシー */
-    .cancel-policy-list { background: white !important; }
-    /* noson Premium */
-    .noson-desc { color: #1a1a1a !important; }
-    .noson-desc strong { color: #1a1a1a !important; }
-    .noson-section { padding: 0 !important; }
-    .noson-section > .container {
-      display: flex !important;
-      flex-direction: row !important;
-      gap: 2.5rem !important;
-      align-items: center !important;
-      padding-top: 5rem !important;
-      padding-bottom: 5rem !important;
-    }
-    .noson-pc-side {
-      display: block !important;
-      flex: 0 0 42%;
-      align-self: stretch;
-      border-radius: 16px;
-      overflow: hidden;
-      margin: 0 !important;
-    }
-    .noson-pc-side img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-    }
-    .noson-inner { grid-template-columns: 1fr !important; flex: 1; min-width: 0; }
-    .noson-visual { order: 0 !important; margin-top: 1.5rem; }
-    .noson-slideshow { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; }
-    /* アクセス */
-    .access-section { background: #f5f0eb !important; padding: 0 !important; }
-    .access-section > .container {
-      display: flex !important;
-      flex-direction: row !important;
-      gap: 2.5rem !important;
-      align-items: center !important;
-      padding-top: 5rem !important;
-      padding-bottom: 5rem !important;
-    }
-    .access-gaikan-side {
-      display: block !important;
-      flex: 0 0 42%;
-      align-self: stretch;
-      border-radius: 16px;
-      overflow: hidden;
-      margin: 0 !important;
-    }
-    .access-right { flex: 1; min-width: 0; }
-    .access-gaikan { display: none !important; }
-    .access-grid {
-      grid-template-columns: 1fr !important;
-      margin-top: 1.5rem !important;
-      gap: 1.5rem !important;
-    }
-    .access-map { aspect-ratio: 4/3; }
-    .access-section .section-title-wrap { width: fit-content; }
-    /* セラピスト紹介 文字色 */
-    .staff-name { color: #000 !important; font-size: .95rem !important; }
-    .staff-bio { color: #555 !important; }
-    /* セラピスト紹介 画像サイズ統一 */
-    .staff-grid { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
-    .staff-card { min-width: 0; }
-    .staff-avatar {
-      width: 100% !important;
-      aspect-ratio: 1 !important;
-      overflow: hidden !important;
-    }
-    .staff-avatar img {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-      display: block !important;
-    }
-    /* セラピスト紹介 テキストブロック */
-    .staff-more {
-      background: white !important;
-      border-left: none !important;
-      border-radius: 8px !important;
-      padding: 1.2rem 1.5rem !important;
-      color: #1a1a1a !important;
-      margin-bottom: 1.5rem !important;
-    }
-    .owner-message {
-      background: white !important;
-      border-left: none !important;
-      border-radius: 8px !important;
-      padding: 1.5rem 2rem !important;
-      margin-bottom: 1.5rem !important;
-    }
-    .owner-message-text {
-      color: #1a1a1a !important;
-    }
   }
 
   .about-info-grid {
@@ -1582,25 +786,19 @@
   }
   .access-card-logos img { height: 30px; width: auto; object-fit: contain; }
 
-  .noson-section { background: #f5f0eb; padding: 5rem 0; }
+  .noson-section { background: var(--cream); padding: 5rem 0; }
   .noson-inner { display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
   .noson-desc { font-size: 1rem; font-weight: 400; line-height: 2.1; color: var(--clay); margin-bottom: 1.5rem; }
   .noson-desc strong { color: var(--bark); font-weight: 500; }
   .noson-badge { display: inline-flex; align-items: center; gap: .6rem; font-size: .9rem; font-weight: 500; color: var(--bark); background: rgba(74,124,89,.1); border: 1px solid rgba(74,124,89,.3); padding: .6rem 1.2rem; }
   .noson-visual { display: flex; justify-content: center; align-items: center; }
   .noson-slideshow { width: 280px; height: 280px; position: relative; flex-shrink: 0; }
-  .noson-slide { position: absolute; inset: 0; background-size: contain; background-position: center; background-repeat: no-repeat; opacity: 0; transition: opacity 1.5s ease-in-out; }
+  .noson-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
   .noson-slide.active { opacity: 1; }
-  @media(max-width:900px){
-    .noson-inner { grid-template-columns: 1fr; }
-    .noson-visual { margin: 0 -1rem; }
-    .noson-slideshow { width: 100%; height: 280px; margin: 0; }
-    .noson-section { padding-top: 0; }
-    .noson-section > .container { padding-top: 2.5rem; }
-  }
+  @media(max-width:900px){ .noson-inner { grid-template-columns: 1fr; } .noson-slideshow { width: 200px; height: 200px; margin: 0 auto; } }
 
   /* RECRUIT */
-  .recruit-section { background: #f5f0eb; }
+  .recruit-section { background: var(--cream); }
   .recruit-lead {
     font-size: 1rem; font-weight: 300; line-height: 2;
     color: var(--bark); margin-top: .5rem;
@@ -1702,15 +900,14 @@
   .cancel-note strong { color: #c0392b; font-weight: 400; }
 
   /* FOOTER */
-  footer { background: #2d5a3d; padding: 0; }
+  footer { background:var(--dark); padding:4rem 0 2rem; color:var(--sand); }
   .footer-inner { display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:3rem; border-bottom:1px solid rgba(201,180,154,.15); margin-bottom:2rem; flex-wrap:wrap; gap:2rem; }
   .footer-logo { font-family:'Noto Sans JP',sans-serif; font-size:2rem; font-weight:700; letter-spacing:.2em; color:var(--cream); }
   .footer-logo span { display:block; font-family:'Jost',sans-serif; font-size:.52rem; font-weight:300; letter-spacing:.3em; color:var(--clay); margin-top:-4px; }
   .footer-nav ul { list-style:none; display:flex; flex-direction:column; gap:.7rem; }
   .footer-nav a { font-family:'Jost',sans-serif; font-size:.82rem; font-weight:300; letter-spacing:.15em; color:var(--sand); text-decoration:none; transition:color 0.3s; }
   .footer-nav a:hover { color:var(--cream); }
-  .footer-copy-wrap { padding: .9rem 0; }
-  .footer-copy { font-family:'Jost',sans-serif; font-size:.58rem; font-weight:300; letter-spacing:.15em; color:rgba(255,255,255,.7); text-align:center; }
+  .footer-copy { font-family:'Jost',sans-serif; font-size:.58rem; font-weight:300; letter-spacing:.15em; color:rgba(201,180,154,.4); text-align:center; }
 
   /* ANIMATIONS */
   @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
@@ -1722,10 +919,7 @@
   @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
   .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.8s ease,transform 0.8s ease; }
   .reveal.visible { opacity:1; transform:translateY(0); }
-  .reveal-img { opacity:0; transition:opacity 1.2s ease; }
-  .reveal-img img { transform:scale(1.06); transition:transform 1.4s ease, opacity 1.2s ease; }
-  .reveal-img.visible { opacity:1; }
-  .reveal-img.visible img { transform:scale(1); }
+
 
   /* LANG SWITCHER */
   .lang-switcher {
@@ -1784,138 +978,6 @@
   .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* フローティングメニュー（スマホ＋PC共通） */
-  .float-menu {
-    display: block;
-    position: fixed; top: .9rem; right: .9rem; z-index: 300;
-  }
-
-  /* PC固定電話（右下） */
-  .pc-tel-fab {
-    display: none;
-  }
-  /* PC固定電話（右上） */
-  .pc-tel-topbar {
-    display: none;
-  }
-  @media(min-width:901px) {
-    /* A: 右下固定ボタン */
-    .pc-tel-fab {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: fixed;
-      bottom: 1.8rem; right: 1.8rem;
-      z-index: 290;
-      background: var(--bark);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      padding: .75rem 1.4rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,.25);
-      gap: .1rem;
-      transition: background .2s;
-    }
-    .pc-tel-fab:hover { background: #1e3d28; }
-    .pc-tel-fab-label {
-      font-size: .65rem; font-weight: 500;
-      letter-spacing: .15em; opacity: .85;
-    }
-    .pc-tel-fab-num {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 1.05rem; font-weight: 400;
-      letter-spacing: .05em;
-    }
-  }
-
-  /* PC版ロゴ */
-  .pc-float-logo { position: absolute; top: 1.2rem; left: 1.2rem; z-index: 10; }
-  .pc-float-logo img { width: 110px; height: auto; display: block; }
-  @media(max-width:900px) { .pc-float-logo { display: none; } }
-  .hero-inner { display: contents; }
-  .float-menu-trigger {
-    display: flex; align-items: center; justify-content: flex-end;
-    gap: .35rem;
-    padding: .5rem .85rem;
-    background: var(--bark);
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,.35);
-    cursor: pointer; color: white;
-    font-family: 'Jost', sans-serif;
-    font-size: .65rem; font-weight: 600; letter-spacing: .18em;
-    white-space: nowrap;
-    width: auto;
-    transition: border-radius .25s ease, width .3s cubic-bezier(.4,0,.2,1);
-  }
-  .float-menu.open .float-menu-trigger {
-    border-radius: 8px 8px 0 0;
-    width: 220px;
-  }
-  .float-menu-icon {
-    display: flex; flex-direction: column; gap: 4px;
-  }
-  .float-menu-icon i {
-    display: block; width: 16px; height: 1.5px;
-    background: white; border-radius: 1px;
-    transition: all .3s ease; transform-origin: center;
-  }
-  .float-menu.open .float-menu-icon i:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
-  .float-menu.open .float-menu-icon i:nth-child(2) { opacity: 0; transform: scaleX(0); }
-  .float-menu.open .float-menu-icon i:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
-
-  .float-menu-links {
-    position: absolute; top: 100%; right: 0;
-    width: 220px;
-    background: var(--bark);
-    border: 1px solid rgba(255,255,255,.2);
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,.3);
-    max-height: 0; overflow: hidden;
-    opacity: 0; pointer-events: none;
-    transition: max-height .4s cubic-bezier(.4,0,.2,1), opacity .2s;
-  }
-  .float-menu.open .float-menu-links {
-    max-height: 500px;
-    opacity: 1; pointer-events: auto;
-  }
-  .float-menu-links a {
-    display: block; padding: .85rem 1.2rem;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: .85rem; font-weight: 300;
-    color: rgba(255,255,255,.85); text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,.07);
-    opacity: 0; transform: translateY(-4px);
-    transition: background .2s, color .2s, opacity .25s ease, transform .25s ease;
-  }
-  .float-menu.open .float-menu-links a { opacity: 1; transform: translateY(0); }
-  .float-menu.open .float-menu-links a:nth-child(1) { transition-delay: .08s; }
-  .float-menu.open .float-menu-links a:nth-child(2) { transition-delay: .13s; }
-  .float-menu.open .float-menu-links a:nth-child(3) { transition-delay: .18s; }
-  .float-menu.open .float-menu-links a:nth-child(4) { transition-delay: .23s; }
-  .float-menu.open .float-menu-links a:nth-child(5) { transition-delay: .28s; }
-  .float-menu.open .float-menu-links a:nth-child(6) { transition-delay: .33s; }
-  .float-menu.open .float-menu-links a:nth-child(7) { transition-delay: .38s; }
-  .float-menu-links a:last-child { border-bottom: none; }
-  .float-menu-sns {
-    display: flex; align-items: center; gap: 1.2rem;
-    padding: .85rem 1.2rem;
-    border-top: 1px solid rgba(255,255,255,.12);
-    opacity: 0; transform: translateY(-4px);
-    transition: opacity .25s ease .43s, transform .25s ease .43s;
-  }
-  .float-menu-sns a {
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(255,255,255,.7);
-    transition: color .2s;
-  }
-  .float-menu-sns a svg { display: block; }
-  .float-menu-sns a:hover { color: white; }
-  .float-menu.open .float-menu-sns { opacity: 1; transform: translateY(0); }
-  .float-menu-links a:active { background: rgba(255,255,255,.08); color: white; }
-
   /* MOBILE DRAWER */
   .mobile-drawer {
     display: none;
@@ -1944,209 +1006,36 @@
     .mobile-drawer { display: block; }
   }
   @media(max-width:1200px) and (min-width:901px){
-    html { font-size: 22px; }
+    html { font-size: 20px; }
             }
   @media(max-width:900px){
-    /* ===== ヘッダー非表示 ===== */
-    .site-header { display: none; }
-    /* ===== フローティングメニュー ===== */
-    .float-menu { display: block; }
-    /* ===== モバイルではドロワー非表示 ===== */
-    .mobile-drawer { display: none !important; }
+    /* ===== ヘッダー ===== */
+    .header-inner { padding: 0 .4rem; justify-content: space-between; gap: 0; }
+    .header-logo { padding-right: .2rem; }
+    .header-logo img { height: 55%; }
+    /* 電話バナー固定幅 */
+    .header-tel { padding: 0 .15rem; flex-shrink: 0; }
+    .header-tel-label { font-size: .42rem; }
+    .header-tel-num { font-size: .68rem; padding: 0 .35rem; min-width: 0; height: 100%; }
+    /* 予約バナー固定幅 */
+    .header-reserve { font-size: .62rem; padding: 0 .35rem; margin-left: .15rem; flex-shrink: 0; height: 100%; }
+    /* 言語バナー固定幅 */
+    .lang-switcher { padding: 0 .15rem; flex-shrink: 0; }
+    .lang-trigger { padding: 0 .3rem; min-width: 0; border: 1px solid transparent; height: 100%; }
+    .lang-trigger-top { font-size: .42rem; }
+    .lang-trigger-bottom { font-size: .62rem; }
+    /* ハンバーガー */
+    .hamburger { width: 34px; height: 34px; margin-left: .15rem; flex-shrink: 0; }
+    .hamburger span { width: 18px; }
 
     /* ===== ヒーロー ===== */
-    .hero {
-      margin-top: 0;
-      height: auto; min-height: 100vh;
-      background: #f5f0eb;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 0;
-      gap: 1rem;
-    }
-    .hero-slideshow {
-      position: relative;
-      width: 100%; aspect-ratio: 4/3;
-      border-radius: 0; overflow: hidden;
-      flex-shrink: 0;
-      order: 0;
-    }
-    .hero-slide {
-      position: absolute; inset: 0;
-    }
-    .hero-overlay { display: none; }
-    .hero-logo-mobile {
-      display: block;
-      position: absolute; top: .8rem; left: .8rem; z-index: 2;
-      width: 110px; height: auto;
-      pointer-events: none;
-    }
-    .hero-content {
-      position: relative; z-index: 1;
-      width: 100%;
-      padding: 0 1.5rem;
-      justify-content: center;
-      align-items: flex-start;
-      text-align: left;
-      gap: .6rem;
-      order: 1;
-    }
-    .hero-scroll-btn { display: none; }
-    .hero-info-block {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      width: 100%;
-      margin-top: .5rem;
-      border-top: 1px solid rgba(0,0,0,.12);
-    }
-    .hero-info-item {
-      display: flex; flex-direction: row; align-items: center;
-      gap: .8rem;
-      padding: .65rem 0;
-      border-bottom: 1px solid rgba(0,0,0,.07);
-      text-align: left;
-      background: none;
-      border-radius: 0;
-    }
-    .hero-info-value { flex: 1; }
-    .hero-info-icon {
-      display: flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; flex-shrink: 0;
-      background: #2d5a3d;
-      border-radius: 50%;
-      color: white;
-      text-decoration: none;
-      transition: background .2s;
-    }
-    .hero-info-icon:active { background: #4a7c59; }
-    .hero-info-icon--deco { pointer-events: none; opacity: .75; }
-    .hero-info-item:last-child { border-bottom: none; }
-    .hero-reserve-row {
-      padding: .65rem 0;
-      border-bottom: none;
-      margin-top: .3rem;
-    }
-    .hero-reserve-row .hero-info-label { color: #2d5a3d; }
-    .hero-hours-main {
-      font-size: .85rem;
-      font-weight: 500;
-      color: #1a1a1a;
-      letter-spacing: .03em;
-      -webkit-font-smoothing: antialiased;
-      display: inline;
-    }
-    a.hero-hours-main { color: #1a1a1a; }
-    a.hero-hours-sub { color: #1a1a1a !important; }
-    .hero-hours-sub {
-      font-size: .76rem;
-      font-weight: 500;
-      color: #1a1a1a;
-      -webkit-font-smoothing: antialiased;
-    }
-    .hero-reserve-num {
-      font-size: .85rem !important;
-      font-weight: 500 !important;
-      color: #1a1a1a !important;
-      letter-spacing: .03em;
-      text-decoration: none;
-    }
-    .hero-info-label {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .72rem; font-weight: 600;
-      color: #2d5a3d;
-      letter-spacing: .05em;
-      white-space: nowrap;
-      min-width: 4.5rem;
-    }
-    .hero-info-value {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .75rem; font-weight: 400;
-      color: #333; line-height: 1.7;
-    }
-    .hero-info-value a { color: #333; text-decoration: none; }
-    .hero-reserve-btn {
-      display: flex; align-items: center; justify-content: center;
-      gap: .6rem;
-      width: 100%;
-      margin-top: .8rem;
-      margin-bottom: 1.5rem;
-      padding: .9rem 1rem;
-      background: #c0392b;
-      color: white;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .85rem; font-weight: 700;
-      letter-spacing: .08em;
-      text-decoration: none;
-      border-radius: 6px;
-      box-shadow: 0 4px 16px rgba(192,57,43,.3);
-    }
-    .hero-reserve-btn:active { opacity: .85; }
-    .hero-concept-block {
-      display: block;
-      width: 100%;
-      border-top: 1px solid rgba(45,90,61,.15);
-      padding-top: 1rem; margin-top: .3rem;
-    }
-    .hero-concept-headline {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 1.2rem; font-weight: 400;
-      color: #000; letter-spacing: .2em;
-      margin-bottom: .6rem;
-    }
-    .hero-concept-desc {
-      font-family: 'Noto Serif JP', serif;
-      font-size: .72rem; font-weight: 500;
-      color: #000; line-height: 2;
-    }
+    .hero { margin-top: 70px; height: calc(100vh - 70px); min-height: 500px; }
+    .hero-content { padding: 1.2rem 1.2rem; justify-content: center; gap: .8rem; }
                             .hero-divider { margin: .6rem 0; }
-
-    /* ===== イントロ画像 ===== */
-    .concept-img-wrap {
-      display: block;
-      width: 100%; aspect-ratio: 4/3;
-      margin: 0; border-radius: 0;
-    }
-    #intro {
-      padding-top: 0;
-      background: #f5f0eb;
-    }
-    .concept-wrap-desktop {
-      display: block;
-    }
-    .concept-body {
-      background: #f5f0eb;
-      text-align: left;
-    }
-    .concept-headline {
-      color: #000;
-      font-weight: 500;
-      -webkit-font-smoothing: antialiased;
-      text-align: left;
-    }
-    .concept-divider {
-      width: 100%;
-      height: 1px;
-      background: rgba(0,0,0,.12);
-      margin: .8rem 0;
-    }
-    .concept-desc {
-      color: #333;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-    }
-    .concept-desc-fade {
-      background: linear-gradient(to bottom, transparent, #f5f0eb);
-    }
-    .concept-read-more {
-      color: #2d5a3d;
-    }
 
     /* ===== セクション見出し ===== */
     section { padding: 2.5rem 0; }
     .section-title { font-size: 1.6rem; }
-    .concept-headline { font-size: 1.3rem; }
     .section-divider { margin: .8rem 0; }
 
     /* ===== メニュータブ ===== */
@@ -2158,529 +1047,19 @@
 
     /* ===== その他 ===== */
     .container { padding: 0 1rem; }
-    .menu-grid { grid-template-columns: repeat(2, 1fr); background: transparent; gap: .6rem; }
-    .menu-card { border: 2px solid var(--sand); }
-    .menu-grid-2 { grid-template-columns: repeat(2, 1fr); }
-
-    /* ===== メニューセクション ===== */
-    .menu-section { background: #f5f0eb; padding-top: 0; }
-    .menu-section > .container { padding-top: 2.5rem; }
-    .menu-section-img { display: block; width: 100%; aspect-ratio: 4/3; overflow: hidden; }
-    .menu-section-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .menu-section .section-title {
-      font-family: 'Noto Serif JP', serif;
-      color: #000; font-weight: 500;
-      -webkit-font-smoothing: antialiased;
-    }
-    .menu-section .section-divider {
-      width: 100%; height: 1px;
-      background: rgba(0,0,0,.12);
-      margin: .8rem 0;
-    }
-    .menu-section > .container > .reveal > p {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: #333; font-weight: 400; font-size: 17px;
-      -webkit-font-smoothing: antialiased;
-    }
-    .menu-category-heading {
-      color: #000;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-weight: 600; font-size: 20px;
-      border-bottom: 1px solid rgba(0,0,0,.12);
-      -webkit-font-smoothing: antialiased;
-    }
-    .menu-card { background: white; border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.07); }
-    .menu-card-name {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: #000; font-weight: 500; font-size: 17px;
-      -webkit-font-smoothing: antialiased;
-    }
-    .menu-card-desc {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: #444; font-weight: 400; font-size: 15px;
-      -webkit-font-smoothing: antialiased;
-    }
-    .menu-note {
-      font-family: 'Noto Sans JP', sans-serif;
-      background: none; border: none; padding: .3rem 0;
-      color: #333; font-size: 13px;
-      -webkit-font-smoothing: antialiased;
-      margin-top: .5rem;
-    }
-    .menu-cashless {
-      background: white;
-      border-radius: 10px;
-      padding: 1rem 1.2rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,.07);
-    }
-    .menu-cashless-label {
-      display: block;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .85rem; font-weight: 500; letter-spacing: .15em;
-      color: #2d5a3d; margin-bottom: .7rem;
-      -webkit-font-smoothing: antialiased;
-    }
-    .menu-cashless .payment-logos img { height: 36px; }
-    .menu-surcharge { border-radius: 8px; }
-    .menu-surcharge-title { font-size: 15px; -webkit-font-smoothing: antialiased; color: white !important; }
-    .menu-surcharge-table {
-      width: 100%; border-collapse: collapse;
-      padding: .8rem 1.2rem; display: table;
-    }
-    .menu-surcharge-table td { padding: .6rem 1.2rem; }
-    .menu-surcharge-label {
-      font-size: 15px; color: white;
-      font-weight: 600; -webkit-font-smoothing: antialiased;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .menu-surcharge-price {
-      font-size: 17px; color: white; font-weight: 600;
-      text-align: right; white-space: nowrap;
-      -webkit-font-smoothing: antialiased;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .menu-surcharge-table tr:last-child td { border-bottom: none; }
-    /* タブ非表示・アコーディオン */
-    #menuTabs { display: none !important; }
-    .menu-panel { display: block !important; }
-    .menu-category-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
-    }
-    .menu-category-heading::after {
-      content: '▼';
-      font-size: .65rem;
-      color: var(--bark);
-      transition: transform .3s ease;
-      flex-shrink: 0;
-      margin-left: .5rem;
-    }
-    .menu-panel.accordion-open .menu-category-heading::after {
-      transform: rotate(180deg);
-    }
-    .menu-panel .menu-grid {
-      display: none;
-      margin-top: .6rem;
-    }
-    .menu-panel.accordion-open .menu-grid {
-      display: grid;
-    }
-
-    /* ===== スタッフセクション ヒーローと統一 ===== */
-    .staff-section { background: #f5f0eb; padding-top: 0; }
-    .staff-section > .container { padding-top: 2.5rem; }
-
-    /* セクションタイトル・区切り線 */
-    .staff-section .section-title {
-      font-family: 'Noto Serif JP', serif;
-      color: #000; font-weight: 500;
-      -webkit-font-smoothing: antialiased;
-    }
-    .staff-section .section-divider {
-      width: 100%; height: 1px;
-      background: rgba(0,0,0,.12);
-      margin: .8rem 0;
-    }
-
-    /* リード文 */
-    .staff-more {
-      margin-top: 0;
-      padding: 1rem 1.2rem;
-      background: white;
-      border: none;
-      border-radius: 8px;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 14px; font-weight: 400;
-      line-height: 1.9; color: #333;
-      -webkit-font-smoothing: antialiased;
-      margin-bottom: 1.5rem;
-    }
-
-    /* スタッフカード */
-    .staff-grid { grid-template-columns: repeat(3, 1fr); gap: .6rem; margin-top: 0; }
-    .staff-avatar {
-      background: #ede8e2;
-      border-radius: 8px;
-    }
-    .staff-name {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 12px; font-weight: 500;
-      color: #000; white-space: normal;
-      -webkit-font-smoothing: antialiased;
-      margin-top: .4rem; margin-bottom: 0;
-    }
-    .staff-bio {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 11px; font-weight: 400;
-      color: #555; line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      margin-top: .15rem;
-    }
-    .staff-role {
-      font-family: 'Jost', sans-serif;
-      font-size: .6rem; letter-spacing: .2em;
-      color: #2d5a3d;
-    }
-
+    .menu-grid { grid-template-columns: 1fr; }
+    .menu-grid-2 { grid-template-columns: 1fr; }
     .staff-owner { grid-template-columns: 1fr; gap: 2rem; }
-
-    /* ===== noson Premium ===== */
-    .noson-section { background: #f5f0eb; }
-    .noson-section .section-top-img { display: block; width: 100%; overflow: hidden; }
-    .noson-section .section-top-img img { width: 100%; height: auto; display: block; }
-    .noson-section .section-title {
-      font-family: 'Noto Serif JP', serif;
-      color: #000; font-weight: 500;
-      -webkit-font-smoothing: antialiased;
-    }
-    .noson-section .section-divider {
-      width: 100%; height: 1px;
-      background: rgba(0,0,0,.12); margin: .8rem 0;
-    }
-    .noson-desc {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: #333; font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-    }
-    .noson-badge {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 1rem; font-weight: 500;
-      color: #2d5a3d;
-      background: transparent;
-      border: none; padding: 0;
-      gap: .4rem;
-      -webkit-font-smoothing: antialiased;
-    }
-    .noson-badge svg { width: 18px; height: 18px; }
-
-    /* ===== アクセス ===== */
-    .access-section { background: #f5f0eb; }
-    .access-grid { grid-template-columns: 1fr; gap: .6rem; }
-    .access-section .section-title {
-      font-family: 'Noto Serif JP', serif;
-      color: #000; font-weight: 500;
-      -webkit-font-smoothing: antialiased;
-    }
-    .access-section .section-divider {
-      width: 100%; height: 1px;
-      background: rgba(0,0,0,.12) !important; margin: .8rem 0;
-    }
-    .access-item-label {
-      color: #2d5a3d; font-weight: 500;
-      -webkit-font-smoothing: antialiased;
-    }
-    .access-item-value {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: #333; font-size: 15px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ===== ご予約 ===== */
-    .reserve-section { background: #f5f0eb; }
-    .reserve-section .section-title {
-      font-family: 'Noto Serif JP', serif;
-      color: #000; font-weight: 500;
-      -webkit-font-smoothing: antialiased;
-    }
-    .reserve-section .section-divider {
-      width: 100%; height: 1px;
-      background: rgba(0,0,0,.12) !important; margin: .8rem 0;
-    }
-    .reserve-body {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 15px; color: #333; font-weight: 400;
-      line-height: 1.8; margin: 1rem 0 1.2rem;
-      -webkit-font-smoothing: antialiased;
-    }
-    .reserve-or {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .7rem; color: #999;
-    }
-    .btn-tel {
-      background: #2d5a3d; border-radius: 6px;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .9rem; font-weight: 600;
-      box-shadow: 0 4px 16px rgba(45,90,61,.25);
-      -webkit-font-smoothing: antialiased;
-    }
-    .btn-hpb {
-      border-radius: 6px;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .85rem; font-weight: 600;
-      letter-spacing: .05em; text-transform: none;
-      -webkit-font-smoothing: antialiased;
-    }
-    .reserve-caution {
-      background: transparent;
-      border: none; padding: 0;
-      margin-top: .8rem;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 13px; color: #555; font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-    }
-    .cancel-policy { border-color: rgba(0,0,0,.12); border-radius: 6px; overflow: hidden; }
-    .cancel-policy-title {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 15px; background: #2d5a3d; letter-spacing: .05em;
-      -webkit-font-smoothing: antialiased;
-    }
-    .cancel-policy-list { background: #fff; }
-    .cancel-item {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 13px; color: #333; font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-    }
-    .cancel-num { color: #2d5a3d; font-weight: 600; }
-    .cancel-item strong { color: #c0392b; font-weight: 600; }
-    .cancel-note {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 13px; color: #333; font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ===== セラピスト募集 ===== */
-    .recruit-section { background: #f5f0eb; }
-    .recruit-section .section-title {
-      font-family: 'Noto Serif JP', serif;
-      color: #000; font-weight: 500;
-      -webkit-font-smoothing: antialiased;
-    }
-    .recruit-section .section-divider {
-      width: 100%; height: 1px;
-      background: rgba(0,0,0,.12); margin: .8rem 0;
-    }
-    .recruit-lead {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: #333; font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-    }
-    .recruit-grid { gap: .6rem; background: transparent; }
-    .recruit-card {
-      background: white; border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.07);
-    }
-    .recruit-card-label {
-      color: #2d5a3d;
-      -webkit-font-smoothing: antialiased;
-    }
-    .recruit-card-text {
-      color: #333; font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-    }
-    .recruit-card-text span { color: #555; }
-    .recruit-card-text strong { color: #2d5a3d; }
-    .recruit-note {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 13px; color: #555; font-weight: 400;
-      background: transparent; border: none; padding: 0;
-      margin-top: .4rem;
-      -webkit-font-smoothing: antialiased;
-    }
-    .recruit-person {
-      background: #2d5a3d; border-radius: 8px;
-      margin-top: 1rem;
-    }
-    .recruit-person-title {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 15px; font-weight: 600;
-      -webkit-font-smoothing: antialiased;
-    }
-    .recruit-person-text {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 14px; font-weight: 400; line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
-    }
-    .recruit-table { border-radius: 8px; overflow: hidden; }
-    .recruit-table th {
-      background: #2d5a3d;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 13px; -webkit-font-smoothing: antialiased;
-    }
-    .recruit-table td {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 13px; color: #333;
-      -webkit-font-smoothing: antialiased;
-      border-bottom-color: rgba(0,0,0,.08);
-    }
-    .recruit-info-block {
-      border-top: 1px solid rgba(0,0,0,.12);
-      margin-top: 1rem;
-    }
-    .recruit-info-item {
-      display: flex; flex-direction: row; align-items: flex-start;
-      gap: .8rem; padding: .65rem 0;
-      border-bottom: 1px solid rgba(0,0,0,.07);
-    }
-    .recruit-info-label {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .72rem; font-weight: 600; color: #2d5a3d;
-      letter-spacing: .05em; white-space: nowrap;
-      min-width: 5rem; padding-top: .1rem;
-      -webkit-font-smoothing: antialiased;
-    }
-    .recruit-info-value {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .75rem; font-weight: 400; color: #1a1a1a;
-      line-height: 1.7; flex: 1;
-      -webkit-font-smoothing: antialiased;
-    }
-    .recruit-info-value strong { color: #2d5a3d; font-weight: 700; }
-    .recruit-info-sub { font-size: .7rem; color: #1a1a1a; }
-
-    /* ===== RoomTherapis（背景色維持・フォントのみ統一） ===== */
-    .roomtherapis-section { padding-top: 0; }
-    .roomtherapis-section > .container { padding-top: 2.5rem; }
-    .roomtherapis-section .section-top-img { display: block; width: 100%; aspect-ratio: 16/9; overflow: hidden; }
-    .roomtherapis-section .section-top-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .roomtherapis-section .section-title {
-      font-family: 'Noto Serif JP', serif;
-      color: #1a1005; font-weight: 500;
-      -webkit-font-smoothing: antialiased;
-    }
-    .roomtherapis-section .section-divider {
-      width: 100%; height: 1px;
-      background: rgba(0,0,0,.2); margin: .8rem 0;
-    }
-    .roomtherapis-desc {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 15px; font-weight: 400;
-      color: #1a1005; line-height: 1.9;
-      -webkit-font-smoothing: antialiased;
-    }
-    .roomtherapis-desc strong {
-      color: #1a1005; font-weight: 700;
-    }
-    .roomtherapis-tel-btn {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .9rem; font-weight: 600;
-      background: #1a1005; color: #f5f0eb;
-      border-radius: 6px; width: 100%;
-      justify-content: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,.2);
-      -webkit-font-smoothing: antialiased;
-    }
-    .roomtherapis-btn {
-      display: flex; align-items: center;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: .9rem; font-weight: 600;
-      background: #1a1005; color: #f5f0eb;
-      text-decoration: none; border-radius: 6px;
-      width: 100%; justify-content: center;
-      margin-top: .8rem; padding: .9rem 1rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,.2);
-      -webkit-font-smoothing: antialiased;
-    }
-
+    .staff-grid { grid-template-columns: repeat(2,1fr); }
+    .access-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     footer { padding: 1.5rem 0; }
     .footer-inner { flex-direction: column; }
-  }
-
-  /* ローディング画面 */
-  #loading-screen {
-    position: fixed; inset: 0; z-index: 9999;
-    background: var(--bark);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 2.4rem;
-    transition: opacity .9s ease;
-  }
-  #loading-screen.hide {
-    opacity: 0;
-    pointer-events: none;
-  }
-  .loading-line {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 1s ease, transform 1s ease;
-    text-align: center;
-  }
-  .loading-line.show {
-    opacity: 1; transform: translateY(0);
-  }
-  .loading-sub {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 20px;
-    font-weight: 700; letter-spacing: .2em;
-    color: rgba(255,255,255,.85);
-    -webkit-font-smoothing: antialiased;
-  }
-  .loading-desc {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 20px;
-    font-weight: 700; letter-spacing: .2em;
-    color: rgba(255,255,255,.85);
-    -webkit-font-smoothing: antialiased;
-  }
-  .loading-en {
-    display: block;
-    font-family: 'Jost', sans-serif;
-    font-size: 18px; font-weight: 400;
-    letter-spacing: .2em;
-    color: rgba(255,255,255,.85);
-    margin-top: .3rem;
-    -webkit-font-smoothing: antialiased;
-  }
-  .loading-name {
-    font-family: 'Noto Serif JP', serif;
-    font-size: clamp(36px, 10vw, 56px);
-    font-weight: 300; letter-spacing: .25em;
-    color: white;
-    margin-top: .2rem;
   }
 </style>
 </head>
 <body>
 
-<!-- ローディング画面 -->
-<div id="loading-screen">
-  <div class="loading-line" id="ll1">
-    <span class="loading-sub">熊本下通&nbsp;No.1</span>
-    <span class="loading-en">Kumamoto Shimotori</span>
-  </div>
-  <div class="loading-line" id="ll2">
-    <span class="loading-desc">リラクゼーションマッサージ</span>
-    <span class="loading-en">Relaxation Massage</span>
-  </div>
-  <div class="loading-line" id="ll3">
-    <img src="RELAX_M_logo.jpg" alt="リラックスM" style="width:180px;height:auto;border-radius:12px;padding:12px;background:white;">
-  </div>
-</div>
-
 <!-- FIXED HEADER -->
-<!-- フローティングMENUボタン（スマホのみ） -->
-<!-- フローティングメニュー（スマホのみ） -->
-<!-- PC固定電話番号（右下） -->
-<a href="tel:096-356-3444" class="pc-tel-fab">
-  <span class="pc-tel-fab-label">ご予約</span>
-  <span class="pc-tel-fab-num">096-356-3444</span>
-</a>
-
-<div class="float-menu" id="floatMenu">
-  <button class="float-menu-trigger" id="floatMenuTrigger" aria-label="メニューを開く">
-    <span class="float-menu-label">MENU</span>
-  </button>
-  <div class="float-menu-links">
-    <a href="javascript:void(0)" onclick="goTo('menu');closeFloatMenu()">施術メニュー</a>
-    <a href="javascript:void(0)" onclick="goTo('staff');closeFloatMenu()">セラピスト紹介</a>
-    <a href="javascript:void(0)" onclick="goTo('access');closeFloatMenu()">アクセス</a>
-    <a href="https://beauty.hotpepper.jp/kr/slnH000269241/blog" target="_blank" rel="noopener noreferrer" onclick="closeFloatMenu()">スタッフブログ</a>
-    <a href="javascript:void(0)" onclick="goTo('recruit');closeFloatMenu()">求人</a>
-    <a href="javascript:void(0)" onclick="goTo('roomtherapis');closeFloatMenu()">Room Therapis</a>
-    <a href="javascript:void(0)" onclick="showPage('about');closeFloatMenu()">リラックスMについて</a>
-    <div class="float-menu-sns">
-      <a href="https://www.instagram.com/relax_m_kumamoto/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      </a>
-      <a href="https://www.facebook.com/relaxmrelaxmrelaxm/?locale=ja_JP" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-      </a>
-    </div>
-  </div>
-</div>
-
 <header class="site-header">
   <div class="header-inner">
     <!-- ロゴ -->
@@ -2705,7 +1084,8 @@
     <!-- 電話 -->
     <div class="header-tel">
       <a href="tel:096-356-3444" class="header-tel-num">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="header-tel-label" data-i18n="tel_label">ご予約・お問い合わせ</span>
+        096-356-3444
       </a>
     </div>
 
@@ -2751,90 +1131,65 @@
 <div id="page-main">
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-inner">
   <div class="hero-slideshow">
     <div class="hero-slide active" style="background-image:url('interior1.png')"></div>
-    <img src="logo2.png" alt="リラックスM" class="hero-logo-mobile">
-  </div>
-  <!-- PC版ロゴ（画像左上・絶対配置） -->
-  <div class="pc-float-logo">
-    <a href="javascript:void(0)" onclick="goTo('home')">
-      <img src="logo2.png" alt="リラックスM">
-    </a>
+    <div class="hero-slide" style="background-image:url('interior2.png')"></div>
+    <div class="hero-slide" style="background-image:url('interior3.png')"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-text-block">
-      <p class="hero-sub hero-anim-2">熊本下通<strong>No.1</strong><br>リラクゼーションマッサージ</p>
-      <h1 class="hero-salon-name hero-anim-4">リラックスM</h1>
-    </div>
-    <div class="hero-info-block">
-      <div class="hero-info-item">
-        <span class="hero-info-label">営業時間</span>
-        <span class="hero-info-value">
-          <span class="hero-hours-main">朝10:00〜翌朝5:00</span><br>
-          <span class="hero-hours-sub">最終受付 翌朝4:00</span><br>
-          <span class="hero-hours-sub">年中無休（年末年始除く）</span>
-        </span>
-      </div>
-      <div class="hero-info-item">
-        <span class="hero-info-label">アクセス</span>
-        <span class="hero-info-value"><a href="#" onclick="openGoogleMaps();return false;" class="hero-hours-sub" style="text-decoration:none;">熊本市中央区下通1丁目<br>7-12 RS-13ビル 2F</a></span>
-        <a href="#" onclick="openGoogleMaps();return false;" class="hero-info-icon" aria-label="マップで開く">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </a>
-      </div>
-      <div class="hero-info-item hero-reserve-row">
-        <span class="hero-info-label">ご予約</span>
-        <a href="tel:096-356-3444" class="hero-info-value hero-reserve-num">096-356-3444</a>
-        <a href="tel:096-356-3444" class="hero-info-icon" aria-label="電話をかける">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </a>
-      </div>
-    </div>
-    <a href="#intro" class="hero-scroll-btn" onclick="goTo('intro')">
-      <span class="hero-scroll-label">SCROLL</span>
-      <span class="hero-scroll-line"></span>
+    <div class="hero-deco-line hero-anim-1"></div>
+    <p class="hero-sub hero-anim-2" data-i18n="hero_sub">熊本下通　ボディケアサロン</p>
+    <h1 class="hero-salon-name hero-anim-3">リラックスM</h1>
+    <div class="hero-deco-line hero-anim-4"></div>
+    <a href="#intro" class="hero-scroll-btn hero-anim-5" onclick="goTo('intro')">
+      <span class="hero-scroll-label">詳細はこちら</span>
+      <span class="hero-scroll-arrow"></span>
     </a>
   </div>
-  </div><!-- /.hero-inner -->
 </section>
 
 <!-- CONCEPT -->
 <section id="intro">
   <div class="concept-wrap-desktop">
-    <div class="concept-img-wrap reveal-img">
-      <img src="interior2.png" alt="リラックスM 店内">
+    <div class="concept-img-wrap">
+      <img src="interior10.png" alt="リラックスM 店内">
     </div>
     <div class="concept-body reveal">
-      <div class="concept-title-wrap">
-        <h2 class="concept-headline">施術・接客・おもてなし<br>トップサロン</h2>
-        <div class="concept-divider"></div>
+      <span class="concept-label">Concept</span>
+      <h2 class="concept-headline">施術・接客・おもてなし</h2>
+      <p class="concept-sub">地域一番店を目指しています</p>
+      <div class="concept-divider"></div>
+      <p class="concept-desc">頭から足の先まで経験豊かな技術者がオールハンドで施術します。日ごろからのお身体のお疲れや心のストレス、スッキリしませんか♬</p>
+      <div class="concept-info">
+        <div class="concept-info-item">
+          <span class="concept-info-label">Hours</span>
+          <span class="concept-info-value">朝10:00 〜 翌朝5:00<br>最終受付 翌朝4:00</span>
+        </div>
+        <div class="concept-info-item">
+          <span class="concept-info-label">Access</span>
+          <span class="concept-info-value">熊本市中央区下通1丁目7-12<br>RS-13ビル 下通二番街 2F</span>
+        </div>
+        <div class="concept-info-item">
+          <span class="concept-info-label">Tel</span>
+          <span class="concept-info-value"><a href="tel:096-356-3444" style="color:var(--sand);text-decoration:none;">096-356-3444</a></span>
+        </div>
       </div>
-      <div class="concept-desc-wrap" id="conceptDescWrap">
-        <p class="concept-desc">熊本・下通アーケードに構える、オールハンド専門のボディケアサロン。<br><br>もみほぐし・足つぼ・眼精疲労ケア・リンパマッサージ・骨盤調整・ヘッドスパ・パーソナルストレッチ。コリの原因を的確に捉える熟練セラピストが、お一人おひとりのお身体に向き合い、丁寧に施術いたします。</p>
-        <div class="concept-desc-fade"></div>
-      </div>
-      <button class="concept-read-more" onclick="toggleConceptDesc()">
-        <span class="concept-read-more-text">続きを読む</span>
-        <span class="concept-read-more-arrow">▼</span>
-      </button>
+      <a href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer" class="concept-reserve-btn">
+        今すぐネット予約（24時間受付）
+      </a>
     </div>
   </div>
 </section>
 
 <!-- MENU -->
 <section class="menu-section" id="menu">
-  <div class="menu-section-img reveal-img">
-    <img src="menu/rinpa.png" alt="施術イメージ">
-  </div>
   <div class="container">
     <div class="reveal">
-      <div class="menu-title-wrap">
-        <h2 class="section-title" data-i18n="sec_menu">施術メニュー</h2>
-        <div class="section-divider"></div>
-      </div>
+      <h2 class="section-title" data-i18n="sec_menu">施術メニュー</h2>
+      <div class="section-divider"></div>
       <p style="font-size:1.05rem;font-weight:500;line-height:2;color:var(--bark);">カテゴリーをお選びください。すべて税込表示です。</p>
+      <p style="font-size:.9rem;font-weight:400;color:var(--clay);margin-top:.3rem;">※ 料金をタップ・クリックすると予約ページへ移動します</p>
     </div>
     <div class="menu-tabs reveal" id="menuTabs" style="display:grid;grid-template-columns:repeat(3,1fr);">
       <button class="menu-tab active" onclick="showPanel('p1',this)">もみほぐし<br>・足つぼ</button>
@@ -2847,7 +1202,6 @@
 
     <!-- もみほぐし・足つぼ -->
     <div id="p1" class="menu-panel active reveal">
-      <h3 class="menu-category-heading">もみほぐし・足つぼ</h3>
       <div class="menu-grid">
         <div class="menu-card">
           <img class="menu-card-img" src="menu/momihogushi.jpg" alt="もみほぐし">
@@ -2855,10 +1209,10 @@
             <h3 class="menu-card-name">もみほぐし</h3>
             <p class="menu-card-desc">おひとりおひとりに合った施術で自然治癒力を最大限に引き出します。</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620863&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">2,600円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620865&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">4,600円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620867&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">6,900円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620869&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">120分</span><span class="price-amount">9,200円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620863&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">¥2,600</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620865&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">¥4,600</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620867&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">¥6,900</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620869&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">120分</span><span class="price-amount">¥9,200</span></a>
             </div>
           </div>
         </div>
@@ -2868,9 +1222,9 @@
             <h3 class="menu-card-name">足つぼマッサージ</h3>
             <p class="menu-card-desc">血行促進・新陳代謝が活発に。反射区を刺激し弱った臓器・器官を活性化。ふくらはぎのリンパも流してむくみを解消。（クリーム＆オイル使用）</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000001165458&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">3,300円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620871&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">45分</span><span class="price-amount">4,050円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620872&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">5,400円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000001165458&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">¥3,300</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620871&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">45分</span><span class="price-amount">¥4,050</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620872&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">¥5,400</span></a>
             </div>
           </div>
         </div>
@@ -2880,9 +1234,9 @@
             <h3 class="menu-card-name">もみほぐし＆足つぼ セットコース</h3>
             <p class="menu-card-desc">全身もみほぐしと足つぼをお得なセット価格で。全身リフレッシュしたい方におすすめ。</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620875&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">5,000円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620877&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">7,500円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620879&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">120分</span><span class="price-amount">10,000円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620875&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">¥5,000</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620877&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">¥7,500</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620879&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">120分</span><span class="price-amount">¥10,000</span></a>
             </div>
           </div>
         </div>
@@ -2891,7 +1245,6 @@
 
     <!-- 集中オプション -->
     <div id="p2" class="menu-panel reveal">
-      <h3 class="menu-category-heading">集中オプション</h3>
       <div class="menu-grid">
         <div class="menu-card">
           <img class="menu-card-img" src="menu/Ganseihirou.png" alt="眼精疲労コース">
@@ -2899,7 +1252,7 @@
             <h3 class="menu-card-name">眼精疲労コース</h3>
             <p class="menu-card-desc">眼の上を温めた後、頭から首の筋肉をゆっくりほぐします。パソコン・スマホによる目の疲れ・脳ストレス・頭痛にも効果あり。</p>
             <div class="menu-card-price">
-              <span class="price-item"><span class="price-duration">15分</span><span class="price-amount">1,750円〜</span></span>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000001165463&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">15分〜</span><span class="price-amount">¥1,750〜</span></a>
             </div>
           </div>
         </div>
@@ -2909,7 +1262,7 @@
             <h3 class="menu-card-name">首セラピー</h3>
             <p class="menu-card-desc">クリームを使ってコリとリンパを流します。首まわりの張りや疲れをピンポイントでケア。</p>
             <div class="menu-card-price">
-              <span class="price-item"><span class="price-duration">15分</span><span class="price-amount">1,750円〜</span></span>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000005784510&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">15分〜</span><span class="price-amount">¥1,750〜</span></a>
             </div>
           </div>
         </div>
@@ -2919,7 +1272,7 @@
             <h3 class="menu-card-name">ハンドセラピー</h3>
             <p class="menu-card-desc">クリームを使って肘から下を中心にほぐします。デスクワーク・スマホ疲れの手指・前腕に。</p>
             <div class="menu-card-price">
-              <span class="price-item"><span class="price-duration">15分</span><span class="price-amount">1,750円〜</span></span>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000005784511&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">15分〜</span><span class="price-amount">¥1,750〜</span></a>
             </div>
           </div>
         </div>
@@ -2929,10 +1282,10 @@
             <h3 class="menu-card-name">パーソナルストレッチ</h3>
             <p class="menu-card-desc">腰 / 背面 / 足 / 肩 の各部位に特化したストレッチ。気になる箇所を集中的にほぐします。</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529929&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">腰 15分</span><span class="price-amount">1,950円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529932&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">背面 15分</span><span class="price-amount">1,950円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529931&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">足 15分</span><span class="price-amount">1,950円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529930&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">肩 15分</span><span class="price-amount">1,950円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529929&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">腰 15分</span><span class="price-amount">¥1,950</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529932&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">背面 15分</span><span class="price-amount">¥1,950</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529931&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">足 15分</span><span class="price-amount">¥1,950</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529930&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">肩 15分</span><span class="price-amount">¥1,950</span></a>
             </div>
           </div>
         </div>
@@ -2941,7 +1294,6 @@
 
     <!-- リンパ・筋膜 -->
     <div id="p3" class="menu-panel reveal">
-      <h3 class="menu-category-heading">リンパ・筋膜</h3>
       <div class="menu-grid menu-grid-2">
         <div class="menu-card">
           <img class="menu-card-img" src="menu/rinpa.png" alt="リンパドレナージュ">
@@ -2949,9 +1301,9 @@
             <h3 class="menu-card-name">リンパドレナージュ（リンパマッサージ）</h3>
             <p class="menu-card-desc">リラックス効果の高いアロマオイルを使用し、癒しとほぐしを融合させたオリジナル手法でより深い極上のリラクゼーションへ。女性スタッフ対応。<br>アロマはお好みで：ラベンダー・ベーシック・ゼラニウム・ローズマリー・グレープフルーツ<br>※キャンペーン価格</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000008239096&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">3,300円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620884&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">6,600円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620885&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">9,900円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000008239096&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">¥3,300</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620884&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">¥6,600</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620885&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">¥9,900</span></a>
             </div>
           </div>
         </div>
@@ -2963,21 +1315,18 @@
             <div class="menu-card-price">
               <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620881&add=6&rootCd=10" target="_blank" rel="noopener noreferrer">
                 <span class="price-duration">30分</span>
-                <span class="price-amount price-old">5,500円</span>
-                <span class="price-arrow">→</span>
-                <span class="price-amount price-new">4,200円</span>
+                <span class="price-amount price-old">¥5,500</span>
+                <span class="price-amount price-new">¥4,200</span>
               </a>
               <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620882&add=6&rootCd=10" target="_blank" rel="noopener noreferrer">
                 <span class="price-duration">60分</span>
-                <span class="price-amount price-old">11,000円</span>
-                <span class="price-arrow">→</span>
-                <span class="price-amount price-new">8,400円</span>
+                <span class="price-amount price-old">¥11,000</span>
+                <span class="price-amount price-new">¥8,400</span>
               </a>
               <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620882&add=6&rootCd=10" target="_blank" rel="noopener noreferrer">
                 <span class="price-duration">90分</span>
-                <span class="price-amount price-old">16,500円</span>
-                <span class="price-arrow">→</span>
-                <span class="price-amount price-new">12,600円</span>
+                <span class="price-amount price-old">¥16,500</span>
+                <span class="price-amount price-new">¥12,600</span>
               </a>
             </div>
           </div>
@@ -2987,7 +1336,6 @@
 
     <!-- ストレッチ・骨盤 -->
     <div id="p4" class="menu-panel reveal">
-      <h3 class="menu-category-heading">ストレッチ・骨盤</h3>
       <div class="menu-grid">
         <div class="menu-card">
           <img class="menu-card-img" src="menu/stretch.png" alt="お悩み撃退ストレッチ">
@@ -2995,49 +1343,59 @@
             <h3 class="menu-card-name">お悩み撃退ストレッチ</h3>
             <p class="menu-card-desc">プロフェッショナルパーソナルストレッチディプロマ取得者による施術。今より必ず良い状態へ導きます。腰痛・肩こり・足のむくみ 各種対応。</p>
             <div class="menu-card-price">
-              <div class="stretch-group">
-                <span class="price-item"><span class="price-duration">各15分</span><span class="price-amount">1,950円</span></span>
-                <span class="price-item"><span class="price-duration">各40分</span><span class="price-amount">5,020円</span></span>
-                <p class="stretch-note">※腰痛・肩こり・足のむくみより部位をお選びください</p>
+              <!-- 各15分・各40分：タップで部位選択 -->
+              <div class="stretch-selector">
+                <button class="price-item stretch-toggle" onclick="toggleStretchMenu('stretch15')">
+                  <span class="price-duration">各15分</span><span class="price-amount">¥1,950</span>
+                </button>
+                <div class="stretch-menu" id="stretch15">
+                  <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529929&add=6&rootCd=10" target="_blank" rel="noopener noreferrer" class="stretch-part-btn">腰痛</a>
+                  <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529930&add=6&rootCd=10" target="_blank" rel="noopener noreferrer" class="stretch-part-btn">肩こり</a>
+                  <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529931&add=6&rootCd=10" target="_blank" rel="noopener noreferrer" class="stretch-part-btn">足のむくみ</a>
+                </div>
               </div>
-              <div class="stretch-group" style="margin-top:.6rem;">
-                <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010330185&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">7,350円</span></a>
-                <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009652943&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">11,295円</span></a>
+              <div class="stretch-selector">
+                <button class="price-item stretch-toggle" onclick="toggleStretchMenu('stretch40')">
+                  <span class="price-duration">各40分</span><span class="price-amount">¥5,020</span>
+                </button>
+                <div class="stretch-menu" id="stretch40">
+                  <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009430385&add=6&rootCd=10" target="_blank" rel="noopener noreferrer" class="stretch-part-btn">腰痛</a>
+                  <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009516586&add=6&rootCd=10" target="_blank" rel="noopener noreferrer" class="stretch-part-btn">肩こり</a>
+                  <a href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009633967&add=6&rootCd=10" target="_blank" rel="noopener noreferrer" class="stretch-part-btn">足のむくみ</a>
+                </div>
               </div>
+              <!-- 60分・90分：直接リンク -->
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010330185&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">¥7,350</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009652943&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">¥11,295</span></a>
             </div>
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img-placeholder"></div>
-          <div class="menu-card-body">
-            <h3 class="menu-card-name">ストレッチ＆調整コース</h3>
-            <p class="menu-card-desc">ストレッチに全身調整＋ヘッドをプラス。全身を緩めていくデラックスなコース。</p>
-            <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010612806&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">7,160円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009652941&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">11,940円</span></a>
-            </div>
+          <span class="menu-card-icon">⚡</span>
+          <h3 class="menu-card-name">ストレッチ＆調整コース</h3>
+          <p class="menu-card-desc">ストレッチに全身調整＋ヘッドをプラス。全身を緩めていくデラックスなコース。</p>
+          <div class="menu-card-price">
+            <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">¥7,160</span></a>
+            <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">¥11,940</span></a>
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img-placeholder"></div>
-          <div class="menu-card-body">
-            <h3 class="menu-card-name">ストレッチデトックスコース</h3>
-            <p class="menu-card-desc">ストレッチ＋リンパドレナージュ＋ヘッドのデトックスコース。</p>
-            <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009652942&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">11,940円</span></a>
-            </div>
+          <span class="menu-card-icon">🌊</span>
+          <h3 class="menu-card-name">ストレッチデトックスコース</h3>
+          <p class="menu-card-desc">ストレッチ＋リンパドレナージュ＋ヘッドのデトックスコース。</p>
+          <div class="menu-card-price">
+            <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">¥7,160</span></a>
+            <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">¥11,940</span></a>
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img-placeholder"></div>
-          <div class="menu-card-body">
-            <h3 class="menu-card-name">骨盤調整コース</h3>
-            <p class="menu-card-desc">もみほぐしでお身体を整えた後、骨盤を正しい位置に戻すよう促す施術。骨盤の歪みは姿勢崩れ・呼吸の乱れ・健康悪化につながります。</p>
-            <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000004588931&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">40分</span><span class="price-amount">3,650円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000004588932&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">50分</span><span class="price-amount">4,570円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000004588933&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">70分</span><span class="price-amount">6,390円</span></a>
-            </div>
+          <span class="menu-card-icon">🦴</span>
+          <h3 class="menu-card-name">骨盤調整コース</h3>
+          <p class="menu-card-desc">もみほぐしでお身体を整えた後、骨盤を正しい位置に戻すよう促す施術。骨盤の歪みは姿勢崩れ・呼吸の乱れ・健康悪化につながります。</p>
+          <div class="menu-card-price">
+            <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">40分</span><span class="price-amount">¥3,650</span></a>
+            <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">50分</span><span class="price-amount">¥4,570</span></a>
+            <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">70分</span><span class="price-amount">¥6,390</span></a>
           </div>
         </div>
       </div>
@@ -3045,7 +1403,6 @@
 
     <!-- ヘッドスパ -->
     <div id="p5" class="menu-panel reveal">
-      <h3 class="menu-category-heading">ヘッドスパ</h3>
       <div class="menu-grid menu-grid-2">
         <div class="menu-card">
           <img class="menu-card-img" src="menu/dryhead.jpg" alt="ドライヘッドスパ">
@@ -3053,8 +1410,8 @@
             <h3 class="menu-card-name">ドライヘッドスパ</h3>
             <p class="menu-card-desc">選べるアロマジェルで頭皮をやさしく・強くマッサージ。脳疲労解消・首コリにも。寝落ちすること間違いなし！</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000008732020&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">3,700円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000008732021&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">7,400円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">¥3,700</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">¥7,400</span></a>
             </div>
           </div>
         </div>
@@ -3064,8 +1421,8 @@
             <h3 class="menu-card-name">かっさヘッドスパ</h3>
             <p class="menu-card-desc">頭皮やわやわ、お顔もリフトアップ！かっさで頭皮の血行促進・エイジング対策。60分はクリームで肩甲骨・デコルテもしっかりほぐします。</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012381730&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">4,200円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012381731&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">8,400円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">¥4,200</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">¥8,400</span></a>
             </div>
           </div>
         </div>
@@ -3074,111 +1431,66 @@
 
     <!-- VIP -->
     <div id="p6" class="menu-panel reveal">
-      <h3 class="menu-category-heading">VIPコース</h3>
       <div class="menu-grid">
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/ume.jpg" alt="VIPコース 梅">
-          <div class="menu-card-body">
+          <span class="menu-card-icon">🌸</span>
           <h3 class="menu-card-name">VIPコース 梅</h3>
           <p class="menu-card-desc">足つぼ ＋ もみほぐし ＋ ハンドセラピー or 首セラピー</p>
           <div class="menu-card-price">
-            <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620886&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">8,460円</span></a>
-          </div>
+            <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">¥8,460</span></a>
           </div>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/take.jpg" alt="VIPコース 竹">
-          <div class="menu-card-body">
+          <span class="menu-card-icon">🎋</span>
           <h3 class="menu-card-name">VIPコース 竹</h3>
           <p class="menu-card-desc">足つぼ ＋ 骨盤調整 ＋ ヘッドセラピー</p>
           <div class="menu-card-price">
-            <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000006999057&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">9,400円</span></a>
-          </div>
+            <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">¥9,400</span></a>
           </div>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/matsu.jpg" alt="VIPコース 松">
-          <div class="menu-card-body">
+          <span class="menu-card-icon">🌲</span>
           <h3 class="menu-card-name">VIPコース 松</h3>
           <p class="menu-card-desc">骨盤調整 ＋ リンパドレナージュ ＋ ヘッドセラピー</p>
           <div class="menu-card-price">
-            <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000005784513&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">10,500円</span></a>
-          </div>
+            <a class="price-item" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">¥10,500</span></a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="menu-bottom-row">
-      <div class="menu-surcharge reveal">
-        <p class="menu-surcharge-title">指名料・深夜料金</p>
-        <table class="menu-surcharge-table">
-          <tr>
-            <td class="menu-surcharge-label">指名料</td>
-            <td class="menu-surcharge-price">1,000円</td>
-          </tr>
-          <tr>
-            <td class="menu-surcharge-label">男女指名料</td>
-            <td class="menu-surcharge-price">250円</td>
-          </tr>
-          <tr>
-            <td class="menu-surcharge-label">22時以降 深夜料金</td>
-            <td class="menu-surcharge-price">250円</td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="menu-note menu-cashless reveal">
-        <span class="menu-cashless-label">ご利用可能キャッシュレス</span>
-        <div class="payment-logos">
-          <img src="payment/visa.png" alt="VISA">
-          <img src="payment/master.png" alt="Mastercard">
-          <img src="payment/amex.png" alt="AMEX">
+    <div class="menu-surcharge reveal">
+      <p class="menu-surcharge-title">追加料金について</p>
+      <div class="menu-surcharge-items">
+        <div class="menu-surcharge-item">
+          <span class="menu-surcharge-label">指名料</span>
+          <span class="menu-surcharge-price">¥1,000</span>
         </div>
-        <div class="payment-logos" style="margin-top:.5rem;">
-          <img src="payment/paypay.png" alt="PayPay">
-          <img src="payment/alipay.png" alt="Alipay">
+        <div class="menu-surcharge-sep"></div>
+        <div class="menu-surcharge-item">
+          <span class="menu-surcharge-label">男女指名料</span>
+          <span class="menu-surcharge-price">¥250</span>
+        </div>
+        <div class="menu-surcharge-sep"></div>
+        <div class="menu-surcharge-item">
+          <span class="menu-surcharge-label">22時以降 深夜料金</span>
+          <span class="menu-surcharge-price">¥250</span>
         </div>
       </div>
     </div>
 
-    <div class="menu-note menu-cancel-note reveal" style="margin-top:.8rem;">
+    <div class="menu-note reveal" style="margin-top:1rem;">
       ※ ご連絡なくご予約時間より15分経過した場合、自動キャンセルとなります（お電話する場合もございます）。
     </div>
-  </div>
-</section>
 
-<!-- NOSON -->
-<section class="noson-section">
-  <div class="section-top-img reveal-img">
-    <img src="noson/noson_header.png" alt="noson Premium">
-  </div>
-  <div class="container">
-    <!-- PC専用: 左サイド画像 -->
-    <div class="noson-pc-side">
-      <img src="noson/noson_pc.png" alt="noson Premium">
-    </div>
-    <div class="noson-inner reveal">
-      <div class="noson-text">
-        <div class="section-title-wrap">
-          <h2 class="section-title">noson Premium</h2>
-          <div class="section-divider"></div>
-        </div>
-        <p class="noson-desc">
-          鼻孔を広げることで、スポーツ中や睡眠中の呼吸を改善する鼻孔拡張器です。<br>
-          店頭にて<strong>試着できます</strong>ので、お気軽にお試しください。
-        </p>
-        <div class="noson-badge">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-          当店はnoson japanの正規ディーラーです
-        </div>
-      </div>
-      <div class="noson-visual">
-        <div class="noson-slideshow">
-          <div class="noson-slide active" style="background-image:url('noson/noson1.jpg')"></div>
-          <div class="noson-slide" style="background-image:url('noson/noson2.jpg')"></div>
-          <div class="noson-slide" style="background-image:url('noson/noson3.jpg')"></div>
-        </div>
+    <div class="menu-note reveal" style="margin-top:.8rem;">
+      ※ ご利用可能キャッシュレス：
+      <div class="payment-logos">
+        <img src="payment/visa.png" alt="VISA">
+        <img src="payment/master.png" alt="Mastercard">
+        <img src="payment/amex.png" alt="AMEX">
+        <img src="payment/paypay.png" alt="PayPay">
+        <img src="payment/alipay.png" alt="Alipay">
       </div>
     </div>
   </div>
@@ -3188,211 +1500,195 @@
 <section class="staff-section" id="staff">
   <div class="container">
     <div class="reveal">
-      <div class="section-title-wrap">
-        <h2 class="section-title" data-i18n="sec_staff">セラピスト紹介</h2>
-        <div class="section-divider"></div>
-      </div>
+      <h2 class="section-title" data-i18n="sec_staff">セラピスト紹介</h2>
+      <div class="section-divider"></div>
     </div>
 
     <div class="staff-more reveal">
       リラックスMはオーナーボディケア歴２０年以上、他スタッフも１０年以上の経験を持つベテランが多数。お身体のお悩み是非ご相談下さい。熊本の皆様に安く気軽に通って頂ける料金設定にしております。
     </div>
 
-    <div class="staff-grid">
-      <div class="staff-card reveal">
+    <div class="staff-grid reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/FukurodaMai.jpg" alt="袋田 真衣"></div>
         <p class="staff-name">店長 袋田 真衣</p>
         <p class="staff-bio">捉えたコリは逃さない！安定の施術☆</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/OsawaSayuri.jpg" alt="大沢 さゆり"></div>
         <p class="staff-name">大沢 さゆり</p>
         <p class="staff-bio">指名数上位の実力派。強もみO.Kです！</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/HoriwakiKatsuya.jpg" alt="堀脇 克也"></div>
         <p class="staff-name">堀脇 克也</p>
         <p class="staff-bio">当期☆指名No1！お疲れ改善致します！</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/Sakamoto.jpg" alt="坂本 弘"></div>
         <p class="staff-name">坂本 弘</p>
         <p class="staff-bio">第２回整体日本一決定戦出場！</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/NishiokaHisashi.jpg" alt="西岡 寿"></div>
         <p class="staff-name">西岡 寿</p>
         <p class="staff-bio">お手が合えば幸いです☆</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/HamaChieko.jpg" alt="浜 千恵子"></div>
         <p class="staff-name">浜 千恵子</p>
         <p class="staff-bio">癒しのひととき丁寧にほぐします！</p>
       </div>
-      <div class="staff-card reveal">
-        <div class="staff-avatar"><img src="staff/ChoGyokuen.jpg" alt="趙 唯" style="object-position: center 25%;"></div>
-        <p class="staff-name">趙 唯</p>
+      <div class="staff-card">
+        <div class="staff-avatar"><img src="staff/ChoGyokuen.jpg" alt="趙 玉娟"></div>
+        <p class="staff-name">趙 玉娟</p>
         <p class="staff-bio">強い圧で人気！丁寧にほぐします。</p>
       </div>
-      <div class="staff-card reveal">
-        <div class="staff-avatar"><img src="staff/KatayamaYuki.jpg" alt="店長 片山 勇貴"></div>
-        <p class="staff-name">店長 片山 勇貴</p>
+      <div class="staff-card">
+        <div class="staff-avatar"><img src="staff/KatayamaYuki.jpg" alt="片山 勇貴"></div>
+        <p class="staff-name">片山 勇貴</p>
         <p class="staff-bio">国家資格保持者です☆</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/NishikawaAkira.jpg" alt="西川 亮"></div>
         <p class="staff-name">西川 亮</p>
         <p class="staff-bio">しっかりほぐします。。</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/Okawa.jpg" alt="大川 崇聡"></div>
         <p class="staff-name">大川 崇聡</p>
         <p class="staff-bio">癒しのひととき丁寧にほぐします！</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/AraiSyoko.jpg" alt="新井 正子"></div>
         <p class="staff-name">新井 正子</p>
         <p class="staff-bio">熟練の技でじっくりほぐします☆</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/NomoYukari.jpg" alt="野母 紫"></div>
         <p class="staff-name">野母 紫</p>
         <p class="staff-bio">熟練セラピストです☆</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/MoriEmiko.jpg" alt="森 愛美子"></div>
         <p class="staff-name">森 愛美子</p>
         <p class="staff-bio">丁寧な施術を心がけてます！</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/IdeShinji.jpg" alt="井手 伸治"></div>
         <p class="staff-name">井手 伸治</p>
         <p class="staff-bio">熟練セラピストです☆お身体癒します。</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/FukushimaTaisei.jpg" alt="福島 汰成"></div>
         <p class="staff-name">福島 汰成</p>
         <p class="staff-bio">お身体癒し整えて行きます☆</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/YonekuraYukie.jpg" alt="米倉 幸枝"></div>
         <p class="staff-name">米倉 幸枝</p>
         <p class="staff-bio">よろしくお願いします！</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/ChikubaTakuya.jpg" alt="竹馬 拓哉"></div>
         <p class="staff-name">竹馬 拓哉</p>
         <p class="staff-bio">ゆっくりした施術でほぐします</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/IdeHirono.jpg" alt="井手 弘乃"></div>
         <p class="staff-name">井手 弘乃</p>
         <p class="staff-bio">癒しの手でほぐしていきます。</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/YamamotoRio.jpg" alt="山本 麗央"></div>
         <p class="staff-name">山本 麗央</p>
         <p class="staff-bio">お身体癒し緩めていきます。</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/KandaYui.jpg" alt="神田 優衣"></div>
         <p class="staff-name">神田 優衣</p>
         <p class="staff-bio">癒しのひととき丁寧にほぐします！</p>
       </div>
-      <div class="staff-card reveal">
+      <div class="staff-card">
         <div class="staff-avatar"><img src="staff/GodaMaiko.jpg" alt="合田 麻衣子"></div>
         <p class="staff-name">代表 合田 麻衣子</p>
         <p class="staff-bio">お身体メンテナンスお任せ下さい！！</p>
       </div>
     </div>
 
-    <div class="staff-more reveal" style="margin-top:2rem;">
-      エステティックサロン、クリニックセラピストを経て東洋医学（自然治癒力・特に手の力）の世界に魅了され、長年の経験を活かし2013年にオールハンドの専門店リラックスMをオープン。<br><br>
-      地域の働く皆様、お食事・お買い物にいらした方、ご旅行・ご出張で熊本にみえた方、夜疲れて眠れない方など、たくさんのお客様にご利用いただき、現在は熊本の実力派トップセラピスト22名と共に営業しています。<br><br>
-      皆様のお身体はもちろん心もほぐせるよう、明るい接客を心がけています。お一人お一人のお客様へ心を込めて施術させていただきます。
+    <div class="owner-message reveal">
+      <p class="owner-message-text">
+        エステティックサロン、クリニックセラピストを経て東洋医学（自然治癒力・特に手の力）の世界に魅了され、長年の経験を活かし2013年にオールハンドの専門店リラックスMをオープン。<br><br>
+        地域の働く皆様、お食事・お買い物にいらした方、ご旅行・ご出張で熊本にみえた方、夜疲れて眠れない方など、たくさんのお客様にご利用いただき、現在は熊本の実力派トップセラピスト22名と共に営業しています。<br><br>
+        皆様のお身体はもちろん心もほぐせるよう、明るい接客を心がけています。お一人お一人のお客様へ心を込めて施術させていただきます。
+      </p>
     </div>
 
-    <div class="blog-row">
-      <!-- スタッフブログバナー -->
-      <a href="https://beauty.hotpepper.jp/kr/slnH000269241/blog" target="_blank" rel="noopener noreferrer" class="blog-banner reveal">
-        <div class="blog-banner-inner">
-          <p class="blog-banner-title">スタッフブログ</p>
-          <p class="blog-banner-en">Staff Blog</p>
-          <div class="blog-banner-divider"></div>
-          <p class="blog-banner-desc">セラピストの日常を毎日更新する人気ブログ！是非ご覧ください！</p>
-          <span class="blog-banner-btn">読む &nbsp;→</span>
+    <!-- スタッフブログバナー -->
+    <a href="https://beauty.hotpepper.jp/kr/slnH000269241/blog" target="_blank" rel="noopener noreferrer" class="blog-card reveal">
+      <div class="blog-card-header">
+        <div class="blog-card-avatar">M</div>
+        <div>
+          <p class="blog-card-name">リラックスM スタッフブログ</p>
+          <p class="blog-card-handle">@relax_m_kumamoto</p>
         </div>
-      </a>
+        <span class="blog-card-follow">フォロー</span>
+      </div>
+      <div class="blog-card-body">
+        <p class="blog-card-text">✍️ <strong>毎日更新中！</strong><br>セラピストたちの日常・施術情報・お得なキャンペーン情報をお届けしています。ぜひチェックしてみてください📱</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="blog-card-btn">ブログを見る →</span>
+      </div>
+    </a>
 
-      <!-- 白まいのブログバナー -->
-      <a href="https://ameblo.jp/mrelax/" target="_blank" rel="noopener noreferrer" class="shiromain-banner reveal">
-        <div class="shiromain-banner-inner">
-          <p class="blog-banner-title">白まいのブログ</p>
-          <p class="blog-banner-en">SHIROMAI'S BLOG</p>
-          <div class="blog-banner-divider"></div>
-          <p class="blog-banner-desc">オーナー白まいのプライベートブログ</p>
-          <span class="blog-banner-btn">読む &nbsp;→</span>
-        </div>
-      </a>
-    </div>
 
-    <!-- SNSバナー -->
-    <div class="sns-banner reveal">
-      <div class="sns-banner-inner">
-        <p class="sns-banner-title">リラックスM公式SNS</p>
-        <p class="blog-banner-en" style="text-align:center;margin-bottom:.1rem;color:#2d5a3d;">OFFICIAL SNS</p>
-        <div class="blog-banner-divider" style="background:rgba(45,90,61,.3);"></div>
-        <div class="sns-banner-row">
-          <a href="https://www.instagram.com/relax_m_kumamoto/" target="_blank" rel="noopener noreferrer" class="sns-banner-link">
-            <img src="instagram.png" alt="Instagram" class="sns-banner-icon">
-            <p class="sns-banner-name">Instagram</p>
-          </a>
-          <a href="https://www.facebook.com/relaxmrelaxmrelaxm/?locale=ja_JP" target="_blank" rel="noopener noreferrer" class="sns-banner-link">
-            <img src="facebook.png" alt="Facebook" class="sns-banner-icon">
-            <p class="sns-banner-name">Facebook</p>
-          </a>
-        </div>
+    <div class="reveal" style="margin-top:3.5rem;">
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:1.1rem;font-weight:700;color:var(--bark);margin-bottom:1.5rem;text-align:center;">Instagram・Facebookでも情報発信中！ぜひフォローしてください😊</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <a href="https://www.instagram.com/relax_m_kumamoto/" target="_blank" rel="noopener noreferrer"
+           style="display:block;transition:opacity .3s;"
+           onmouseover="this.style.opacity='.8'"
+           onmouseout="this.style.opacity='1'">
+          <img src="instagram.png" alt="Instagram" style="width:100%;height:200px;object-fit:cover;display:block;">
+        </a>
+        <a href="https://www.facebook.com/relaxmrelaxmrelaxm/?locale=ja_JP" target="_blank" rel="noopener noreferrer"
+           style="display:block;transition:opacity .3s;"
+           onmouseover="this.style.opacity='.8'"
+           onmouseout="this.style.opacity='1'">
+          <img src="facebook.png" alt="Facebook" style="width:100%;height:200px;object-fit:cover;display:block;">
+        </a>
       </div>
     </div>
-
   </div>
 </section>
 
+<!-- NOSON -->
 <!-- ACCESS -->
 <section class="access-section" id="access">
   <div class="container">
-    <!-- PC専用: 外観写真（左サイド）デフォルトは非表示 -->
-    <div class="access-gaikan-side">
-      <img src="S__35184646.jpg" alt="リラックスM外観" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 75%;">
+    <div class="reveal">
+      <h2 class="section-title" data-i18n="sec_access">アクセス</h2>
+      <div class="section-divider" style="background:var(--clay)"></div>
     </div>
-    <!-- 右側コンテンツ -->
-    <div class="access-right">
-      <div class="reveal">
-        <div class="section-title-wrap">
-          <h2 class="section-title" data-i18n="sec_access">アクセス</h2>
-          <div class="section-divider"></div>
-        </div>
+    <div class="access-grid reveal">
+      <div class="access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.668015134746!2d130.7056523764066!3d32.801060873653626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f40d275ca35f%3A0x816d6335f1bfe129!2z44Oq44Op44OD44Kv44K5TQ!5e0!3m2!1sja!2sjp!4v1774713835337!5m2!1sja!2sjp"
+          width="100%" height="100%" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <div class="access-grid reveal">
-        <div class="access-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.668015134746!2d130.7056523764066!3d32.801060873653626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f40d275ca35f%3A0x816d6335f1bfe129!2z44Oq44Op44OD44Kv44K5TQ!5e0!3m2!1sja!2sjp!4v1774713835337!5m2!1sja!2sjp"
-            width="100%" height="100%" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="access-gaikan">
+        <img src="gaikan1.jpg" alt="リラックスM外観" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="access-detail">
+        <div class="access-item">
+          <p class="access-item-label">Address</p>
+          <p class="access-item-value">
+            熊本市中央区下通1丁目7-12<br>
+            RS-13ビル下通二番街 2F<br>
+            <span style="font-size:.76rem;opacity:.7;">（下通アーケード内 / 銀座通り近く / 酒場通り角<br>セブンイレブン・まねきねこの隣）</span>
+          </p>
         </div>
-        <div class="access-gaikan">
-          <img src="S__35184646.jpg" alt="リラックスM外観" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 75%;">
-        </div>
-        <div class="access-detail">
-          <div class="access-item" style="position:relative;">
-            <p class="access-item-value">
-              熊本市中央区下通1丁目7-12<br>
-              RS-13ビル下通二番街 2F<br>
-              <span style="font-size:.76rem;opacity:.7;">（下通アーケード内 / 銀座通り近く / 酒場通り角<br>　セブンイレブン・まねきねこの隣）</span>
-            </p>
-            <a href="#" onclick="openGoogleMaps();return false;" class="hero-info-icon" aria-label="マップで開く" style="position:absolute;top:0;right:0;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </a>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -3402,25 +1698,23 @@
 <section class="reserve-section" id="reserve">
   <div class="container">
     <div class="reserve-center reveal">
-      <div class="section-title-wrap">
-        <h2 class="section-title" data-i18n="sec_reserve">ご予約</h2>
-        <div class="section-divider"></div>
-      </div>
-      <p class="reserve-body">ご予約はお電話またはホットペッパービューティーより承っております。</p>
+      <h2 class="section-title" data-i18n="sec_reserve">ご予約</h2>
+      <div class="section-divider" style="margin:1.5rem 0;"></div>
+      <p class="reserve-body">ご予約はホットペッパービューティーまたはお電話より承っております。</p>
 
       <div class="reserve-options">
-        <!-- 電話 -->
-        <a href="tel:096-356-3444" class="btn-tel">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.09 6.09l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          096-356-3444
+        <!-- HPB -->
+        <a class="btn-hpb" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="rgba(255,255,255,.6)" stroke-width="1"/><path d="M6 9h6M9 6l3 3-3 3" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span style="white-space:nowrap;">ホットペッパービューティーで予約</span>
         </a>
 
         <div class="reserve-or">or</div>
 
-        <!-- HPB -->
-        <a class="btn-hpb" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="rgba(255,255,255,.6)" stroke-width="1"/><path d="M6 9h6M9 6l3 3-3 3" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span style="white-space:nowrap;">ホットペッパービューティーで予約</span>
+        <!-- 電話 -->
+        <a href="tel:096-356-3444" class="btn-tel">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.09 6.09l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          096-356-3444
         </a>
       </div>
       <div class="reserve-caution">
@@ -3453,54 +1747,80 @@
   </div>
 </section>
 
+<!-- NOSON -->
+<section class="noson-section">
+  <div class="container">
+    <div class="noson-inner reveal">
+      <div class="noson-text">
+        <h2 class="section-title">noson Premium</h2>
+        <div class="section-divider"></div>
+        <p class="noson-desc">
+          鼻孔を広げることで、スポーツ中や睡眠中の呼吸を改善する鼻孔拡張器です。<br>
+          店頭にて<strong>試着できます</strong>ので、お気軽にお試しください。
+        </p>
+        <div class="noson-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          当店はnoson japanの正規ディーラーです
+        </div>
+      </div>
+      <div class="noson-visual">
+        <div class="noson-slideshow">
+          <div class="noson-slide active" style="background-image:url('noson/noson1.jpg')"></div>
+          <div class="noson-slide" style="background-image:url('noson/noson2.jpg')"></div>
+          <div class="noson-slide" style="background-image:url('noson/noson3.jpg')"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- RECRUIT -->
 <section class="recruit-section" id="recruit">
   <div class="container">
     <div class="reveal">
-      <div class="section-title-wrap">
-        <h2 class="section-title" data-i18n="sec_recruit">セラピスト募集</h2>
-        <div class="section-divider"></div>
-      </div>
+      <h2 class="section-title" data-i18n="sec_recruit">セラピスト募集</h2>
+      <div class="section-divider"></div>
       <p class="recruit-lead">男女セラピスト・整体師募集<br>技術・接客・おもてなし、地域一番店を目指すリラックスMで一緒に働きませんか！</p>
     </div>
 
-    <div class="recruit-info-block reveal">
-      <div class="recruit-info-item">
-        <span class="recruit-info-label">雇用形態</span>
-        <span class="recruit-info-value">業務委託<br><span class="recruit-info-sub">各60分 2,484円〜4,620円<br>（各コース別に設定）</span></span>
+    <div class="recruit-grid reveal">
+
+      <div class="recruit-card">
+        <p class="recruit-card-label">雇用形態</p>
+        <p class="recruit-card-text">業務委託<br><span>各60分 2,484円〜4,620円（各コース別に設定）</span></p>
       </div>
-      <div class="recruit-info-item">
-        <span class="recruit-info-label">勤務時間</span>
-        <span class="recruit-info-value">朝10:00〜翌朝5:00<br>（最終受付 4:00）<br><span class="recruit-info-sub">短時間5時間よりOK<br>シフト・休日応相談</span></span>
+
+      <div class="recruit-card">
+        <p class="recruit-card-label">勤務時間</p>
+        <p class="recruit-card-text">朝10:00〜翌朝5:00（最終受付 4:00）<br><span>短時間5時間よりOK／シフト・休日応相談</span></p>
       </div>
-      <div class="recruit-info-item">
-        <span class="recruit-info-label">休日</span>
-        <span class="recruit-info-value">年休120日（月シフト平均190時間）の方優遇</span>
+
+      <div class="recruit-card">
+        <p class="recruit-card-label">休日</p>
+        <p class="recruit-card-text">年休120日（月シフト平均190時間）の方優遇</p>
       </div>
-      <div class="recruit-info-item">
-        <span class="recruit-info-label">待遇・報酬</span>
-        <span class="recruit-info-value">店長手当・ボーナス・昇給・交通費・賞金<br>年間売上歩合 <strong>56%〜77%</strong>（直近）<br>指名売上表彰賞金 年2回・賠償責任保険<br><span class="recruit-info-sub">指名料 980円／深夜手当 245円／男女指名 135円</span></span>
+
+      <div class="recruit-card">
+        <p class="recruit-card-label">待遇・報酬</p>
+        <p class="recruit-card-text">
+          店長手当・ボーナス・昇給・交通費・賞金<br>
+          年間売上に対する歩合 <strong>56%〜77%</strong>（直近）<br>
+          指名売上表彰賞金 年2回<br>
+          賠償責任保険<br>
+          <span>指名料 980円／深夜手当 各コース245円／男女指名 135円</span>
+        </p>
       </div>
-      <div class="recruit-info-item">
-        <span class="recruit-info-label">研修旅行</span>
-        <span class="recruit-info-value">台湾・沖縄・香港・北海道・石垣島・奄美大島・韓国・金沢<br><span class="recruit-info-sub">費用は店負担</span></span>
+
+      <div class="recruit-card">
+        <p class="recruit-card-label">国内外研修旅行（店負担）</p>
+        <p class="recruit-card-text">台湾・沖縄・香港・北海道・石垣島・奄美大島・韓国・金沢</p>
       </div>
-      <div class="recruit-info-item">
-        <span class="recruit-info-label">応募条件</span>
-        <span class="recruit-info-value">経験者優遇<br>未経験でもやる気がある方歓迎</span>
+
+      <div class="recruit-card">
+        <p class="recruit-card-label">応募条件</p>
+        <p class="recruit-card-text">経験者優遇／未経験はやる気がある方歓迎</p>
       </div>
-      <div class="recruit-info-item">
-        <span class="recruit-info-label">会社名</span>
-        <span class="recruit-info-value">リラックスM</span>
-      </div>
-      <div class="recruit-info-item">
-        <span class="recruit-info-label">所在地</span>
-        <span class="recruit-info-value">〒860-0807<br>熊本市中央区下通1丁目7-12-2F</span>
-      </div>
-      <div class="recruit-info-item">
-        <span class="recruit-info-label">設立</span>
-        <span class="recruit-info-value">2013年11月1日</span>
-      </div>
+
     </div>
 
     <div class="recruit-person reveal">
@@ -3512,8 +1832,25 @@
       ☆ 当店のセラピストは現在インボイス登録の必要はございません。
     </div>
 
-    <div class="recruit-contact-row reveal" style="text-align:center;margin-top:3rem;">
-      <p class="recruit-contact-text" style="font-family:'Noto Sans JP',sans-serif;font-size:1rem;font-weight:500;line-height:1.9;color:#1a1a1a;margin-bottom:1.2rem;-webkit-font-smoothing:antialiased;">ご応募・お問い合わせはお電話にて<br>お待ちしております。</p>
+    <div class="reveal" style="margin-top:1rem;">
+      <table class="recruit-table">
+        <tr>
+          <th>会社名</th>
+          <td>リラックスM</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>〒860-0807　熊本市中央区下通1丁目7-12</td>
+        </tr>
+        <tr>
+          <th>設立年月日</th>
+          <td>2013年11月1日</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="reveal" style="text-align:center;margin-top:3rem;">
+      <p style="font-size:.95rem;font-weight:400;line-height:2;color:var(--clay);margin-bottom:1.5rem;">ご応募・お問い合わせはお電話にてお待ちしております。</p>
       <a href="tel:096-356-3444" class="btn-tel">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.09 6.09l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         096-356-3444
@@ -3524,18 +1861,16 @@
 
 <!-- ROOM THERAPIS -->
 <section class="roomtherapis-section" id="roomtherapis">
-  <div class="section-top-img reveal-img">
-    <img src="roomtherapis1.jpg" alt="RoomTherapis">
-  </div>
   <div class="container">
     <div class="reveal">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Room Therapis<br><span style="font-size:1.2rem;font-weight:400;">（ルームセラピス）</span></h2>
-        <div class="section-divider"></div>
-      </div>
+      <h2 class="section-title">Room Therapis<br><span style="font-size:1.2rem;font-weight:400;">（ルームセラピス）</span></h2>
+      <div class="section-divider"></div>
     </div>
     <div class="roomtherapis-inner reveal">
       <div class="roomtherapis-text">
+        <a href="https://room-therapis.com/" target="_blank" rel="noopener noreferrer">
+          <img src="roomtherapis1.jpg" alt="RoomTherapis" style="width:100%;display:block;margin-bottom:1.5rem;object-fit:cover;transition:opacity .3s;" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+        </a>
         <p class="roomtherapis-desc">
           リラックスM同ビルB1に街中レンタルサロン　<strong>Room Therapis</strong>　OPEN！！<br>
           ラグジュアリーな異なる雰囲気の施術ルームを時間でお貸しいたします！！<br>
@@ -3547,7 +1882,8 @@
           080-6831-3388
         </a>
         <a href="https://room-therapis.com/" target="_blank" rel="noopener noreferrer" class="roomtherapis-btn">
-          Room Therapisホームページへ
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Room Therapis<br>ホームページへ
         </a>
       </div>
     </div>
@@ -3564,10 +1900,8 @@
         <button onclick="showPage('main')" style="display:inline-flex;align-items:center;gap:.5rem;background:none;border:none;cursor:pointer;color:var(--bark);font-family:'Noto Sans JP',sans-serif;font-size:.9rem;font-weight:500;padding:0;margin-bottom:2rem;">
           ← メインページに戻る
         </button>
-        <div class="section-title-wrap">
-          <h2 class="section-title">リラックスMについて</h2>
-          <div class="section-divider"></div>
-        </div>
+        <h2 class="section-title">リラックスMについて</h2>
+        <div class="section-divider"></div>
       </div>
       <div class="about-info-grid">
         <div class="about-info-item"><span class="about-info-label">店舗名</span><span class="about-info-value">リラックスM</span></div>
@@ -3597,16 +1931,12 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-copy-wrap">
-    <p class="footer-copy">© 2013–<span id="copy-year"></span> リラックスM All rights reserved.</p>
+  <div class="container">
+    <p class="footer-copy">© 2025 リラックスM — 熊本下通ボディケアサロン. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-
-  // ページ読み込み時に必ずトップへ
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  window.scrollTo(0, 0);
 
   // ===== 多言語対応 =====
   const i18n = {
@@ -3672,48 +2002,6 @@
 
 
 
-  function openGoogleMaps() {
-    var query = encodeURIComponent('リラックスM 熊本下通');
-    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    if (isIOS) {
-      // GoogleマップアプリのURLスキームを試みる
-      var appUrl = 'comgooglemaps://?q=' + query;
-      var webUrl = 'https://maps.google.com/maps?q=' + query;
-      var start = Date.now();
-      window.location = appUrl;
-      setTimeout(function() {
-        // アプリが開かなかった場合はWebで開く
-        if (Date.now() - start < 1500) {
-          window.open(webUrl, '_blank');
-        }
-      }, 800);
-    } else {
-      window.open('https://www.google.com/maps/search/?api=1&query=' + query, '_blank');
-    }
-  }
-
-  // アコーディオンメニュー（CSS側でmax-width:900pxのみ有効化）
-  var panels = document.querySelectorAll('.menu-panel');
-  if (panels.length > 0) panels[0].classList.add('accordion-open');
-  panels.forEach(function(panel) {
-    var heading = panel.querySelector('.menu-category-heading');
-    if (heading && !heading.dataset.accordion) {
-      heading.dataset.accordion = '1';
-      heading.addEventListener('click', function() {
-        panel.classList.toggle('accordion-open');
-      });
-    }
-  });
-
-  function toggleConceptDesc() {
-    var wrap = document.getElementById('conceptDescWrap');
-    var arrow = document.querySelector('.concept-read-more-arrow');
-    var text = document.querySelector('.concept-read-more-text');
-    var isOpen = wrap.classList.toggle('open');
-    arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-    text.textContent = isOpen ? '閉じる' : '続きを読む';
-  }
-
   function goTo(sectionId) {
     // aboutページ表示中ならメインに戻す
     if (document.getElementById('page-about').style.display !== 'none') {
@@ -3768,8 +2056,16 @@
     }, 4000);
   })();
 
-  // ヒーロースライドショー（PC: interior1固定）
-  // ※ スライドショー停止済み
+  // スライドショー
+  (function(){
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+  })();
 
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
@@ -3780,112 +2076,33 @@
   }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
 
-  // 画像フェードイン
-  const revealImgs = document.querySelectorAll('.reveal-img');
-  const imgObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        imgObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  revealImgs.forEach(el => imgObserver.observe(el));
-
-  // メニュータブのstickyトップをヘッダー高さに合わせる
+  // スマホ：ヒーロー以降でヘッダーをフェードアウト
   (function(){
+    const header = document.querySelector('.site-header');
     const menuTabs = document.getElementById('menuTabs');
-    if (menuTabs) menuTabs.style.top = '70px';
-  })();
-
-  // メニューカード ポップアップ（スマホのみ）
-  (function(){
-    // オーバーレイ作成
-    const overlay = document.createElement('div');
-    overlay.className = 'menu-modal-overlay';
-    overlay.innerHTML = '<div class="menu-modal"><div class="menu-modal-inner"></div><div class="menu-modal-footer"><button class="menu-modal-close">閉じる</button></div></div>';
-    document.body.appendChild(overlay);
-    const inner = overlay.querySelector('.menu-modal-inner');
-    const footer = overlay.querySelector('.menu-modal-footer');
-    const closeBtn = overlay.querySelector('.menu-modal-close');
-    let savedScrollY = 0;
-
-    // 電話ボタンをfooterに追加（固定）
-    const telBtn = document.createElement('a');
-    telBtn.href = 'tel:096-356-3444';
-    telBtn.className = 'menu-modal-tel-btn';
-    telBtn.innerHTML = `<span class="modal-tel-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.09 6.09l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span class="modal-tel-body"><span class="modal-tel-label">ご予約</span><span class="modal-tel-num">096-356-3444</span></span>`;
-    footer.insertBefore(telBtn, closeBtn);
-
-    function openModal(card) {
-      const img = card.querySelector('.menu-card-img');
-      const name = card.querySelector('.menu-card-name');
-      const desc = card.querySelector('.menu-card-desc');
-      const price = card.querySelector('.menu-card-price');
-      const heading = card.closest('.menu-panel')?.querySelector('.menu-category-heading');
-      let html = '';
-      if (name) html += `<div><p class="menu-modal-name">${name.innerText}</p></div>`;
-      if (desc) html += `<p class="menu-modal-desc">${desc.innerHTML}</p>`;
-      if (price) {
-        const priceClone = price.cloneNode(true);
-        priceClone.querySelectorAll('a.price-item').forEach(a => {
-          const span = document.createElement('span');
-          span.className = a.className;
-          span.innerHTML = a.innerHTML;
-          a.replaceWith(span);
-        });
-        html += `<div class="menu-modal-price-divider"></div>`;
-        const groups = priceClone.querySelectorAll('.stretch-group');
-        if (groups.length > 0) {
-          groups.forEach(g => {
-            html += `<div class="menu-modal-price-card"><div class="menu-modal-price">${g.innerHTML}</div></div>`;
-          });
-        } else {
-          html += `<div class="menu-modal-price-card"><div class="menu-modal-price">${priceClone.innerHTML}</div></div>`;
-        }
-      }
-      inner.innerHTML = html;
-      savedScrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${savedScrollY}px`;
-      document.body.style.width = '100%';
-      overlay.classList.add('open');
-    }
-
-    function closeModal() {
-      overlay.classList.remove('open');
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.offsetHeight; // force reflow
-      window.scrollTo({ top: savedScrollY, behavior: 'instant' });
-    }
-
-    closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-
-    function initPopup() {
+    function checkScroll() {
       if (window.innerWidth > 900) {
-        document.querySelectorAll('.menu-card').forEach(card => delete card.dataset.popup);
+        header.style.opacity = '';
+        header.style.pointerEvents = '';
+        if (menuTabs) menuTabs.style.top = '';
         return;
       }
-      document.querySelectorAll('.menu-card').forEach(card => {
-        if (card.dataset.popup) return;
-        card.dataset.popup = '1';
-        card.addEventListener('click', function(e) {
-          if (window.innerWidth > 900) return;
-          if (e.target.closest('a')) return;
-          openModal(this);
-        });
-      });
+      const hero = document.querySelector('.hero');
+      if (!hero) return;
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      if (heroBottom <= 0) {
+        header.style.opacity = '0';
+        header.style.pointerEvents = 'none';
+        if (menuTabs) menuTabs.style.top = '0px';
+      } else {
+        header.style.opacity = '1';
+        header.style.pointerEvents = '';
+        if (menuTabs) menuTabs.style.top = '70px';
+      }
     }
-    initPopup();
-    document.querySelectorAll('.menu-tab').forEach(tab => {
-      tab.addEventListener('click', () => setTimeout(initPopup, 50));
-    });
-    window.addEventListener('resize', () => {
-      if (window.innerWidth <= 900) initPopup();
-    });
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll);
+    checkScroll();
   })();
 
   // メニュータブ：スマホで3列グリッド
@@ -3923,76 +2140,30 @@
   // Hamburger menu
   const hamburger = document.getElementById('hamburger');
   const drawer = document.getElementById('mobileDrawer');
-  const floatMenu = document.getElementById('floatMenu');
-  const floatMenuTrigger = document.getElementById('floatMenuTrigger');
 
-  // PC用ドロワー
-  function openDrawer() {
-    if (!drawer) return;
-    drawer.classList.add('open');
-    if (hamburger) { hamburger.classList.add('open'); hamburger.setAttribute('aria-label', 'メニューを閉じる'); }
-  }
-  function closeDrawer() {
-    if (!drawer) return;
-    drawer.classList.remove('open');
-    if (hamburger) { hamburger.classList.remove('open'); hamburger.setAttribute('aria-label', 'メニューを開く'); }
-  }
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      drawer && drawer.classList.contains('open') ? closeDrawer() : openDrawer();
-    });
-  }
-
-  // スマホ用フローティングメニュー
-  function openFloatMenu() {
-    if (!floatMenu) return;
-    floatMenu.classList.add('open');
-    if (floatMenuTrigger) floatMenuTrigger.setAttribute('aria-label', 'メニューを閉じる');
-  }
-  function closeFloatMenu() {
-    if (!floatMenu) return;
-    floatMenu.classList.remove('open');
-    if (floatMenuTrigger) floatMenuTrigger.setAttribute('aria-label', 'メニューを開く');
-  }
-  if (floatMenuTrigger) {
-    floatMenuTrigger.addEventListener('click', () => {
-      floatMenu.classList.contains('open') ? closeFloatMenu() : openFloatMenu();
-    });
-  }
-
-  // メニュー外タップで閉じる
-  document.addEventListener('click', (e) => {
-    if (floatMenu && floatMenu.classList.contains('open')) {
-      if (!floatMenu.contains(e.target)) closeFloatMenu();
-    }
-    if (drawer && drawer.classList.contains('open')) {
-      if (!(hamburger && hamburger.contains(e.target)) && !drawer.contains(e.target)) closeDrawer();
+  hamburger.addEventListener('click', () => {
+    const isOpen = drawer.classList.contains('open');
+    if (isOpen) {
+      closeDrawer();
+    } else {
+      drawer.classList.add('open');
+      hamburger.classList.add('open');
+      hamburger.setAttribute('aria-label', 'メニューを閉じる');
     }
   });
 
-  // ローディングアニメーション
-  (function() {
-    var ll1 = document.getElementById('ll1');
-    var ll2 = document.getElementById('ll2');
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-label', 'メニューを開く');
+  }
 
-    var ll3 = document.getElementById('ll3');
-    var screen = document.getElementById('loading-screen');
-
-    // スクロール無効
-    document.body.style.overflow = 'hidden';
-
-    setTimeout(function() { ll1.classList.add('show'); }, 300);
-    setTimeout(function() { ll2.classList.add('show'); }, 900);
-    setTimeout(function() { ll3.classList.add('show'); }, 1500);
-    setTimeout(function() {
-      screen.classList.add('hide');
-      // フェードアウト開始と同時にスクロール有効化
-      document.body.style.overflow = '';
-    }, 3800);
-    setTimeout(function() { screen.style.display = 'none'; }, 5000);
-  })();
-
-  document.getElementById('copy-year').textContent = new Date().getFullYear();
+  // ドロワー外タップで閉じる
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !drawer.contains(e.target)) {
+      closeDrawer();
+    }
+  });
 </script>
 </body>
 </html>
