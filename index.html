@@ -1344,6 +1344,8 @@
       background: transparent !important;
     }
     .menu-grid { background: transparent !important; gap: .8rem !important; }
+    #p2 .menu-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    #p4 .menu-grid { grid-template-columns: repeat(2, 1fr) !important; }
     .menu-card { background: white !important; }
     .menu-card:hover { background: white !important; }
     .menu-card-name { color: #4a3020 !important; }
@@ -1358,6 +1360,7 @@
     .menu-card-price::before { display: none !important; }
     /* カード名：モーダルと同スタイル */
     .menu-card .menu-card-name {
+      font-size: 1rem !important;
       font-weight: 700 !important;
       border-bottom: 2px solid #2d5a3d !important;
       padding-bottom: .25rem !important;
@@ -1366,7 +1369,7 @@
     }
     /* 説明文：モーダルと同スタイル */
     .menu-card .menu-card-desc {
-      font-size: .9rem !important;
+      font-size: .75rem !important;
       line-height: 1.9 !important;
       color: #1a1a1a !important;
       margin-bottom: .8rem !important;
@@ -1486,10 +1489,9 @@
       padding-bottom: 5rem !important;
     }
     .noson-inner { display: flex !important; flex-direction: row !important; align-items: stretch !important; gap: 0 !important; width: 100% !important; }
-    .noson-visual { order: 0 !important; flex: 0 0 45% !important; margin: 0 !important; }
-    .noson-text { order: 1 !important; flex: 1 !important; padding-left: 0.5rem !important; }
+    .noson-visual { order: 0 !important; flex: 0 0 25% !important; margin: 0 !important; }
+    .noson-text { order: 1 !important; flex: 1 !important; padding-left: 2.5rem !important; }
     .noson-slideshow { width: 100% !important; height: 100% !important; min-height: 320px !important; border-radius: 0 !important; overflow: hidden; }
-    .noson-section > .container { padding: 5rem 4rem 5rem 0 !important; max-width: 100% !important; }
     /* アクセス */
     .access-section { background: #f5f0eb !important; padding: 0 !important; }
     .access-section > .container {
@@ -2632,6 +2634,13 @@
     color: white;
     margin-top: .2rem;
   }
+  @media(min-width:901px){
+    .loading-sub { font-size: 28px !important; }
+    .loading-desc { font-size: 28px !important; }
+    .loading-en { font-size: 22px !important; }
+    #loading-screen { gap: 4rem !important; }
+    .loading-logo { width: 260px !important; }
+  }
 </style>
 </head>
 <body>
@@ -2647,7 +2656,7 @@
     <span class="loading-en">Relaxation Massage</span>
   </div>
   <div class="loading-line" id="ll3">
-    <img src="RELAX_M_logo.jpg" alt="リラックスM" style="width:180px;height:auto;border-radius:12px;padding:12px;background:white;">
+    <img src="RELAX_M_logo.jpg" alt="リラックスM" class="loading-logo" style="width:180px;height:auto;border-radius:12px;padding:12px;background:white;">
   </div>
 </div>
 
@@ -2668,7 +2677,7 @@
     <a href="javascript:void(0)" onclick="goTo('menu');closeFloatMenu()">施術メニュー</a>
     <a href="javascript:void(0)" onclick="goTo('staff');closeFloatMenu()">セラピスト紹介</a>
     <a href="javascript:void(0)" onclick="goTo('access');closeFloatMenu()">アクセス</a>
-    <a href="https://beauty.hotpepper.jp/kr/slnH000269241/blog" target="_blank" rel="noopener noreferrer" onclick="closeFloatMenu()">スタッフブログ</a>
+    <a href="javascript:void(0)" onclick="goTo('noson');closeFloatMenu()">noson Premium</a>
     <a href="javascript:void(0)" onclick="goTo('recruit');closeFloatMenu()">求人</a>
     <a href="javascript:void(0)" onclick="goTo('roomtherapis');closeFloatMenu()">Room Therapis</a>
     <a href="javascript:void(0)" onclick="showPage('about');closeFloatMenu()">リラックスMについて</a>
@@ -2894,7 +2903,7 @@
     <!-- 集中オプション -->
     <div id="p2" class="menu-panel reveal">
       <h3 class="menu-category-heading">集中オプション</h3>
-      <div class="menu-grid">
+      <div class="menu-grid menu-grid-2">
         <div class="menu-card">
           <img class="menu-card-img" src="menu/Ganseihirou.png" alt="眼精疲労コース">
           <div class="menu-card-body">
@@ -3413,7 +3422,7 @@
 </section>
 
 <!-- NOSON -->
-<section class="noson-section">
+<section class="noson-section" id="noson">
   <div class="container">
     <!-- PC専用: 左サイド画像 -->
     <div class="noson-inner reveal">
