@@ -1008,11 +1008,11 @@
   }
   .sns-banner-inner { padding: 1.2rem 1.4rem; }
   .sns-banner-title { font-family: 'Noto Serif JP', serif; font-size: 1.15rem; font-weight: 500; color: #1a1a1a; letter-spacing: .15em; text-align: center; margin-bottom: 1rem; -webkit-font-smoothing: antialiased; }
-  .sns-banner-row { display: flex; flex-direction: column; gap: .8rem; }
-  .sns-banner-link { display: flex; align-items: center; justify-content: center; gap: .8rem; text-decoration: none; padding: .8rem 1rem; transition: opacity .3s; }
+  .sns-banner-row { display: flex; flex-direction: column; gap: .8rem; align-items: center; }
+  .sns-banner-link { display: flex; align-items: center; justify-content: flex-start; gap: .8rem; text-decoration: none; padding: .8rem 1rem; transition: opacity .3s; width: 100%; max-width: 260px; }
   .sns-banner-link:hover { opacity: .75; }
   .sns-banner-icon { width: 72px; height: 72px; border-radius: 12px; flex-shrink: 0; }
-  .sns-banner-name { font-family: 'Noto Sans JP', sans-serif; font-size: .95rem; font-weight: 400; color: #1a1a1a; letter-spacing: .05em; -webkit-font-smoothing: antialiased; }
+  .sns-banner-name { font-family: 'Noto Sans JP', sans-serif; font-size: .95rem; font-weight: 400; color: #1a1a1a; letter-spacing: .05em; -webkit-font-smoothing: antialiased; white-space: nowrap; }
 
   /* 白まいのブログバナー */
   .shiromain-banner {
@@ -3317,6 +3317,7 @@
             <p class="sns-banner-name">Facebook</p>
           </a>
           <a href="https://ameblo.jp/mrelax/" target="_blank" rel="noopener noreferrer" class="sns-banner-link sns-blog-link">
+            <img src="shiromai.jpg" alt="白まい" class="sns-banner-icon" style="border-radius:50%;object-fit:cover;">
             <p class="sns-banner-name">白まいのブログ</p>
           </a>
         </div>
