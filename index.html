@@ -623,6 +623,7 @@
   }
   .menu-modal-inner {
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 1.5rem 1.5rem 1rem;
     flex: 1;
     overscroll-behavior: contain;
@@ -696,6 +697,18 @@
   }
   .menu-modal-price .price-duration { color: #1a1a1a; }
   .menu-modal-price .price-amount { color: #1a1a1a; }
+  .menu-modal-price .price-item {
+    display: grid !important;
+    grid-template-columns: 3rem auto;
+    grid-template-areas: "dur old" ". new";
+    gap: 0.1rem 0.5rem !important;
+    white-space: nowrap;
+  }
+  .menu-modal-price .price-duration { grid-area: dur; }
+  .menu-modal-price .price-old { grid-area: old; }
+  .menu-modal-price .price-arrow { display: none !important; }
+  .menu-modal-price .price-new { grid-area: new; }
+  .menu-modal-price .price-new::before { content: '→'; margin-right: 0.3rem; color: #1a1a1a; }
   .menu-modal-price .price-new { color: #c0392b !important; }
   .menu-modal-price .price-old { color: #999 !important; }
   .menu-modal-tel-btn {
