@@ -2001,6 +2001,7 @@
       position: absolute; inset: 0;
     }
     .hero-overlay { display: none; }
+    .hs-interior1 { background-image: url('sp/interior1.jpg') !important; }
     .hero-logo-mobile {
       display: block;
       position: absolute; top: .8rem; left: .8rem; z-index: 2;
@@ -2784,7 +2785,7 @@
 <section class="hero" id="home">
   <div class="hero-inner">
   <div class="hero-slideshow">
-    <div class="hero-slide active" style="background-image:url('interior1.png')"></div>
+    <div class="hero-slide active hs-interior1" style="background-image:url('interior1.png')"></div>
     <img src="logo2.png" alt="リラックスM" class="hero-logo-mobile">
   </div>
   <!-- PC版ロゴ（画像左上・絶対配置） -->
@@ -2835,7 +2836,10 @@
 <section id="intro">
   <div class="concept-wrap-desktop">
     <div class="concept-img-wrap reveal-img">
-      <img src="interior2.png" alt="リラックスM 店内">
+      <picture>
+        <source media="(max-width:900px)" srcset="sp/interior2.jpg">
+        <img src="interior2.png" alt="リラックスM 店内">
+      </picture>
     </div>
     <div class="concept-body reveal">
       <div class="concept-title-wrap">
@@ -2857,7 +2861,10 @@
 <!-- MENU -->
 <section class="menu-section" id="menu">
   <div class="menu-section-img reveal-img">
-    <img src="menu/rinpa.png" alt="施術イメージ">
+    <picture>
+      <source media="(max-width:900px)" srcset="sp/menu/rinpa.jpg">
+      <img src="menu/rinpa.png" alt="施術イメージ">
+    </picture>
   </div>
   <div class="container">
     <div class="reveal">
@@ -2881,7 +2888,7 @@
       <h3 class="menu-category-heading">もみほぐし・足つぼ</h3>
       <div class="menu-grid">
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/momihogushi.jpg" alt="もみほぐし">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/momihogushi.jpg"><img class="menu-card-img" src="menu/momihogushi.jpg" alt="もみほぐし"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">もみほぐし</h3>
             <p class="menu-card-desc">おひとりおひとりに合った施術で自然治癒力を最大限に引き出します。</p>
@@ -2894,7 +2901,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/Ashitsubo.png" alt="足つぼマッサージ">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/Ashitsubo.jpg"><img class="menu-card-img" src="menu/Ashitsubo.png" alt="足つぼマッサージ"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">足つぼマッサージ</h3>
             <p class="menu-card-desc">血行促進・新陳代謝が活発に。反射区を刺激し弱った臓器・器官を活性化。ふくらはぎのリンパも流してむくみを解消。（クリーム＆オイル使用）</p>
@@ -2906,7 +2913,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/MomihogushiAshitsubo.png" alt="もみほぐし＆足つぼ セットコース">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/MomihogushiAshitsubo.jpg"><img class="menu-card-img" src="menu/MomihogushiAshitsubo.png" alt="もみほぐし＆足つぼ セットコース"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">もみほぐし＆足つぼ セットコース</h3>
             <p class="menu-card-desc">全身もみほぐしと足つぼをお得なセット価格で。全身リフレッシュしたい方におすすめ。</p>
@@ -2925,7 +2932,7 @@
       <h3 class="menu-category-heading">集中オプション</h3>
       <div class="menu-grid menu-grid-2">
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/Ganseihirou.png" alt="眼精疲労コース">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/Ganseihirou.jpg"><img class="menu-card-img" src="menu/Ganseihirou.png" alt="眼精疲労コース"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">眼精疲労コース</h3>
             <p class="menu-card-desc">眼の上を温めた後、頭から首の筋肉をゆっくりほぐします。パソコン・スマホによる目の疲れ・脳ストレス・頭痛にも効果あり。</p>
@@ -2935,7 +2942,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/kubiserapi.png" alt="首セラピー">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/kubiserapi.jpg"><img class="menu-card-img" src="menu/kubiserapi.png" alt="首セラピー"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">首セラピー</h3>
             <p class="menu-card-desc">クリームを使ってコリとリンパを流します。首まわりの張りや疲れをピンポイントでケア。</p>
@@ -2945,7 +2952,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/handserapi.png" alt="ハンドセラピー">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/handserapi.jpg"><img class="menu-card-img" src="menu/handserapi.png" alt="ハンドセラピー"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">ハンドセラピー</h3>
             <p class="menu-card-desc">クリームを使って肘から下を中心にほぐします。デスクワーク・スマホ疲れの手指・前腕に。</p>
@@ -2955,7 +2962,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/personalstretch.png" alt="パーソナルストレッチ">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/personalstretch.jpg"><img class="menu-card-img" src="menu/personalstretch.png" alt="パーソナルストレッチ"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">パーソナルストレッチ</h3>
             <p class="menu-card-desc">腰 / 背面 / 足 / 肩 の各部位に特化したストレッチ。気になる箇所を集中的にほぐします。</p>
@@ -2975,7 +2982,7 @@
       <h3 class="menu-category-heading">リンパ・筋膜</h3>
       <div class="menu-grid menu-grid-2">
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/rinpa.png" alt="リンパドレナージュ">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/rinpa.jpg"><img class="menu-card-img" src="menu/rinpa.png" alt="リンパドレナージュ"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">リンパドレナージュ（リンパマッサージ）</h3>
             <p class="menu-card-desc">リラックス効果の高いアロマオイルを使用し、癒しとほぐしを融合させたオリジナル手法でより深い極上のリラクゼーションへ。女性スタッフ対応。<br>アロマはお好みで：ラベンダー・ベーシック・ゼラニウム・ローズマリー・グレープフルーツ<br>※キャンペーン価格</p>
@@ -2987,7 +2994,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/kinmaku.png" alt="筋膜リリース">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/kinmaku.jpg"><img class="menu-card-img" src="menu/kinmaku.png" alt="筋膜リリース"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">筋膜リリース</h3>
             <p class="menu-card-desc">深部まで届く筋膜リリース。酷い肩こり・坐骨神経痛・膝の痛み・姿勢改善に。（導入記念価格）</p>
@@ -3021,7 +3028,7 @@
       <h3 class="menu-category-heading">ストレッチ・骨盤</h3>
       <div class="menu-grid">
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/stretch.png" alt="お悩み撃退ストレッチ">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/stretch.jpg"><img class="menu-card-img" src="menu/stretch.png" alt="お悩み撃退ストレッチ"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">お悩み撃退ストレッチ</h3>
             <p class="menu-card-desc">プロフェッショナルパーソナルストレッチディプロマ取得者による施術。今より必ず良い状態へ導きます。腰痛・肩こり・足のむくみ 各種対応。</p>
@@ -3079,7 +3086,7 @@
       <h3 class="menu-category-heading">ヘッドスパ</h3>
       <div class="menu-grid menu-grid-2">
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/dryhead.jpg" alt="ドライヘッドスパ">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/dryhead.jpg"><img class="menu-card-img" src="menu/dryhead.jpg" alt="ドライヘッドスパ"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">ドライヘッドスパ</h3>
             <p class="menu-card-desc">選べるアロマジェルで頭皮をやさしく・強くマッサージ。脳疲労解消・首コリにも。寝落ちすること間違いなし！</p>
@@ -3090,7 +3097,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/kassa.jpg" alt="かっさヘッドスパ">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/kassa.jpg"><img class="menu-card-img" src="menu/kassa.jpg" alt="かっさヘッドスパ"></picture>
           <div class="menu-card-body">
             <h3 class="menu-card-name">かっさヘッドスパ</h3>
             <p class="menu-card-desc">頭皮やわやわ、お顔もリフトアップ！かっさで頭皮の血行促進・エイジング対策。60分はクリームで肩甲骨・デコルテもしっかりほぐします。</p>
@@ -3108,7 +3115,7 @@
       <h3 class="menu-category-heading">VIPコース</h3>
       <div class="menu-grid">
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/ume.jpg" alt="VIPコース 梅">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/ume.jpg"><img class="menu-card-img" src="menu/ume.jpg" alt="VIPコース 梅"></picture>
           <div class="menu-card-body">
           <h3 class="menu-card-name">VIPコース 梅</h3>
           <p class="menu-card-desc">足つぼ ＋ もみほぐし ＋ ハンドセラピー or 首セラピー</p>
@@ -3118,7 +3125,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/take.jpg" alt="VIPコース 竹">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/take.jpg"><img class="menu-card-img" src="menu/take.jpg" alt="VIPコース 竹"></picture>
           <div class="menu-card-body">
           <h3 class="menu-card-name">VIPコース 竹</h3>
           <p class="menu-card-desc">足つぼ ＋ 骨盤調整 ＋ ヘッドセラピー</p>
@@ -3128,7 +3135,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <img class="menu-card-img" src="menu/matsu.jpg" alt="VIPコース 松">
+          <picture><source media="(max-width:900px)" srcset="sp/menu/matsu.jpg"><img class="menu-card-img" src="menu/matsu.jpg" alt="VIPコース 松"></picture>
           <div class="menu-card-body">
           <h3 class="menu-card-name">VIPコース 松</h3>
           <p class="menu-card-desc">骨盤調整 ＋ リンパドレナージュ ＋ ヘッドセラピー</p>
@@ -3352,7 +3359,10 @@
   <div class="container">
     <!-- PC専用: 外観写真（左サイド）デフォルトは非表示 -->
     <div class="access-gaikan-side">
-      <img src="S__35184646.jpg" alt="リラックスM外観" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 75%;">
+      <picture>
+        <source media="(max-width:900px)" srcset="sp/S__35184646.jpg">
+        <img src="S__35184646.jpg" alt="リラックスM外観" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 75%;">
+      </picture>
     </div>
     <!-- 右側コンテンツ -->
     <div class="access-right">
@@ -3368,7 +3378,10 @@
             width="100%" height="100%" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="access-gaikan">
-          <img src="S__35184646.jpg" alt="リラックスM外観" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 75%;">
+          <picture>
+            <source media="(max-width:900px)" srcset="sp/S__35184646.jpg">
+            <img src="S__35184646.jpg" alt="リラックスM外観" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 75%;">
+          </picture>
         </div>
         <div class="access-detail">
           <div class="access-item" style="position:relative;">
@@ -3547,7 +3560,10 @@
 <!-- ROOM THERAPIS -->
 <section class="roomtherapis-section" id="roomtherapis">
   <div class="section-top-img reveal-img">
-    <img src="roomtherapis1.jpg" alt="RoomTherapis">
+    <picture>
+      <source media="(max-width:900px)" srcset="sp/roomtherapis1.jpg">
+      <img src="roomtherapis1.jpg" alt="RoomTherapis">
+    </picture>
   </div>
   <div class="container">
     <div class="reveal">
