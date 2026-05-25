@@ -1515,30 +1515,24 @@
     /* アクセス */
     .access-section { background: #f5f0eb !important; padding: 0 !important; }
     .access-section > .container {
-      display: flex !important;
-      flex-direction: row !important;
-      gap: 2.5rem !important;
-      align-items: center !important;
+      display: block !important;
       padding-top: 5rem !important;
       padding-bottom: 5rem !important;
     }
-    .access-gaikan-side {
-      display: block !important;
-      flex: 0 0 42%;
-      align-self: stretch;
-      border-radius: 16px;
-      overflow: hidden;
-      margin: 0 !important;
-    }
-    .access-right { flex: 1; min-width: 0; }
-    .access-gaikan { display: none !important; }
+    .access-gaikan-side { display: none !important; }
+    .access-right { width: 100%; }
     .access-grid {
-      grid-template-columns: 1fr !important;
-      margin-top: 1.5rem !important;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      grid-template-areas: "map gaikan" "detail detail" !important;
+      margin-top: 2rem !important;
       gap: 1.5rem !important;
     }
-    .access-map { aspect-ratio: 4/3; }
+    .access-map { grid-area: map; aspect-ratio: 4/3; border-radius: 12px; overflow: hidden; }
+    .access-gaikan { display: block !important; grid-area: gaikan; aspect-ratio: 4/3; border-radius: 12px; overflow: hidden; }
+    .access-detail { grid-area: detail; }
     .access-section .section-title-wrap { width: fit-content; }
+    .access-section .hero-info-icon { display: none !important; }
     /* セラピスト紹介 文字色 */
     .staff-name { color: #000 !important; font-size: .95rem !important; }
     .staff-bio { color: #555 !important; }
@@ -2384,6 +2378,9 @@
     /* ===== アクセス ===== */
     .access-section { background: #f5f0eb; }
     .access-grid { grid-template-columns: 1fr; gap: .6rem; }
+    .access-map { border-radius: 16px; overflow: hidden; order: 2; }
+    .access-gaikan { border-radius: 16px; overflow: hidden; order: 1; }
+    .access-detail { order: 3; }
     .access-section .section-title {
       font-family: 'Noto Serif JP', serif;
       color: #000; font-weight: 500;
