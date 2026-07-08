@@ -1747,44 +1747,29 @@
   .reveal-img.visible img { transform:scale(1); }
 
   /* LANG SWITCHER */
-  .lang-switcher {
-    position: relative;
-    flex-shrink: 0;
-    padding: 0 .4rem;
-    display: flex; align-items: center;
-    height: 100%;
+  /* Google翻訳ウィジェット */
+  #google_translate_element {
+    padding: .6rem 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,.12);
   }
-  .lang-trigger {
-    display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: .1rem;
-    font-family: 'Noto Sans JP', sans-serif; font-weight: 500;
-    color: white; background: none; border: none;
-    cursor: pointer; padding: .3rem .7rem;
-    border: 1px solid transparent;
-    transition: all .2s; white-space: nowrap;
-    height: 100%;
+  #google_translate_element .goog-te-gadget-simple {
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(255,255,255,.3) !important;
+    padding: .4rem .8rem !important;
+    border-radius: 4px;
+    width: 100%;
+    display: block !important;
   }
-  .lang-trigger-top { font-size: .72rem; color: white; }
-  .lang-trigger-bottom { font-size: .95rem; font-weight: 700; }
-  .lang-trigger:hover { background: rgba(255,255,255,.1); color: white; }
-  .lang-dropdown {
-    display: none;
-    position: absolute; top: calc(100% + 6px); right: 0;
-    background: var(--bark);
-    border: 1px solid rgba(158,207,170,.3);
-    box-shadow: 0 8px 24px rgba(0,0,0,.3);
-    min-width: 130px;
-    z-index: 300;
+  #google_translate_element .goog-te-gadget-simple a,
+  #google_translate_element .goog-te-gadget-simple span {
+    color: rgba(255,255,255,.85) !important;
+    font-family: 'Noto Sans JP', sans-serif !important;
+    font-size: .8rem !important;
+    text-decoration: none !important;
   }
-  .lang-dropdown.open { display: block; }
-  .lang-btn {
-    display: block; width: 100%;
-    font-family: 'Jost', sans-serif; font-size: .72rem; font-weight: 400;
-    color: rgba(255,255,255,.75); background: none; border: none;
-    cursor: pointer; padding: .7rem 1rem; text-align: left;
-    transition: all .2s;
-  }
-  .lang-btn:hover { color: white; background: rgba(255,255,255,.08); }
-  .lang-btn.active { color: white; font-weight: 700; }
+  #google_translate_element .goog-te-gadget-simple img { display: none !important; }
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0 !important; }
 
   /* HAMBURGER */
   .hamburger {
@@ -2699,6 +2684,7 @@
     <a href="javascript:void(0)" onclick="goTo('recruit');closeFloatMenu()">求人</a>
     <a href="javascript:void(0)" onclick="goTo('roomtherapis');closeFloatMenu()">Room Therapis</a>
     <a href="javascript:void(0)" onclick="showPage('about');closeFloatMenu()">リラックスMについて</a>
+    <div id="google_translate_element"></div>
     <div class="float-menu-sns">
       <a href="https://www.instagram.com/relax_m_kumamoto/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -2745,19 +2731,6 @@
     </a>
 
 
-    <!-- 言語切り替え -->
-    <div class="lang-switcher">
-      <button class="lang-trigger" id="langTrigger" onclick="toggleLangMenu()">
-        <span class="lang-trigger-top">🌐 Language</span>
-        <span class="lang-trigger-bottom">日本語 ▾</span>
-      </button>
-      <div class="lang-dropdown" id="langDropdown">
-        <button class="lang-btn active" onclick="setLang('ja')">日本語</button>
-        <button class="lang-btn" onclick="setLang('en')">English</button>
-        <button class="lang-btn" onclick="setLang('zh')">中文</button>
-        <button class="lang-btn" onclick="setLang('ko')">한국어</button>
-      </div>
-    </div>
 
     <!-- ハンバーガー（スマホのみ表示） -->
     <button class="hamburger" id="hamburger" aria-label="メニューを開く">
@@ -3639,67 +3612,15 @@
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
 
-  // ===== 多言語対応 =====
-  const i18n = {
-    ja: {
-      nav_menu: 'メニュー', nav_staff: 'セラピスト紹介', nav_access: 'アクセス',
-      nav_recruit: '求人', tel_label: 'ご予約・お問い合わせ',
-      reserve_line1: 'ネット', reserve_line2: 'で予約',
-      hero_sub: '熊本下通 ボディケアサロン',
-      sec_menu: '施術メニュー', sec_staff: 'セラピスト紹介',
-      sec_access: 'アクセス', sec_reserve: 'ご予約', sec_recruit: 'セラピスト募集'
-    },
-    en: {
-      nav_menu: 'Menu', nav_staff: 'Therapists', nav_access: 'Access',
-      nav_recruit: 'Hiring', tel_label: 'Reservation & Inquiry',
-      reserve_line1: 'Book', reserve_line2: 'Online',
-      hero_sub: 'Body Care Salon – Shimotori, Kumamoto',
-      sec_menu: 'Treatment Menu', sec_staff: 'Our Therapists',
-      sec_access: 'Access', sec_reserve: 'Reservation', sec_recruit: 'Join Our Team'
-    },
-    zh: {
-      nav_menu: '菜单', nav_staff: '治疗师介绍', nav_access: '交通',
-      nav_recruit: '招聘', tel_label: '预约・咨询',
-      reserve_line1: '网络', reserve_line2: '预约',
-      hero_sub: '熊本下通 身体护理沙龙',
-      sec_menu: '施术菜单', sec_staff: '治疗师介绍',
-      sec_access: '交通', sec_reserve: '预约', sec_recruit: '招募治疗师'
-    },
-    ko: {
-      nav_menu: '메뉴', nav_staff: '테라피스트 소개', nav_access: '오시는 길',
-      nav_recruit: '구인', tel_label: '예약・문의',
-      reserve_line1: '온라인', reserve_line2: '예약',
-      hero_sub: '구마모토 시모토리 바디케어 살롱',
-      sec_menu: '시술 메뉴', sec_staff: '테라피스트 소개',
-      sec_access: '오시는 길', sec_reserve: '예약', sec_recruit: '테라피스트 모집'
-    }
-  };
-
-  function toggleLangMenu() {
-    document.getElementById('langDropdown').classList.toggle('open');
+  // ===== Google翻訳 =====
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'ja',
+      includedLanguages: 'en,zh-CN,ko',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
   }
-
-  function setLang(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (i18n[lang] && i18n[lang][key]) el.textContent = i18n[lang][key];
-    });
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-    document.documentElement.lang = lang;
-    // ドロップダウンを閉じてボタン表示を更新
-    document.getElementById('langDropdown').classList.remove('open');
-    const names = {ja:'日本語', en:'English', zh:'中文', ko:'한국어'};
-    document.querySelector('#langTrigger .lang-trigger-bottom').textContent = names[lang] + ' ▾';
-  }
-
-  // ドロップダウン外クリックで閉じる
-  document.addEventListener('click', (e) => {
-    const switcher = document.querySelector('.lang-switcher');
-    if (!switcher.contains(e.target)) {
-      document.getElementById('langDropdown').classList.remove('open');
-    }
-  });
 
 
 
@@ -4039,5 +3960,6 @@
     });
   });
 </script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
