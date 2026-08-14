@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,8 @@
   gtag('js', new Date());
   gtag('config', 'G-XV5KF98FZ2');
 </script>
-<title>リラックスM — 熊本下通リラクゼーション</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<title>Relax M — 熊本下通放鬆按摩</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
   :root {
     --clay: #4a7c59;
@@ -28,7 +28,7 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; font-size: 22px; }
   @media(max-width:900px){ html { font-size: 20px; } }
-  body { font-family:'Noto Sans JP',sans-serif; background:var(--warm-white); color:var(--dark); overflow-x:hidden; }
+  body { font-family:'Noto Sans TC','Noto Sans JP',sans-serif; background:var(--warm-white); color:var(--dark); overflow-x:hidden; }
 
   /* FIXED HEADER（廃止） */
   .site-header { display: none; }
@@ -116,56 +116,6 @@
     min-height: 500px;
     overflow: hidden;
   }
-  .lang-popup-backdrop {
-    position: fixed; inset: 0;
-    z-index: 998;
-    background: rgba(0,0,0,.55);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    opacity: 0; pointer-events: none;
-    transition: opacity .25s ease;
-  }
-  .lang-popup-backdrop.show { opacity: 1; pointer-events: auto; }
-  .lang-popup {
-    position: fixed;
-    top: 50%; left: 50%;
-    z-index: 999;
-    width: min(90vw, 420px);
-    background: #f5f0eb;
-    border-radius: 20px;
-    padding: 1.8rem 1.6rem;
-    display: flex; flex-direction: column; align-items: center;
-    gap: 1.3rem;
-    text-align: center;
-    box-shadow: 0 8px 40px rgba(0,0,0,.35);
-    transform: translate(-50%, -50%) scale(.95) translateY(-300vh);
-    pointer-events: none;
-    transition: transform .3s cubic-bezier(.32,.72,0,1);
-  }
-  .lang-popup.show { pointer-events: auto; transform: translate(-50%, -50%) scale(1) translateY(0); }
-  .lang-popup-text {
-    color: #1a1a1a;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: .88rem;
-    line-height: 1.8;
-    -webkit-font-smoothing: antialiased;
-  }
-  .lang-popup-btns { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; width: 100%; }
-  .lang-popup-btns button {
-    background: #2d5a3d;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 500;
-    font-size: .82rem;
-    padding: .6rem .8rem;
-    cursor: pointer;
-    transition: opacity .15s;
-    -webkit-font-smoothing: antialiased;
-    white-space: nowrap;
-  }
-  .lang-popup-btns button:hover { opacity: .85; }
   .hero-slideshow {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
@@ -176,7 +126,7 @@
     opacity: 0; transition: opacity 1.5s ease-in-out;
   }
   .hero-slide.active { opacity: 1; }
-  /* 画像の上に重ねるグラデーションオーバーレイ */
+  /* 畫像の上に重ねるグラデーションオーバーレイ */
   .hero-overlay {
     position: absolute; inset: 0;
     background: linear-gradient(
@@ -214,7 +164,7 @@
   .hero-logo-mobile { display: none; }
   .hero-concept-block { display: none; }
 
-  /* ===== HERO PC: 左画像 / 右情報パネル ===== */
+  /* ===== HERO PC: 左畫像 / 右情報パネル ===== */
   @media(min-width:901px) {
     .hero {
       display: flex !important;
@@ -237,7 +187,7 @@
       position: relative !important;
       gap: 0 !important;
     }
-    /* 左: 画像（残り全幅） */
+    /* 左: 畫像（殘り全幅） */
     .hero-slideshow {
       position: relative !important;
       flex: 1 1 auto !important;
@@ -257,7 +207,7 @@
     }
     /* グラデーションオーバーレイ：PC版は非表示 */
     .hero-overlay { display: none !important; }
-    /* PC版ロゴ：画像左上に絶対配置 */
+    /* PC版ロゴ：畫像左上に絶対配置 */
     .pc-float-logo {
       position: absolute !important;
       top: 1.2rem !important;
@@ -643,7 +593,7 @@
     .menu-card { cursor: pointer; }
     .menu-card-body { padding: .8rem; }
     .menu-card-name { display:flex; flex-direction:column; align-items:flex-start; margin-bottom:0; font-size:1rem; }
-    .menu-card-name::after { content:'詳細を見る'; font-size:.72rem; font-weight:400; color:var(--sage); margin-top:.4rem; letter-spacing:.05em; border-bottom: 1px dotted var(--sage); padding-bottom:1px; }
+    .menu-card-name::after { content:'檢視詳情'; font-size:.72rem; font-weight:400; color:var(--sage); margin-top:.4rem; letter-spacing:.05em; border-bottom: 1px dotted var(--sage); padding-bottom:1px; }
     .menu-card-desc,
     .menu-card-price { display:none; }
   }
@@ -818,7 +768,7 @@
   .price-duration { font-family:'Noto Sans JP',sans-serif; font-size:.82rem; font-weight:500; color:#1a1a1a; min-width: 3rem; }
   .price-amount { font-family:'Noto Sans JP',sans-serif; font-size:.88rem; font-weight:500; color:#1a1a1a; }
   .menu-card-price::before {
-    content: '▼ タップで予約';
+    content: '▼ 點選預約';
     display: block; width: 100%;
     font-size: .68rem; color: #c0392b;
     letter-spacing: .03em; margin-bottom: .4rem; opacity: .8;
@@ -912,7 +862,7 @@
   .staff-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
   .staff-avatar-emoji { font-size:2rem; opacity:.6; }
   .staff-role { font-family:'Jost',sans-serif; font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; color:var(--sage); margin-bottom:.25rem; }
-  .staff-name { font-family:'Noto Sans JP',sans-serif; font-size:1.15rem; font-weight:400; color:var(--bark); text-align:left; white-space:nowrap; }
+  .staff-name { font-family:'Noto Sans JP',sans-serif; font-size:1.05rem; font-weight:400; color:var(--bark); text-align:left; white-space:normal; line-height:1.3; }
   .staff-more { margin-top:3rem; padding:1.5rem 2rem; background:var(--parchment); border-left:3px solid var(--sand); font-size:1rem; font-weight:400; line-height:2; color:var(--clay); }
 
   /* ACCESS */
@@ -1365,13 +1315,13 @@
     }
     .recruit-contact-text { margin-bottom: 0 !important; white-space: nowrap; }
     .sp-only-br { display: none !important; }
-    /* ブログ横並び・同じ高さ */
+    /* ブログ橫並び・同じ高さ */
     .blog-row { display: flex; gap: 1rem; align-items: stretch; }
     .blog-row .blog-banner,
     .blog-row .shiromain-banner { flex: 1; margin: 0; display: flex; flex-direction: column; }
     .blog-row .blog-banner-inner,
     .blog-row .shiromain-banner-inner { flex: 1; box-sizing: border-box; }
-    /* SNS横並び */
+    /* SNS橫並び */
     .sns-banner-row { flex-direction: row !important; flex-wrap: wrap !important; justify-content: center; gap: 2rem !important; }
     .sns-banner-row .sns-blog-link { flex-basis: 100% !important; justify-content: center; }
     /* 全セクションタイトル共通（PC） */
@@ -1470,7 +1420,7 @@
       text-decoration: none !important;
       border-bottom: none !important;
     }
-    /* 指名料・キャッシュレス 横並び */
+    /* 指名料・キャッシュレス 橫並び */
     .menu-bottom-row {
       display: flex !important;
       gap: 1rem;
@@ -1590,7 +1540,7 @@
     /* セラピスト紹介 文字色 */
     .staff-name { color: #000 !important; font-size: .95rem !important; }
     .staff-bio { color: #555 !important; }
-    /* セラピスト紹介 画像サイズ統一 */
+    /* セラピスト紹介 畫像サイズ統一 */
     .staff-grid { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
     .staff-card { min-width: 0; }
     .staff-avatar {
@@ -1802,6 +1752,56 @@
 
   /* LANG SWITCHER */
   /* Google翻訳ウィジェット */
+  .lang-popup-backdrop {
+    position: fixed; inset: 0;
+    z-index: 998;
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s ease;
+  }
+  .lang-popup-backdrop.show { opacity: 1; pointer-events: auto; }
+  .lang-popup {
+    position: fixed;
+    top: 50%; left: 50%;
+    z-index: 999;
+    width: min(90vw, 420px);
+    background: #f5f0eb;
+    border-radius: 20px;
+    padding: 1.8rem 1.6rem;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 1.3rem;
+    text-align: center;
+    box-shadow: 0 8px 40px rgba(0,0,0,.35);
+    transform: translate(-50%, -50%) scale(.95) translateY(-300vh);
+    pointer-events: none;
+    transition: transform .3s cubic-bezier(.32,.72,0,1);
+  }
+  .lang-popup.show { pointer-events: auto; transform: translate(-50%, -50%) scale(1) translateY(0); }
+  .lang-popup-text {
+    color: #1a1a1a;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .88rem;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  .lang-popup-btns { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; width: 100%; }
+  .lang-popup-btns button {
+    background: #2d5a3d;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    font-size: .82rem;
+    padding: .6rem .8rem;
+    cursor: pointer;
+    transition: opacity .15s;
+    -webkit-font-smoothing: antialiased;
+    white-space: nowrap;
+  }
+  .lang-popup-btns button:hover { opacity: .85; }
   .float-menu-lang {
     padding: .65rem 1.2rem;
     border-bottom: 1px solid rgba(255,255,255,.07);
@@ -2170,7 +2170,7 @@
     }
                             .hero-divider { margin: .6rem 0; }
 
-    /* ===== イントロ画像 ===== */
+    /* ===== イントロ畫像 ===== */
     .concept-img-wrap {
       display: block;
       width: 100%; aspect-ratio: 4/3;
@@ -2347,7 +2347,7 @@
     .staff-section { background: #f5f0eb; padding-top: 0; }
     .staff-section > .container { padding-top: 2.5rem; }
 
-    /* セクションタイトル・区切り線 */
+    /* セクションタイトル・區切り線 */
     .staff-section .section-title {
       font-family: 'Noto Serif JP', serif;
       color: #000; font-weight: 500;
@@ -2654,7 +2654,7 @@
     .footer-inner { flex-direction: column; }
   }
 
-  /* ローディング画面 */
+  /* ローディング畫面 */
   #loading-screen {
     position: fixed; inset: 0; z-index: 9999;
     background: var(--bark);
@@ -2717,42 +2717,42 @@
 </head>
 <body>
 
-<!-- ローディング画面 -->
+<!-- ローディング畫面 -->
 <div id="loading-screen">
   <div class="loading-line" id="ll1">
     <span class="loading-sub">熊本下通&nbsp;No.1</span>
     <span class="loading-en">Kumamoto Shimotori</span>
   </div>
   <div class="loading-line" id="ll2">
-    <span class="loading-desc">リラクゼーションマッサージ</span>
+    <span class="loading-desc">放鬆按摩</span>
     <span class="loading-en">Relaxation Massage</span>
   </div>
   <div class="loading-line" id="ll3">
-    <img src="RELAX_M_logo.jpg" alt="リラックスM" class="loading-logo" style="width:180px;height:auto;border-radius:12px;padding:12px;background:white;">
+    <img src="RELAX_M_logo.jpg" alt="Relax M" class="loading-logo" style="width:180px;height:auto;border-radius:12px;padding:12px;background:white;">
   </div>
 </div>
 
 <!-- FIXED HEADER -->
 <!-- フローティングMENUボタン（スマホのみ） -->
 <!-- フローティングメニュー（スマホのみ） -->
-<!-- PC固定電話番号（右下） -->
+<!-- PC固定電話番號（右下） -->
 <a href="tel:096-356-3444" class="pc-tel-fab">
-  <span class="pc-tel-fab-label">ご予約</span>
+  <span class="pc-tel-fab-label">預約</span>
   <span class="pc-tel-fab-num">096-356-3444</span>
 </a>
 
 <div class="float-menu" id="floatMenu">
-  <button class="float-menu-trigger" id="floatMenuTrigger" aria-label="メニューを開く">
+  <button class="float-menu-trigger" id="floatMenuTrigger" aria-label="開啟選單">
     <span class="float-menu-label">MENU</span>
   </button>
   <div class="float-menu-links">
-    <a href="javascript:void(0)" onclick="goTo('menu');closeFloatMenu()">施術メニュー</a>
-    <a href="javascript:void(0)" onclick="goTo('staff');closeFloatMenu()">セラピスト紹介</a>
-    <a href="javascript:void(0)" onclick="goTo('access');closeFloatMenu()">アクセス</a>
+    <a href="javascript:void(0)" onclick="goTo('menu');closeFloatMenu()">服務項目</a>
+    <a href="javascript:void(0)" onclick="goTo('staff');closeFloatMenu()">按摩師介紹</a>
+    <a href="javascript:void(0)" onclick="goTo('access');closeFloatMenu()">交通方式</a>
     <a href="javascript:void(0)" onclick="goTo('noson');closeFloatMenu()">noson Premium</a>
-    <a href="javascript:void(0)" onclick="goTo('recruit');closeFloatMenu()">求人</a>
+    <a href="javascript:void(0)" onclick="goTo('recruit');closeFloatMenu()">招聘資訊</a>
     <a href="javascript:void(0)" onclick="goTo('roomtherapis');closeFloatMenu()">Room Therapis</a>
-    <a href="javascript:void(0)" onclick="showPage('about');closeFloatMenu()">リラックスMについて</a>
+    <a href="javascript:void(0)" onclick="showPage('about');closeFloatMenu()">關於Relax M</a>
     <a href="javascript:void(0)" onclick="openLangPopup();closeFloatMenu()">🌐 Language</a>
     <div class="float-menu-sns">
       <a href="https://www.instagram.com/relax_m_kumamoto/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -2770,20 +2770,20 @@
     <!-- ロゴ -->
     <div class="header-logo">
       <a href="javascript:void(0)" onclick="goTo('home')" style="display:flex;align-items:center;">
-        <img src="RELAX_M_logo.jpg" alt="リラックスM">
+        <img src="RELAX_M_logo.jpg" alt="Relax M">
       </a>
       <span class="header-logo-sub"></span>
     </div>
 
     <!-- ナビ（PC） -->
     <ul class="header-nav">
-      <li><a href="javascript:void(0)" onclick="goTo('menu')" data-i18n="nav_menu">メニュー</a></li>
-      <li><a href="javascript:void(0)" onclick="goTo('staff')" data-i18n="nav_staff">セラピスト<wbr>紹介</a></li>
-      <li><a href="javascript:void(0)" onclick="goTo('access')" data-i18n="nav_access">アクセス</a></li>
-      <li><a href="https://beauty.hotpepper.jp/kr/slnH000269241/blog" target="_blank" rel="noopener noreferrer">スタッフ<wbr>ブログ</a></li>
-      <li><a href="javascript:void(0)" onclick="goTo('recruit')" data-i18n="nav_recruit">求人</a></li>
+      <li><a href="javascript:void(0)" onclick="goTo('menu')" data-i18n="nav_menu">服務項目</a></li>
+      <li><a href="javascript:void(0)" onclick="goTo('staff')" data-i18n="nav_staff">按摩師<wbr>介紹</a></li>
+      <li><a href="javascript:void(0)" onclick="goTo('access')" data-i18n="nav_access">交通方式</a></li>
+      <li><a href="https://beauty.hotpepper.jp/kr/slnH000269241/blog" target="_blank" rel="noopener noreferrer">員工<wbr>部落格</a></li>
+      <li><a href="javascript:void(0)" onclick="goTo('recruit')" data-i18n="nav_recruit">招聘資訊</a></li>
       <li><a href="javascript:void(0)" onclick="goTo('roomtherapis')">Room Therapis</a></li>
-      <li><a href="javascript:void(0)" onclick="showPage('about')">リラックスM<wbr>について</a></li>
+      <li><a href="javascript:void(0)" onclick="showPage('about')">關於<wbr>Relax M</a></li>
     </ul>
 
     <!-- 電話 -->
@@ -2795,14 +2795,14 @@
 
     <!-- 予約 -->
     <a class="header-reserve" href="https://beauty.hotpepper.jp/kr/slnH000269241/" target="_blank" rel="noopener noreferrer">
-      <span data-i18n="reserve_line1">ネット</span>
-      <span data-i18n="reserve_line2">で予約</span>
+      <span data-i18n="reserve_line1">線上</span>
+      <span data-i18n="reserve_line2">預約</span>
     </a>
 
 
 
     <!-- ハンバーガー（スマホのみ表示） -->
-    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+    <button class="hamburger" id="hamburger" aria-label="開啟選單">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -2810,13 +2810,13 @@
 
 <!-- モバイルドロワー -->
 <div class="mobile-drawer" id="mobileDrawer">
-  <a href="javascript:void(0)" onclick="goTo('menu');closeDrawer()" data-i18n="nav_menu">メニュー</a>
-  <a href="javascript:void(0)" onclick="goTo('staff');closeDrawer()" data-i18n="nav_staff">セラピスト<wbr>紹介</a>
-  <a href="javascript:void(0)" onclick="goTo('access');closeDrawer()" data-i18n="nav_access">アクセス</a>
-  <a href="https://beauty.hotpepper.jp/kr/slnH000269241/blog" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()">スタッフ<wbr>ブログ</a>
-  <a href="javascript:void(0)" onclick="goTo('recruit');closeDrawer()" data-i18n="nav_recruit">求人</a>
+  <a href="javascript:void(0)" onclick="goTo('menu');closeDrawer()" data-i18n="nav_menu">服務項目</a>
+  <a href="javascript:void(0)" onclick="goTo('staff');closeDrawer()" data-i18n="nav_staff">按摩師<wbr>介紹</a>
+  <a href="javascript:void(0)" onclick="goTo('access');closeDrawer()" data-i18n="nav_access">交通方式</a>
+  <a href="https://beauty.hotpepper.jp/kr/slnH000269241/blog" target="_blank" rel="noopener noreferrer" onclick="closeDrawer()">員工<wbr>部落格</a>
+  <a href="javascript:void(0)" onclick="goTo('recruit');closeDrawer()" data-i18n="nav_recruit">招聘資訊</a>
   <a href="javascript:void(0)" onclick="goTo('roomtherapis');closeDrawer()">Room Therapis</a>
-  <a href="javascript:void(0)" onclick="showPage('about');closeDrawer()">リラックスM<wbr>について</a>
+  <a href="javascript:void(0)" onclick="showPage('about');closeDrawer()">關於<wbr>Relax M</a>
 </div>
 
 <div id="page-main">
@@ -2825,40 +2825,40 @@
   <div class="hero-inner">
   <div class="hero-slideshow">
     <div class="hero-slide active hs-interior1" style="background-image:url('interior1.png')"></div>
-    <img src="logo2.png" alt="リラックスM" class="hero-logo-mobile">
+    <img src="logo2.png" alt="Relax M" class="hero-logo-mobile">
   </div>
-  <!-- PC版ロゴ（画像左上・絶対配置） -->
+  <!-- PC版ロゴ（畫像左上・絶対配置） -->
   <div class="pc-float-logo">
     <a href="javascript:void(0)" onclick="goTo('home')">
-      <img src="logo2.png" alt="リラックスM">
+      <img src="logo2.png" alt="Relax M">
     </a>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-text-block">
-      <p class="hero-sub hero-anim-2">熊本下通<strong>No.1</strong><br>リラクゼーションマッサージ</p>
-      <h1 class="hero-salon-name hero-anim-4">リラックスM</h1>
+      <p class="hero-sub hero-anim-2">熊本下通<strong>No.1</strong><br>放鬆按摩</p>
+      <h1 class="hero-salon-name hero-anim-4">Relax M</h1>
     </div>
     <div class="hero-info-block">
       <div class="hero-info-item">
-        <span class="hero-info-label">営業時間</span>
+        <span class="hero-info-label">營業時間</span>
         <span class="hero-info-value">
-          <span class="hero-hours-main">朝10:00〜翌朝5:00</span><br>
-          <span class="hero-hours-sub">最終受付 翌朝4:00</span><br>
-          <span class="hero-hours-sub">年中無休（年末年始除く）</span>
+          <span class="hero-hours-main">上午10:00～次日凌晨5:00</span><br>
+          <span class="hero-hours-sub">最後入店時間 凌晨4:00</span><br>
+          <span class="hero-hours-sub">全年無休（新年假期除外）</span>
         </span>
       </div>
       <div class="hero-info-item">
-        <span class="hero-info-label">アクセス</span>
-        <span class="hero-info-value"><a href="#" onclick="openGoogleMaps();return false;" class="hero-hours-sub" style="text-decoration:none;">熊本市中央区下通1丁目<br>7-12 RS-13ビル 2F</a></span>
-        <a href="#" onclick="openGoogleMaps();return false;" class="hero-info-icon" aria-label="マップで開く">
+        <span class="hero-info-label">交通方式</span>
+        <span class="hero-info-value"><a href="#" onclick="openGoogleMaps();return false;" class="hero-hours-sub" style="text-decoration:none;">熊本市中央區下通1丁目<br>7-12 RS-13大樓 2F</a></span>
+        <a href="#" onclick="openGoogleMaps();return false;" class="hero-info-icon" aria-label="在地圖中開啟">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </a>
       </div>
       <div class="hero-info-item hero-reserve-row">
-        <span class="hero-info-label">ご予約</span>
+        <span class="hero-info-label">預約</span>
         <a href="tel:096-356-3444" class="hero-info-value hero-reserve-num">096-356-3444</a>
-        <a href="tel:096-356-3444" class="hero-info-icon" aria-label="電話をかける">
+        <a href="tel:096-356-3444" class="hero-info-icon" aria-label="撥打電話">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </a>
       </div>
@@ -2877,20 +2877,20 @@
     <div class="concept-img-wrap reveal-img">
       <picture>
         <source media="(max-width:900px)" srcset="sp/interior2.jpg">
-        <img src="interior2.png" alt="リラックスM 店内">
+        <img src="interior2.png" alt="Relax M 店內">
       </picture>
     </div>
     <div class="concept-body reveal">
       <div class="concept-title-wrap">
-        <h2 class="concept-headline">施術・接客・おもてなし<br>トップサロン</h2>
+        <h2 class="concept-headline">技術、服務與款待<br>兼備的頂級沙龍</h2>
         <div class="concept-divider"></div>
       </div>
       <div class="concept-desc-wrap" id="conceptDescWrap">
-        <p class="concept-desc">熊本・下通アーケードに構える、オールハンド専門のボディケアサロン。<br><br>もみほぐし・足つぼ・眼精疲労ケア・リンパマッサージ・骨盤調整・ヘッドスパ・パーソナルストレッチ。コリの原因を的確に捉える熟練セラピストが、お一人おひとりのお身体に向き合い、丁寧に施術いたします。</p>
+        <p class="concept-desc">位於熊本下通拱廊的全手法身體護理專門沙龍。<br><br>提供全身按摩、足底反射區按摩、眼部疲勞護理、淋巴按摩、骨盆調整、頭部按摩以及個人拉伸。經驗豐富的按摩師會精準找到您身體緊繃的根源，一對一悉心為您服務。</p>
         <div class="concept-desc-fade"></div>
       </div>
       <button class="concept-read-more" onclick="toggleConceptDesc()">
-        <span class="concept-read-more-text">続きを読む</span>
+        <span class="concept-read-more-text">閱讀更多</span>
         <span class="concept-read-more-arrow">▼</span>
       </button>
     </div>
@@ -2902,64 +2902,64 @@
   <div class="menu-section-img reveal-img">
     <picture>
       <source media="(max-width:900px)" srcset="sp/menu/rinpa.jpg">
-      <img src="menu/rinpa.png" alt="施術イメージ">
+      <img src="menu/rinpa.png" alt="服務形象圖">
     </picture>
   </div>
   <div class="container">
     <div class="reveal">
       <div class="menu-title-wrap">
-        <h2 class="section-title" data-i18n="sec_menu">施術メニュー</h2>
+        <h2 class="section-title" data-i18n="sec_menu">服務項目</h2>
         <div class="section-divider"></div>
       </div>
-      <p style="font-size:1.05rem;font-weight:500;line-height:2;color:var(--bark);">カテゴリーをお選びください。すべて税込表示です。</p>
+      <p style="font-size:1.05rem;font-weight:500;line-height:2;color:var(--bark);">請選擇服務類別。所有價格均含稅。</p>
     </div>
     <div class="menu-tabs reveal" id="menuTabs" style="display:grid;grid-template-columns:repeat(3,1fr);">
-      <button class="menu-tab active" onclick="showPanel('p1',this)">もみほぐし<br>・足つぼ</button>
-      <button class="menu-tab" onclick="showPanel('p2',this)">集中<br>オプション</button>
-      <button class="menu-tab" onclick="showPanel('p3',this)">リンパ・筋膜</button>
-      <button class="menu-tab" onclick="showPanel('p4',this)">ストレッチ<br>・骨盤</button>
-      <button class="menu-tab" onclick="showPanel('p5',this)">ヘッドスパ</button>
-      <button class="menu-tab" onclick="showPanel('p6',this)">VIPコース</button>
+      <button class="menu-tab active" onclick="showPanel('p1',this)">全身按摩<br>・足底反射</button>
+      <button class="menu-tab" onclick="showPanel('p2',this)">重點<br>護理</button>
+      <button class="menu-tab" onclick="showPanel('p3',this)">淋巴・筋膜</button>
+      <button class="menu-tab" onclick="showPanel('p4',this)">拉伸<br>・骨盆</button>
+      <button class="menu-tab" onclick="showPanel('p5',this)">頭部SPA</button>
+      <button class="menu-tab" onclick="showPanel('p6',this)">VIP套餐</button>
     </div>
 
     <!-- もみほぐし・足つぼ -->
     <div id="p1" class="menu-panel active reveal">
-      <h3 class="menu-category-heading">もみほぐし・足つぼ</h3>
+      <h3 class="menu-category-heading">全身按摩・足底反射</h3>
       <div class="menu-grid">
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/momihogushi.jpg"><img class="menu-card-img" src="menu/momihogushi.jpg" alt="もみほぐし"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/momihogushi.jpg"><img class="menu-card-img" src="menu/momihogushi.jpg" alt="全身按摩"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">もみほぐし</h3>
-            <p class="menu-card-desc">おひとりおひとりに合った施術で自然治癒力を最大限に引き出します。</p>
+            <h3 class="menu-card-name">全身按摩（Momihogushi）</h3>
+            <p class="menu-card-desc">根據每位客人的身體狀況量身定製的護理，最大程度激發身體的自愈能力。</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620863&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">2,600円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620865&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">4,600円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620867&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">6,900円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620869&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">120分</span><span class="price-amount">9,200円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620863&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30 分鐘</span><span class="price-amount">¥2,600</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620865&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60 分鐘</span><span class="price-amount">¥4,600</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620867&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90 分鐘</span><span class="price-amount">¥6,900</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620869&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">120 分鐘</span><span class="price-amount">¥9,200</span></a>
             </div>
           </div>
         </div>
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/Ashitsubo.jpg"><img class="menu-card-img" src="menu/Ashitsubo.png" alt="足つぼマッサージ"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/Ashitsubo.jpg"><img class="menu-card-img" src="menu/Ashitsubo.png" alt="足底按摩"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">足つぼマッサージ</h3>
-            <p class="menu-card-desc">血行促進・新陳代謝が活発に。反射区を刺激し弱った臓器・器官を活性化。ふくらはぎのリンパも流してむくみを解消。（クリーム＆オイル使用）</p>
+            <h3 class="menu-card-name">足底按摩（Ashitsubo）</h3>
+            <p class="menu-card-desc">促進血液迴圈，加速新陳代謝。透過刺激反射區啟用衰弱的臟器和器官，並疏通小腿淋巴以消除水腫。（使用乳霜與精油）</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000001165458&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">3,300円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620871&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">45分</span><span class="price-amount">4,050円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620872&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">5,400円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000001165458&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30 分鐘</span><span class="price-amount">¥3,300</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620871&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">45 分鐘</span><span class="price-amount">¥4,050</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620872&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60 分鐘</span><span class="price-amount">¥5,400</span></a>
             </div>
           </div>
         </div>
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/MomihogushiAshitsubo.jpg"><img class="menu-card-img" src="menu/MomihogushiAshitsubo.png" alt="もみほぐし＆足つぼ セットコース"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/MomihogushiAshitsubo.jpg"><img class="menu-card-img" src="menu/MomihogushiAshitsubo.png" alt="全身按摩＆足底按摩套餐"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">もみほぐし＆足つぼ セットコース</h3>
-            <p class="menu-card-desc">全身もみほぐしと足つぼをお得なセット価格で。全身リフレッシュしたい方におすすめ。</p>
+            <h3 class="menu-card-name">全身按摩＆足底按摩套餐（Momihogushi & Ashitsubo）</h3>
+            <p class="menu-card-desc">全身按摩與足底按摩的超值組合價格。推薦給想要全身煥然一新的您。</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620875&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">5,000円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620877&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">7,500円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620879&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">120分</span><span class="price-amount">10,000円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620875&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60 分鐘</span><span class="price-amount">¥5,000</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620877&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90 分鐘</span><span class="price-amount">¥7,500</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620879&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">120 分鐘</span><span class="price-amount">¥10,000</span></a>
             </div>
           </div>
         </div>
@@ -2968,48 +2968,48 @@
 
     <!-- 集中オプション -->
     <div id="p2" class="menu-panel reveal">
-      <h3 class="menu-category-heading">集中オプション</h3>
+      <h3 class="menu-category-heading">重點護理</h3>
       <div class="menu-grid menu-grid-2">
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/Ganseihirou.jpg"><img class="menu-card-img" src="menu/Ganseihirou.png" alt="眼精疲労コース"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/Ganseihirou.jpg"><img class="menu-card-img" src="menu/Ganseihirou.png" alt="眼部疲勞護理課程"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">眼精疲労コース</h3>
-            <p class="menu-card-desc">眼の上を温めた後、頭から首の筋肉をゆっくりほぐします。パソコン・スマホによる目の疲れ・脳ストレス・頭痛にも効果あり。</p>
+            <h3 class="menu-card-name">眼部疲勞護理課程（Ganseihirou）</h3>
+            <p class="menu-card-desc">先溫熱眼周，再緩慢舒展從頭部到頸部的肌肉。對電腦、手機造成的眼部疲勞、腦部壓力及頭痛均有效果。</p>
             <div class="menu-card-price">
-              <span class="price-item"><span class="price-duration">15分</span><span class="price-amount">1,750円〜</span></span>
+              <span class="price-item"><span class="price-duration">15 分鐘</span><span class="price-amount">¥1,750起</span></span>
             </div>
           </div>
         </div>
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/kubiserapi.jpg"><img class="menu-card-img" src="menu/kubiserapi.png" alt="首セラピー"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/kubiserapi.jpg"><img class="menu-card-img" src="menu/kubiserapi.png" alt="頸部護理"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">首セラピー</h3>
-            <p class="menu-card-desc">クリームを使ってコリとリンパを流します。首まわりの張りや疲れをピンポイントでケア。</p>
+            <h3 class="menu-card-name">頸部護理（Kubi Serapi）</h3>
+            <p class="menu-card-desc">使用乳霜舒緩僵硬並疏通淋巴。針對頸部周圍的緊繃與疲勞進行重點護理。</p>
             <div class="menu-card-price">
-              <span class="price-item"><span class="price-duration">15分</span><span class="price-amount">1,750円〜</span></span>
+              <span class="price-item"><span class="price-duration">15 分鐘</span><span class="price-amount">¥1,750起</span></span>
             </div>
           </div>
         </div>
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/handserapi.jpg"><img class="menu-card-img" src="menu/handserapi.png" alt="ハンドセラピー"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/handserapi.jpg"><img class="menu-card-img" src="menu/handserapi.png" alt="手部護理"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">ハンドセラピー</h3>
-            <p class="menu-card-desc">クリームを使って肘から下を中心にほぐします。デスクワーク・スマホ疲れの手指・前腕に。</p>
+            <h3 class="menu-card-name">手部護理（Hand Serapi）</h3>
+            <p class="menu-card-desc">使用乳霜重點護理手肘以下部位。適合因辦公與使用手機而疲勞的手指與前臂。</p>
             <div class="menu-card-price">
-              <span class="price-item"><span class="price-duration">15分</span><span class="price-amount">1,750円〜</span></span>
+              <span class="price-item"><span class="price-duration">15 分鐘</span><span class="price-amount">¥1,750起</span></span>
             </div>
           </div>
         </div>
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/personalstretch.jpg"><img class="menu-card-img" src="menu/personalstretch.png" alt="パーソナルストレッチ"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/personalstretch.jpg"><img class="menu-card-img" src="menu/personalstretch.png" alt="個人拉伸"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">パーソナルストレッチ</h3>
-            <p class="menu-card-desc">腰 / 背面 / 足 / 肩 の各部位に特化したストレッチ。気になる箇所を集中的にほぐします。</p>
+            <h3 class="menu-card-name">個人拉伸</h3>
+            <p class="menu-card-desc">針對腰部／背部／腿部／肩部的專項拉伸。集中舒緩您最在意的部位。</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529929&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">腰 15分</span><span class="price-amount">1,950円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529932&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">背面 15分</span><span class="price-amount">1,950円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529931&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">足 15分</span><span class="price-amount">1,950円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529930&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">肩 15分</span><span class="price-amount">1,950円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529929&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">腰部 15分鐘</span><span class="price-amount">¥1,950</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529932&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">背部 15分鐘</span><span class="price-amount">¥1,950</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529931&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">腿部 15分鐘</span><span class="price-amount">¥1,950</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010529930&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">肩部 15分鐘</span><span class="price-amount">¥1,950</span></a>
             </div>
           </div>
         </div>
@@ -3018,43 +3018,43 @@
 
     <!-- リンパ・筋膜 -->
     <div id="p3" class="menu-panel reveal">
-      <h3 class="menu-category-heading">リンパ・筋膜</h3>
+      <h3 class="menu-category-heading">淋巴・筋膜</h3>
       <div class="menu-grid menu-grid-2">
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/rinpa.jpg"><img class="menu-card-img" src="menu/rinpa.png" alt="リンパドレナージュ"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/rinpa.jpg"><img class="menu-card-img" src="menu/rinpa.png" alt="淋巴排毒按摩"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">リンパドレナージュ（リンパマッサージ）</h3>
-            <p class="menu-card-desc">リラックス効果の高いアロマオイルを使用し、癒しとほぐしを融合させたオリジナル手法でより深い極上のリラクゼーションへ。女性スタッフ対応。<br>アロマはお好みで：ラベンダー・ベーシック・ゼラニウム・ローズマリー・グレープフルーツ<br>※キャンペーン価格</p>
+            <h3 class="menu-card-name">淋巴排毒按摩（Rinpa Massage）</h3>
+            <p class="menu-card-desc">使用具有高度放鬆效果的香薰精油，獨創手法將療愈與舒緩相融合，帶來更深層的極致放鬆體驗。設有女性按摩師。<br>香薰可自由選擇：薰衣草、基礎款、天竺葵、迷迭香、葡萄柚<br>※ 活動優惠價</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000008239096&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">3,300円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620884&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">6,600円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620885&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">9,900円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000008239096&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">30 分鐘</span><span class="price-amount">¥3,300</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620884&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60 分鐘</span><span class="price-amount">¥6,600</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620885&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90 分鐘</span><span class="price-amount">¥9,900</span></a>
             </div>
           </div>
         </div>
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/kinmaku.jpg"><img class="menu-card-img" src="menu/kinmaku.png" alt="筋膜リリース"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/kinmaku.jpg"><img class="menu-card-img" src="menu/kinmaku.png" alt="筋膜放鬆"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">筋膜リリース</h3>
-            <p class="menu-card-desc">深部まで届く筋膜リリース。酷い肩こり・坐骨神経痛・膝の痛み・姿勢改善に。（導入記念価格）</p>
+            <h3 class="menu-card-name">筋膜放鬆（Kinmaku Release）</h3>
+            <p class="menu-card-desc">深層筋膜放鬆護理。對嚴重肩頸僵硬、坐骨神經痛、膝蓋疼痛及體態改善均有效果。（新項目優惠價）</p>
             <div class="menu-card-price">
               <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620881&add=6&rootCd=10" target="_blank" rel="noopener noreferrer">
-                <span class="price-duration">30分</span>
-                <span class="price-amount price-old">5,500円</span>
+                <span class="price-duration">30 分鐘</span>
+                <span class="price-amount price-old">¥5,500</span>
                 <span class="price-arrow">→</span>
-                <span class="price-amount price-new">4,200円</span>
+                <span class="price-amount price-new">¥4,200</span>
               </a>
               <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620882&add=6&rootCd=10" target="_blank" rel="noopener noreferrer">
-                <span class="price-duration">60分</span>
-                <span class="price-amount price-old">11,000円</span>
+                <span class="price-duration">60 分鐘</span>
+                <span class="price-amount price-old">¥11,000</span>
                 <span class="price-arrow">→</span>
-                <span class="price-amount price-new">8,400円</span>
+                <span class="price-amount price-new">¥8,400</span>
               </a>
               <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620882&add=6&rootCd=10" target="_blank" rel="noopener noreferrer">
-                <span class="price-duration">90分</span>
-                <span class="price-amount price-old">16,500円</span>
+                <span class="price-duration">90 分鐘</span>
+                <span class="price-amount price-old">¥16,500</span>
                 <span class="price-arrow">→</span>
-                <span class="price-amount price-new">12,600円</span>
+                <span class="price-amount price-new">¥12,600</span>
               </a>
             </div>
           </div>
@@ -3064,22 +3064,22 @@
 
     <!-- ストレッチ・骨盤 -->
     <div id="p4" class="menu-panel reveal">
-      <h3 class="menu-category-heading">ストレッチ・骨盤</h3>
+      <h3 class="menu-category-heading">拉伸・骨盆</h3>
       <div class="menu-grid">
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/stretch.jpg"><img class="menu-card-img" src="menu/stretch.png" alt="お悩み撃退ストレッチ"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/stretch.jpg"><img class="menu-card-img" src="menu/stretch.png" alt="困擾擊退拉伸"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">お悩み撃退ストレッチ</h3>
-            <p class="menu-card-desc">プロフェッショナルパーソナルストレッチディプロマ取得者による施術。今より必ず良い状態へ導きます。腰痛・肩こり・足のむくみ 各種対応。</p>
+            <h3 class="menu-card-name">困擾擊退拉伸（Onayami Gekitai Stretch）</h3>
+            <p class="menu-card-desc">由獲得專業個人拉伸資格證書的按摩師提供護理，保證讓您感覺煥然一新。針對腰痛、肩頸僵硬、腿部水腫均有對應方案。</p>
             <div class="menu-card-price">
               <div class="stretch-group">
-                <span class="price-item"><span class="price-duration">各15分</span><span class="price-amount">1,950円</span></span>
-                <span class="price-item"><span class="price-duration">各40分</span><span class="price-amount">5,020円</span></span>
-                <p class="stretch-note">※腰痛・肩こり・足のむくみより部位をお選びください</p>
+                <span class="price-item"><span class="price-duration">各15分鐘</span><span class="price-amount">¥1,950</span></span>
+                <span class="price-item"><span class="price-duration">各40分鐘</span><span class="price-amount">¥5,020</span></span>
+                <p class="stretch-note">※ 請從腰痛、肩頸僵硬、腿部水腫中選擇部位</p>
               </div>
               <div class="stretch-group" style="margin-top:.6rem;">
-                <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010330185&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">7,350円</span></a>
-                <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009652943&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">11,295円</span></a>
+                <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010330185&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">60 分鐘</span><span class="price-amount">¥7,350</span></a>
+                <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009652943&add=6&rootCd=10" target="_blank" rel="noopener noreferrer"><span class="price-duration">90 分鐘</span><span class="price-amount">¥11,295</span></a>
               </div>
             </div>
           </div>
@@ -3087,33 +3087,33 @@
         <div class="menu-card">
           <div class="menu-card-img-placeholder"></div>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">ストレッチ＆調整コース</h3>
-            <p class="menu-card-desc">ストレッチに全身調整＋ヘッドをプラス。全身を緩めていくデラックスなコース。</p>
+            <h3 class="menu-card-name">拉伸＆調整套餐（Stretch & Chousei）</h3>
+            <p class="menu-card-desc">在拉伸基礎上加入全身調整與頭部護理。全身徹底放鬆的豪華套餐。</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010612806&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">7,160円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009652941&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">11,940円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000010612806&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">60 分鐘</span><span class="price-amount">¥7,160</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009652941&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100 分鐘</span><span class="price-amount">¥11,940</span></a>
             </div>
           </div>
         </div>
         <div class="menu-card">
           <div class="menu-card-img-placeholder"></div>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">ストレッチデトックスコース</h3>
-            <p class="menu-card-desc">ストレッチ＋リンパドレナージュ＋ヘッドのデトックスコース。</p>
+            <h3 class="menu-card-name">拉伸排毒套餐</h3>
+            <p class="menu-card-desc">融合拉伸、淋巴排毒與頭部護理的排毒套餐。</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009652942&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">11,940円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000009652942&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100 分鐘</span><span class="price-amount">¥11,940</span></a>
             </div>
           </div>
         </div>
         <div class="menu-card">
           <div class="menu-card-img-placeholder"></div>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">骨盤調整コース</h3>
-            <p class="menu-card-desc">もみほぐしでお身体を整えた後、骨盤を正しい位置に戻すよう促す施術。骨盤の歪みは姿勢崩れ・呼吸の乱れ・健康悪化につながります。</p>
+            <h3 class="menu-card-name">骨盆調整套餐（Kotsuban Chousei）</h3>
+            <p class="menu-card-desc">先以全身按摩放鬆身體，再溫和引導骨盆迴歸正確位置。骨盆歪斜可能導致體態不良、呼吸紊亂及健康狀況下降。</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000004588931&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">40分</span><span class="price-amount">3,650円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000004588932&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">50分</span><span class="price-amount">4,570円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000004588933&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">70分</span><span class="price-amount">6,390円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000004588931&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">40 分鐘</span><span class="price-amount">¥3,650</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000004588932&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">50 分鐘</span><span class="price-amount">¥4,570</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000004588933&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">70 分鐘</span><span class="price-amount">¥6,390</span></a>
             </div>
           </div>
         </div>
@@ -3122,27 +3122,27 @@
 
     <!-- ヘッドスパ -->
     <div id="p5" class="menu-panel reveal">
-      <h3 class="menu-category-heading">ヘッドスパ</h3>
+      <h3 class="menu-category-heading">頭部SPA</h3>
       <div class="menu-grid menu-grid-2">
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/dryhead.jpg"><img class="menu-card-img" src="menu/dryhead.jpg" alt="ドライヘッドスパ"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/dryhead.jpg"><img class="menu-card-img" src="menu/dryhead.jpg" alt="乾式頭部SPA"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">ドライヘッドスパ</h3>
-            <p class="menu-card-desc">選べるアロマジェルで頭皮をやさしく・強くマッサージ。脳疲労解消・首コリにも。寝落ちすること間違いなし！</p>
+            <h3 class="menu-card-name">乾式頭部SPA</h3>
+            <p class="menu-card-desc">使用您所選的香薰凝膠，進行從輕柔到有力的頭皮按摩。有助於緩解腦部疲勞與頸部僵硬。幾乎保證讓您昏昏欲睡！</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000008732020&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">3,700円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000008732021&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">7,400円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000008732020&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">30 分鐘</span><span class="price-amount">¥3,700</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000008732021&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">60 分鐘</span><span class="price-amount">¥7,400</span></a>
             </div>
           </div>
         </div>
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/kassa.jpg"><img class="menu-card-img" src="menu/kassa.jpg" alt="かっさヘッドスパ"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/kassa.jpg"><img class="menu-card-img" src="menu/kassa.jpg" alt="刮痧頭部SPA"></picture>
           <div class="menu-card-body">
-            <h3 class="menu-card-name">かっさヘッドスパ</h3>
-            <p class="menu-card-desc">頭皮やわやわ、お顔もリフトアップ！かっさで頭皮の血行促進・エイジング対策。60分はクリームで肩甲骨・デコルテもしっかりほぐします。</p>
+            <h3 class="menu-card-name">刮痧頭部SPA（Kassa Head Spa）</h3>
+            <p class="menu-card-desc">頭皮變得柔軟，面部也能提拉緊緻！利用刮痧板促進頭皮血液迴圈，助力抗衰老。60分鐘療程還會使用乳霜徹底舒緩肩胛骨與鎖骨周圍。</p>
             <div class="menu-card-price">
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012381730&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">30分</span><span class="price-amount">4,200円</span></a>
-              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012381731&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">60分</span><span class="price-amount">8,400円</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012381730&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">30 分鐘</span><span class="price-amount">¥4,200</span></a>
+              <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012381731&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">60 分鐘</span><span class="price-amount">¥8,400</span></a>
             </div>
           </div>
         </div>
@@ -3151,35 +3151,35 @@
 
     <!-- VIP -->
     <div id="p6" class="menu-panel reveal">
-      <h3 class="menu-category-heading">VIPコース</h3>
+      <h3 class="menu-category-heading">VIP套餐</h3>
       <div class="menu-grid">
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/ume.jpg"><img class="menu-card-img" src="menu/ume.jpg" alt="VIPコース 梅"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/ume.jpg"><img class="menu-card-img" src="menu/ume.jpg" alt="VIP套餐 梅"></picture>
           <div class="menu-card-body">
-          <h3 class="menu-card-name">VIPコース 梅</h3>
-          <p class="menu-card-desc">足つぼ ＋ もみほぐし ＋ ハンドセラピー or 首セラピー</p>
+          <h3 class="menu-card-name">VIP套餐「梅」</h3>
+          <p class="menu-card-desc">足底按摩 ＋ 全身按摩 ＋ 手部護理或頸部護理</p>
           <div class="menu-card-price">
-            <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620886&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">90分</span><span class="price-amount">8,460円</span></a>
+            <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000012620886&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">90 分鐘</span><span class="price-amount">¥8,460</span></a>
           </div>
           </div>
         </div>
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/take.jpg"><img class="menu-card-img" src="menu/take.jpg" alt="VIPコース 竹"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/take.jpg"><img class="menu-card-img" src="menu/take.jpg" alt="VIP套餐 竹"></picture>
           <div class="menu-card-body">
-          <h3 class="menu-card-name">VIPコース 竹</h3>
-          <p class="menu-card-desc">足つぼ ＋ 骨盤調整 ＋ ヘッドセラピー</p>
+          <h3 class="menu-card-name">VIP套餐「竹」</h3>
+          <p class="menu-card-desc">足底按摩 ＋ 骨盆調整 ＋ 頭部護理</p>
           <div class="menu-card-price">
-            <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000006999057&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">9,400円</span></a>
+            <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000006999057&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100 分鐘</span><span class="price-amount">¥9,400</span></a>
           </div>
           </div>
         </div>
         <div class="menu-card">
-          <picture><source media="(max-width:900px)" srcset="sp/menu/matsu.jpg"><img class="menu-card-img" src="menu/matsu.jpg" alt="VIPコース 松"></picture>
+          <picture><source media="(max-width:900px)" srcset="sp/menu/matsu.jpg"><img class="menu-card-img" src="menu/matsu.jpg" alt="VIP套餐 松"></picture>
           <div class="menu-card-body">
-          <h3 class="menu-card-name">VIPコース 松</h3>
-          <p class="menu-card-desc">骨盤調整 ＋ リンパドレナージュ ＋ ヘッドセラピー</p>
+          <h3 class="menu-card-name">VIP套餐「松」</h3>
+          <p class="menu-card-desc">骨盆調整 ＋ 淋巴排毒按摩 ＋ 頭部護理</p>
           <div class="menu-card-price">
-            <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000005784513&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100分</span><span class="price-amount">10,500円</span></a>
+            <a class="price-item" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241&menuId=MN00000005784513&add=6" target="_blank" rel="noopener noreferrer"><span class="price-duration">100 分鐘</span><span class="price-amount">¥10,500</span></a>
           </div>
           </div>
         </div>
@@ -3188,25 +3188,25 @@
 
     <div class="menu-bottom-row">
       <div class="menu-surcharge reveal">
-        <p class="menu-surcharge-title">指名料・深夜料金</p>
+        <p class="menu-surcharge-title">指名費・深夜費用</p>
         <table class="menu-surcharge-table">
           <tr>
-            <td class="menu-surcharge-label">指名料</td>
-            <td class="menu-surcharge-price">1,000円</td>
+            <td class="menu-surcharge-label">指名費</td>
+            <td class="menu-surcharge-price">¥1,000</td>
           </tr>
           <tr>
-            <td class="menu-surcharge-label">男女指名料</td>
-            <td class="menu-surcharge-price">250円</td>
+            <td class="menu-surcharge-label">性別指名費</td>
+            <td class="menu-surcharge-price">¥250</td>
           </tr>
           <tr>
-            <td class="menu-surcharge-label">22時以降 深夜料金</td>
-            <td class="menu-surcharge-price">250円</td>
+            <td class="menu-surcharge-label">22點以後深夜費用</td>
+            <td class="menu-surcharge-price">¥250</td>
           </tr>
         </table>
       </div>
 
       <div class="menu-note menu-cashless reveal">
-        <span class="menu-cashless-label">ご利用可能キャッシュレス</span>
+        <span class="menu-cashless-label">支援無現金支付</span>
         <div class="payment-logos">
           <img src="payment/visa.png" alt="VISA">
           <img src="payment/master.png" alt="Mastercard">
@@ -3220,7 +3220,7 @@
     </div>
 
     <div class="menu-note menu-cancel-note reveal" style="margin-top:.8rem;">
-      ※ ご連絡なくご予約時間より15分経過した場合、自動キャンセルとなります（お電話する場合もございます）。
+      ※ 如未提前聯絡且超過預約時間15分鐘未到店，預約將自動取消（我們也可能會致電您）。
     </div>
   </div>
 </section>
@@ -3230,134 +3230,134 @@
   <div class="container">
     <div class="reveal">
       <div class="section-title-wrap">
-        <h2 class="section-title" data-i18n="sec_staff">セラピスト紹介</h2>
+        <h2 class="section-title" data-i18n="sec_staff">按摩師介紹</h2>
         <div class="section-divider"></div>
       </div>
     </div>
 
     <div class="staff-more reveal">
-      リラックスMはオーナーボディケア歴２０年以上、他スタッフも１０年以上の経験を持つベテランが多数。お身体のお悩み是非ご相談下さい。熊本の皆様に安く気軽に通って頂ける料金設定にしております。
+      Relax M的店主擁有20年以上的身體護理經驗，其他多位按摩師也擁有10年以上的豐富經驗。歡迎隨時向我們諮詢您身體上的困擾。我們致力於提供親民的價格，讓熊本的每一位客人都能輕鬆光顧。
     </div>
 
     <div class="staff-grid">
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/FukurodaMai.jpg" alt="袋田 真衣"></div>
         <p class="staff-name">店長 袋田 真衣</p>
-        <p class="staff-bio">捉えたコリは逃さない！安定の施術☆</p>
+        <p class="staff-bio">絕不放過任何痠痛點！穩定安心的手法☆</p>
       </div>
       <div class="staff-card reveal">
-        <div class="staff-avatar"><img src="staff/OsawaSayuri.jpg" alt="大沢 さゆり"></div>
-        <p class="staff-name">大沢 さゆり</p>
-        <p class="staff-bio">指名数上位の実力派。強もみO.Kです！</p>
+        <div class="staff-avatar"><img src="staff/OsawaSayuri.jpg" alt="大沢 小百合"></div>
+        <p class="staff-name">大沢 小百合</p>
+        <p class="staff-bio">指名人數名列前茅的實力派。可接受較強力度！</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/HoriwakiKatsuya.jpg" alt="堀脇 克也"></div>
         <p class="staff-name">堀脇 克也</p>
-        <p class="staff-bio">当期☆指名No1！お疲れ改善致します！</p>
+        <p class="staff-bio">本期指名率No.1！為您改善疲勞！</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/Sakamoto.jpg" alt="坂本 弘"></div>
         <p class="staff-name">坂本 弘</p>
-        <p class="staff-bio">第２回整体日本一決定戦出場！</p>
+        <p class="staff-bio">曾出賽第二屆全日本整體冠軍賽！</p>
       </div>
       <div class="staff-card reveal">
-        <div class="staff-avatar"><img src="staff/NishiokaHisashi.jpg" alt="西岡 寿"></div>
-        <p class="staff-name">西岡 寿</p>
-        <p class="staff-bio">お手が合えば幸いです☆</p>
+        <div class="staff-avatar"><img src="staff/NishiokaHisashi.jpg" alt="西岡 壽"></div>
+        <p class="staff-name">西岡 壽</p>
+        <p class="staff-bio">希望我的手法能合您心意☆</p>
       </div>
       <div class="staff-card reveal">
-        <div class="staff-avatar"><img src="staff/HamaChieko.jpg" alt="浜 千恵子"></div>
-        <p class="staff-name">浜 千恵子</p>
-        <p class="staff-bio">癒しのひととき丁寧にほぐします！</p>
+        <div class="staff-avatar"><img src="staff/HamaChieko.jpg" alt="濱 千惠子"></div>
+        <p class="staff-name">濱 千惠子</p>
+        <p class="staff-bio">用心為您帶來療愈時光！</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/ChoGyokuen.jpg" alt="趙 唯" style="object-position: center 25%;"></div>
         <p class="staff-name">趙 唯</p>
-        <p class="staff-bio">強い圧で人気！丁寧にほぐします。</p>
+        <p class="staff-bio">以力度強勁廣受好評！細緻用心地為您舒緩。</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/KatayamaYuki.jpg" alt="店長 片山 勇貴"></div>
         <p class="staff-name">店長 片山 勇貴</p>
-        <p class="staff-bio">夜店長・国家資格保持者です☆</p>
+        <p class="staff-bio">夜間店長，持有國家資格證書☆</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/NishikawaAkira.jpg" alt="西川 亮"></div>
         <p class="staff-name">西川 亮</p>
-        <p class="staff-bio">しっかりほぐします。。</p>
+        <p class="staff-bio">為您徹底舒緩身體。</p>
       </div>
       <div class="staff-card reveal">
-        <div class="staff-avatar"><img src="staff/Okawa.jpg" alt="大川 崇聡"></div>
-        <p class="staff-name">大川 崇聡</p>
-        <p class="staff-bio">癒しのひととき丁寧にほぐします！</p>
+        <div class="staff-avatar"><img src="staff/Okawa.jpg" alt="大川 崇聰"></div>
+        <p class="staff-name">大川 崇聰</p>
+        <p class="staff-bio">用心為您帶來療愈時光！</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/AraiSyoko.jpg" alt="新井 正子"></div>
         <p class="staff-name">新井 正子</p>
-        <p class="staff-bio">熟練の技でじっくりほぐします☆</p>
+        <p class="staff-bio">憑藉熟練技法為您細緻舒緩☆</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/NomoYukari.jpg" alt="野母 紫"></div>
         <p class="staff-name">野母 紫</p>
-        <p class="staff-bio">熟練セラピストです☆</p>
+        <p class="staff-bio">經驗豐富的按摩師☆</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/MoriEmiko.jpg" alt="森 愛美子"></div>
         <p class="staff-name">森 愛美子</p>
-        <p class="staff-bio">丁寧な施術を心がけてます！</p>
+        <p class="staff-bio">始終用心提供細緻的護理！</p>
       </div>
 
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/FukushimaTaisei.jpg" alt="福島 汰成"></div>
         <p class="staff-name">福島 汰成</p>
-        <p class="staff-bio">お身体癒し整えて行きます☆</p>
+        <p class="staff-bio">為您療愈身心、調理身體☆</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/YonekuraYukie.jpg" alt="米倉 幸枝"></div>
         <p class="staff-name">米倉 幸枝</p>
-        <p class="staff-bio">よろしくお願いします！</p>
+        <p class="staff-bio">期待為您服務！</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/ChikubaTakuya.jpg" alt="水上 拓哉"></div>
         <p class="staff-name">水上 拓哉</p>
-        <p class="staff-bio">ゆっくりした施術でほぐします</p>
+        <p class="staff-bio">以緩慢溫和的手法舒緩您的全身。</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/IdeHirono.jpg" alt="井手 弘乃"></div>
         <p class="staff-name">井手 弘乃</p>
-        <p class="staff-bio">癒しの手でほぐしていきます。</p>
+        <p class="staff-bio">用療愈之手為您舒緩身體。</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/YamamotoRio.jpg" alt="山本 麗央"></div>
         <p class="staff-name">山本 麗央</p>
-        <p class="staff-bio">お身体癒し緩めていきます。</p>
+        <p class="staff-bio">為您療愈並放鬆身體。</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/KandaYui.jpg" alt="足達 優衣"></div>
         <p class="staff-name">足達 優衣</p>
-        <p class="staff-bio">癒しのひととき丁寧にほぐします！</p>
+        <p class="staff-bio">用心為您帶來療愈時光！</p>
       </div>
       <div class="staff-card reveal">
         <div class="staff-avatar"><img src="staff/GodaMaiko.jpg" alt="合田 麻衣子"></div>
         <p class="staff-name">代表 合田 麻衣子</p>
-        <p class="staff-bio">お身体メンテナンスお任せ下さい！！</p>
+        <p class="staff-bio">身體保養交給我們放心！！</p>
       </div>
     </div>
 
     <div class="staff-more reveal" style="margin-top:2rem;">
-      エステティックサロン、クリニックセラピストを経て東洋医学（自然治癒力・特に手の力）の世界に魅了され、長年の経験を活かし2013年にオールハンドの専門店リラックスMをオープン。<br><br>
-      地域の働く皆様、お食事・お買い物にいらした方、ご旅行・ご出張で熊本にみえた方、夜疲れて眠れない方など、たくさんのお客様にご利用いただき、現在は熊本の実力派トップセラピスト20名と共に営業しています。<br><br>
-      皆様のお身体はもちろん心もほぐせるよう、明るい接客を心がけています。お一人お一人のお客様へ心を込めて施術させていただきます。
+      店主歷經美容美體沙龍與診所按摩師的工作經歷後，被東方醫學——尤其是雙手所具備的自愈力量深深吸引，憑藉多年經驗於2013年開設了全手法專門店Relax M。<br><br>
+      我們非常感謝當地上班族、前來用餐購物的顧客、來熊本旅遊或出差的訪客，以及夜晚疲憊難眠的客人們的長期光顧。目前我們與熊本20位實力頂尖的按摩師共同經營本店。<br><br>
+      我們始終以開朗貼心的服務，致力於不僅舒緩您的身體，也撫慰您的心靈。我們會用心為每一位客人提供專屬的護理。
     </div>
 
     <div class="blog-row">
       <!-- スタッフブログバナー -->
       <a href="https://beauty.hotpepper.jp/kr/slnH000269241/blog" target="_blank" rel="noopener noreferrer" class="blog-banner reveal">
         <div class="blog-banner-inner">
-          <p class="blog-banner-title">スタッフブログ</p>
+          <p class="blog-banner-title">員工部落格</p>
           <p class="blog-banner-en">Staff Blog</p>
           <div class="blog-banner-divider"></div>
-          <p class="blog-banner-desc">セラピストの日常を<br class="sp-only-br">毎日更新する人気ブログ！<br>是非ご覧ください！</p>
-          <span class="blog-banner-btn">読む &nbsp;→</span>
+          <p class="blog-banner-desc">記錄按摩師們的日常點滴<br class="sp-only-br">每日更新的人氣部落格！<br>歡迎前來瀏覽！</p>
+          <span class="blog-banner-btn">閱讀 &nbsp;→</span>
         </div>
       </a>
 
@@ -3366,7 +3366,7 @@
     <!-- SNSバナー -->
     <div class="sns-banner reveal">
       <div class="sns-banner-inner">
-        <p class="sns-banner-title">リラックスM公式SNS</p>
+        <p class="sns-banner-title">Relax M 官方社交媒體</p>
         <p class="blog-banner-en" style="text-align:center;margin-bottom:.1rem;color:#2d5a3d;">OFFICIAL SNS</p>
         <div class="blog-banner-divider" style="background:rgba(45,90,61,.3);"></div>
         <div class="sns-banner-row">
@@ -3379,8 +3379,8 @@
             <p class="sns-banner-name">Facebook</p>
           </a>
           <a href="https://ameblo.jp/mrelax/" target="_blank" rel="noopener noreferrer" class="sns-banner-link sns-blog-link">
-            <img src="shiromai.JPG" alt="白まい" class="sns-banner-icon" style="border-radius:50%;object-fit:cover;">
-            <p class="sns-banner-name">白まいのブログ</p>
+            <img src="shiromai.JPG" alt="白舞" class="sns-banner-icon" style="border-radius:50%;object-fit:cover;">
+            <p class="sns-banner-name">白舞的部落格</p>
           </a>
         </div>
       </div>
@@ -3392,18 +3392,18 @@
 <!-- ACCESS -->
 <section class="access-section" id="access">
   <div class="container">
-    <!-- PC専用: 外観写真（左サイド）デフォルトは非表示 -->
+    <!-- PC専用: 外観寫真（左サイド）デフォルトは非表示 -->
     <div class="access-gaikan-side">
       <picture>
         <source media="(max-width:900px)" srcset="sp/gaikan2.jpg">
-        <img src="gaikan2.png" alt="リラックスM外観" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 75%;">
+        <img src="gaikan2.png" alt="Relax M 外觀" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 75%;">
       </picture>
     </div>
     <!-- 右側コンテンツ -->
     <div class="access-right">
       <div class="reveal">
         <div class="section-title-wrap">
-          <h2 class="section-title" data-i18n="sec_access">アクセス</h2>
+          <h2 class="section-title" data-i18n="sec_access">交通方式</h2>
           <div class="section-divider"></div>
         </div>
       </div>
@@ -3415,17 +3415,17 @@
         <div class="access-gaikan">
           <picture>
             <source media="(max-width:900px)" srcset="sp/gaikan2.jpg">
-            <img src="gaikan2.png" alt="リラックスM外観" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 75%;">
+            <img src="gaikan2.png" alt="Relax M 外觀" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 75%;">
           </picture>
         </div>
         <div class="access-detail">
           <div class="access-item" style="position:relative;">
             <p class="access-item-value">
-              熊本市中央区下通1丁目7-12<br>
-              RS-13ビル下通二番街 2F<br>
-              <span style="font-size:.76rem;opacity:.7;">（下通アーケード内 / 銀座通り近く / 酒場通り角<br>　セブンイレブン・まねきねこの隣）</span>
+              熊本市中央區下通1丁目7-12<br>
+              RS-13大樓下通二番街 2F<br>
+              <span style="font-size:.76rem;opacity:.7;">（位於下通拱廊內／銀座通附近／酒場通拐角處<br>　7-Eleven與貓咪招財旁邊）</span>
             </p>
-            <a href="#" onclick="openGoogleMaps();return false;" class="hero-info-icon" aria-label="マップで開く" style="position:absolute;top:0;right:0;">
+            <a href="#" onclick="openGoogleMaps();return false;" class="hero-info-icon" aria-label="在地圖中開啟" style="position:absolute;top:0;right:0;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </a>
           </div>
@@ -3440,10 +3440,10 @@
   <div class="container">
     <div class="reserve-center reveal">
       <div class="section-title-wrap">
-        <h2 class="section-title" data-i18n="sec_reserve">ご予約</h2>
+        <h2 class="section-title" data-i18n="sec_reserve">預約</h2>
         <div class="section-divider"></div>
       </div>
-      <p class="reserve-body">ご予約はお電話またはホットペッパービューティーより承っております。</p>
+      <p class="reserve-body">您可以透過電話或Hot Pepper Beauty進行預約。</p>
 
       <div class="reserve-options">
         <!-- 電話 -->
@@ -3457,32 +3457,32 @@
         <!-- HPB -->
         <a class="btn-hpb" href="https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000269241" target="_blank" rel="noopener noreferrer">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8.5" stroke="rgba(255,255,255,.6)" stroke-width="1"/><path d="M6 9h6M9 6l3 3-3 3" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span style="white-space:nowrap;">ホットペッパービューティーで予約</span>
+          <span style="white-space:nowrap;">透過Hot Pepper Beauty預約</span>
         </a>
       </div>
       <div class="reserve-caution">
-        ※ ご連絡なくご予約時間より15分経過した場合、自動キャンセルとなります。<br>
-        （お電話をさせていただく場合もございます。あらかじめご了承ください）
+        ※ 如未提前聯絡且超過預約時間15分鐘未到店，預約將自動取消。<br>
+        （我們也可能會致電您，敬請諒解）
       </div>
 
       <!-- キャンセルポリシー -->
       <div class="cancel-policy reveal">
-        <p class="cancel-policy-title">キャンセルポリシー</p>
+        <p class="cancel-policy-title">取消政策</p>
         <div class="cancel-policy-list">
           <div class="cancel-item">
             <span class="cancel-num">①</span>
-            <span class="cancel-text">当日ご連絡なしのキャンセル　<strong>100%</strong></span>
+            <span class="cancel-text">當日未提前聯絡取消　<strong>100%</strong></span>
           </div>
           <div class="cancel-item">
             <span class="cancel-num">②</span>
-            <span class="cancel-text">当日ご予約時間を過ぎてのキャンセル　<strong>100%</strong></span>
+            <span class="cancel-text">超過當日預約時間後取消　<strong>100%</strong></span>
           </div>
           <div class="cancel-note">
-            ＊上記①②が3回以上あった方はその後の<strong>ご予約及び入店は一切お断り致します</strong>
+            ＊上述①②累計達3次以上的客人，之後將<strong>謝絕預約及入店</strong>
           </div>
           <div class="cancel-item">
             <span class="cancel-num">③</span>
-            <span class="cancel-text">当日ご連絡なしの30分以上の遅刻は遅刻時間の施術料金を申し受けます。</span>
+            <span class="cancel-text">當日未提前聯絡且遲到30分鐘以上者，將按遲到時長收取相應護理費用。</span>
           </div>
         </div>
       </div>
@@ -3493,7 +3493,7 @@
 <!-- NOSON -->
 <section class="noson-section" id="noson">
   <div class="container">
-    <!-- PC専用: 左サイド画像 -->
+    <!-- PC専用: 左サイド畫像 -->
     <div class="noson-inner reveal">
       <div class="noson-text">
         <div class="section-title-wrap">
@@ -3501,15 +3501,15 @@
           <div class="section-divider"></div>
         </div>
         <p class="noson-desc">
-          鼻孔を広げることで、スポーツ中や睡眠中の呼吸を改善する鼻孔拡張器です。<br>
-          店頭にて<strong>試着できます</strong>ので、お気軽にお試しください。
+          一款透過擴張鼻孔來改善運動或睡眠時呼吸的鼻腔擴張器。<br>
+          店內<strong>可試戴</strong>，歡迎隨時體驗。
         </p>
         <div class="noson-badge">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-          当店はnoson japanの正規ディーラーです
+          本店為noson japan官方指定經銷商
         </div>
         <a href="https://www.noson.jp/" target="_blank" rel="noopener noreferrer" class="noson-site-btn">
-          noson japan 公式サイト &nbsp;→
+          noson japan 官方網站 &nbsp;→
         </a>
       </div>
       <div class="noson-visual">
@@ -3528,62 +3528,62 @@
   <div class="container">
     <div class="reveal">
       <div class="section-title-wrap">
-        <h2 class="section-title" data-i18n="sec_recruit">セラピスト募集</h2>
+        <h2 class="section-title" data-i18n="sec_recruit">招聘資訊</h2>
         <div class="section-divider"></div>
       </div>
-      <p class="recruit-lead">男女セラピスト・整体師募集<br>技術・接客・おもてなし、地域一番店を目指すリラックスMで一緒に働きませんか！</p>
+      <p class="recruit-lead">現招募男女按摩師・整體師<br>歡迎加入Relax M，與我們一起打造以技術、服務與款待著稱的地區第一沙龍！</p>
     </div>
 
     <div class="recruit-info-block reveal">
       <div class="recruit-info-item">
-        <span class="recruit-info-label">雇用形態</span>
-        <span class="recruit-info-value">業務委託<br><span class="recruit-info-sub">各60分 2,484円〜4,865円<br>（各コース別に設定）</span></span>
+        <span class="recruit-info-label">僱傭形式</span>
+        <span class="recruit-info-value">業務委託<br><span class="recruit-info-sub">每60分鐘 ¥2,484～¥4,865<br>（依課程種類而定）</span></span>
       </div>
       <div class="recruit-info-item">
-        <span class="recruit-info-label">勤務時間</span>
-        <span class="recruit-info-value">朝10:00〜翌朝5:00<br>（最終受付 4:00）<br><span class="recruit-info-sub">短時間5時間よりOK<br>シフト・休日応相談</span></span>
+        <span class="recruit-info-label">工作時間</span>
+        <span class="recruit-info-value">上午10:00～次日凌晨5:00<br>（最後入店時間 凌晨4:00）<br><span class="recruit-info-sub">最短5小時起可接受<br>排班・休假可協商</span></span>
       </div>
       <div class="recruit-info-item">
-        <span class="recruit-info-label">休日</span>
-        <span class="recruit-info-value">年休120日（月シフト平均190時間）の方優遇</span>
+        <span class="recruit-info-label">休假</span>
+        <span class="recruit-info-value">年休120天（月平均排班190小時）者優先</span>
       </div>
       <div class="recruit-info-item">
-        <span class="recruit-info-label">待遇・報酬</span>
-        <span class="recruit-info-value">店長手当・ボーナス・昇給・交通費・賞金<br>年間売上歩合 <strong>56%〜77%</strong>（直近）<br>指名売上表彰賞金 年2回・賠償責任保険<br><span class="recruit-info-sub">指名料 980円／深夜手当 245円／男女指名 135円</span></span>
+        <span class="recruit-info-label">待遇・薪酬</span>
+        <span class="recruit-info-value">店長津貼・獎金・加薪・交通費・獎金<br>年度營業額提成 <strong>56%～77%</strong>（近期資料）<br>指名業績表彰獎金 每年2次・責任賠償保險<br><span class="recruit-info-sub">指名費 ¥980／深夜津貼 ¥245／性別指名 ¥135</span></span>
       </div>
       <div class="recruit-info-item">
         <span class="recruit-info-label">研修旅行</span>
-        <span class="recruit-info-value">台湾・沖縄・香港・北海道・石垣島・奄美大島・韓国・金沢<br><span class="recruit-info-sub">費用は店負担</span></span>
+        <span class="recruit-info-value">臺灣・沖繩・香港・北海道・石垣島・奄美大島・韓國・金澤<br><span class="recruit-info-sub">費用由店鋪承擔</span></span>
       </div>
       <div class="recruit-info-item">
-        <span class="recruit-info-label">応募条件</span>
-        <span class="recruit-info-value">経験者優遇<br>未経験でもやる気がある方歓迎</span>
+        <span class="recruit-info-label">應聘條件</span>
+        <span class="recruit-info-value">有經驗者優先<br>無經驗但有幹勁者亦歡迎</span>
       </div>
       <div class="recruit-info-item">
-        <span class="recruit-info-label">会社名</span>
-        <span class="recruit-info-value">リラックスM</span>
+        <span class="recruit-info-label">公司名稱</span>
+        <span class="recruit-info-value">Relax M</span>
       </div>
       <div class="recruit-info-item">
         <span class="recruit-info-label">所在地</span>
-        <span class="recruit-info-value">〒860-0807<br>熊本市中央区下通1丁目7-12-2F</span>
+        <span class="recruit-info-value">郵編 860-0807<br>熊本市中央區下通1丁目7-12 2F</span>
       </div>
       <div class="recruit-info-item">
-        <span class="recruit-info-label">設立</span>
+        <span class="recruit-info-label">成立時間</span>
         <span class="recruit-info-value">2013年11月1日</span>
       </div>
     </div>
 
     <div class="recruit-person reveal">
-      <p class="recruit-person-title">求める人物像</p>
-      <p class="recruit-person-text">セラピストの仕事が大好きで技術向上したい方。素直な方。挨拶・協力・時間厳守・清掃ができる方。前向きな方。</p>
+      <p class="recruit-person-title">理想人才</p>
+      <p class="recruit-person-text">熱愛按摩師工作、希望不斷精進技術的人。為人坦率的人。能做到禮貌問候、團隊協作、遵守時間與協助清潔的人。積極向上的人。</p>
     </div>
 
     <div class="recruit-note reveal">
-      ☆ 当店のセラピストは現在インボイス登録の必要はございません。
+      ☆ 本店按摩師目前無需辦理髮票（合格發票開具者）登記。
     </div>
 
     <div class="recruit-contact-row reveal" style="text-align:center;margin-top:3rem;">
-      <p class="recruit-contact-text" style="font-family:'Noto Sans JP',sans-serif;font-size:1rem;font-weight:500;line-height:1.9;color:#1a1a1a;margin-bottom:1.2rem;-webkit-font-smoothing:antialiased;">ご応募・お問い合わせはお電話にて<br>お待ちしております。</p>
+      <p class="recruit-contact-text" style="font-family:'Noto Sans JP',sans-serif;font-size:1rem;font-weight:500;line-height:1.9;color:#1a1a1a;margin-bottom:1.2rem;-webkit-font-smoothing:antialiased;">如有應聘或諮詢意向<br>歡迎致電聯絡我們。</p>
       <a href="tel:096-356-3444" class="btn-tel">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.09 6.09l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         096-356-3444
@@ -3603,24 +3603,24 @@
   <div class="container">
     <div class="reveal">
       <div class="section-title-wrap">
-        <h2 class="section-title">Room Therapis<br><span class="rt-sub-sp" style="font-size:1.2rem;font-weight:400;">レンタルサロン・ルームセラピス</span><span class="rt-sub-pc" style="font-size:1.2rem;font-weight:400;">― レンタルサロン・ルームセラピス ―</span></h2>
+        <h2 class="section-title">Room Therapis<br><span class="rt-sub-sp" style="font-size:1.2rem;font-weight:400;">出租沙龍・Room Therapis</span><span class="rt-sub-pc" style="font-size:1.2rem;font-weight:400;">― 出租沙龍・Room Therapis ―</span></h2>
         <div class="section-divider"></div>
       </div>
     </div>
     <div class="roomtherapis-inner reveal">
       <div class="roomtherapis-text">
         <p class="roomtherapis-desc">
-          リラックスM同ビル地下１階に位置する街中レンタルサロン<br>
-          ラグジュアリーな異なる雰囲気の施術ルームを時間でお貸しいたします！！<br>
-          <strong>1時間550円〜</strong><br>
-          お気軽にお問い合わせ下さい。
+          位於Relax M同棟大樓地下一層的市中心出租沙龍<br>
+          我們按時段出租風格各異的豪華護理房間！！<br>
+          <strong>每小時¥550起</strong><br>
+          歡迎隨時諮詢。
         </p>
         <a href="tel:08068313388" class="roomtherapis-tel-btn">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.09 6.09l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           080-6831-3388
         </a>
         <a href="https://room-therapis.com/" target="_blank" rel="noopener noreferrer" class="roomtherapis-btn">
-          Room Therapisホームページへ
+          訪問Room Therapis官網
         </a>
       </div>
     </div>
@@ -3635,34 +3635,34 @@
     <div class="container">
       <div style="margin-bottom:2rem;">
         <button onclick="showPage('main')" style="display:inline-flex;align-items:center;gap:.5rem;background:none;border:none;cursor:pointer;color:var(--bark);font-family:'Noto Sans JP',sans-serif;font-size:.9rem;font-weight:500;padding:0;margin-bottom:2rem;">
-          ← メインページに戻る
+          ← 返回主頁
         </button>
         <div class="section-title-wrap">
-          <h2 class="section-title">リラックスMについて</h2>
+          <h2 class="section-title">關於Relax M</h2>
           <div class="section-divider"></div>
         </div>
       </div>
       <div class="about-info-grid">
-        <div class="about-info-item"><span class="about-info-label">店舗名</span><span class="about-info-value">リラックスM</span></div>
-        <div class="about-info-item"><span class="about-info-label">オープン</span><span class="about-info-value">平成25年11月</span></div>
-        <div class="about-info-item"><span class="about-info-label">住所</span><span class="about-info-value">熊本県熊本市中央区下通1丁目7-12　2F</span></div>
-        <div class="about-info-item"><span class="about-info-label">電話</span><span class="about-info-value"><a href="tel:096-356-3444" style="color:var(--bark);text-decoration:none;">（096）356-3444　予約優先</a></span></div>
+        <div class="about-info-item"><span class="about-info-label">店鋪名稱</span><span class="about-info-value">Relax M</span></div>
+        <div class="about-info-item"><span class="about-info-label">開業時間</span><span class="about-info-value">2013年11月</span></div>
+        <div class="about-info-item"><span class="about-info-label">地址</span><span class="about-info-value">熊本縣熊本市中央區下通1丁目7-12　2F</span></div>
+        <div class="about-info-item"><span class="about-info-label">電話</span><span class="about-info-value"><a href="tel:096-356-3444" style="color:var(--bark);text-decoration:none;">（096）356-3444　建議提前預約</a></span></div>
         <div class="about-info-item"><span class="about-info-label">代表</span><span class="about-info-value">合田 麻衣子</span></div>
-        <div class="about-info-item"><span class="about-info-label">営業時間</span><span class="about-info-value">朝10:00〜最終受付 翌4:00</span></div>
+        <div class="about-info-item"><span class="about-info-label">營業時間</span><span class="about-info-value">上午10:00～最後入店時間 凌晨4:00</span></div>
       </div>
       <div class="about-services">
-        <p class="about-services-title">主なサービス</p>
+        <p class="about-services-title">主要服務</p>
         <ul class="about-services-list">
-          <li>もみほぐし整体（全身のお疲れを解消するボディケア）</li>
-          <li>足つぼ（オイル・クリーム使用。反射区・リンパにアプローチ）</li>
-          <li>眼精疲労コース（眼のまわりはもちろん、頭・首・鎖骨リンパ・肩甲骨ケア）</li>
+          <li>全身按摩整體（緩解全身疲勞的身體護理）</li>
+          <li>足底按摩（使用精油與乳霜，針對反射區與淋巴進行護理）</li>
+          <li>眼部疲勞護理課程（護理眼周、頭部、頸部、鎖骨淋巴與肩胛骨）</li>
         </ul>
       </div>
       <div class="about-message">
-        <p>お客様の大切なお身体のケア、責任持って施術させて頂きます。</p>
-        <p>リラックスMに来店して頂く事によって皆様のお疲れが解消され、身体の軽い日常に戻れますように精一杯施術させて頂きます！！</p>
-        <p>是非お気軽に、お身体のお悩みご相談下さい！！</p>
-        <p class="about-sign">リラックスM　スタッフ一同</p>
+        <p>我們將以負責任的態度，用心呵護您寶貴的身體。</p>
+        <p>希望透過光臨Relax M，能夠消除您的疲勞，讓您重新回到輕鬆自在的日常生活，我們將竭盡全力為您服務！！</p>
+        <p>歡迎隨時向我們諮詢您身體上的任何困擾！！</p>
+        <p class="about-sign">Relax M 全體員工</p>
       </div>
     </div>
   </div>
@@ -3671,7 +3671,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-copy-wrap">
-    <p class="footer-copy">© 2013–<span id="copy-year"></span> リラックスM All rights reserved.</p>
+    <p class="footer-copy">© 2013–<span id="copy-year"></span> Relax M 版權所有。</p>
   </div>
 </footer>
 
@@ -3680,26 +3680,6 @@
   // ページ読み込み時に必ずトップへ
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
-
-  // 言語ページ（en.html / zh-CN.html / ko.html）へは直接リンクするため、
-  // 古いGoogle翻訳クッキーが残っていれば読み込み時に必ずクリアする
-  (function() {
-    if (/googtrans=/.test(document.cookie)) {
-      document.cookie = 'googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
-      document.cookie = 'googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;domain=.' + location.hostname + ';path=/';
-    }
-  })();
-
-  function switchLang(lang) {
-    var popup = document.getElementById('langPopup');
-    if (popup) popup.classList.remove('show');
-    var backdrop = document.getElementById('langPopupBackdrop');
-    if (backdrop) backdrop.classList.remove('show');
-    document.body.style.overflow = '';
-    document.documentElement.style.overflow = '';
-  }
-
-
 
   function openGoogleMaps() {
     var query = encodeURIComponent('リラックスM 熊本下通');
@@ -3762,7 +3742,7 @@
     var text = document.querySelector('.concept-read-more-text');
     var isOpen = wrap.classList.toggle('open');
     arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-    text.textContent = isOpen ? '閉じる' : '続きを読む';
+    text.textContent = isOpen ? '收起' : '閱讀更多';
   }
 
   function goTo(sectionId) {
@@ -3833,7 +3813,7 @@
   }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
 
-  // 画像フェードイン
+  // 畫像フェードイン
   const revealImgs = document.querySelectorAll('.reveal-img');
   const imgObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -3856,7 +3836,7 @@
     // オーバーレイ作成
     const overlay = document.createElement('div');
     overlay.className = 'menu-modal-overlay';
-    overlay.innerHTML = '<div class="menu-modal"><div class="menu-modal-inner"></div><div class="menu-modal-footer"><button class="menu-modal-close">閉じる</button></div></div>';
+    overlay.innerHTML = '<div class="menu-modal"><div class="menu-modal-inner"></div><div class="menu-modal-footer"><button class="menu-modal-close">關閉</button></div></div>';
     document.body.appendChild(overlay);
     const inner = overlay.querySelector('.menu-modal-inner');
     const footer = overlay.querySelector('.menu-modal-footer');
@@ -3867,7 +3847,7 @@
     const telBtn = document.createElement('a');
     telBtn.href = 'tel:096-356-3444';
     telBtn.className = 'menu-modal-tel-btn';
-    telBtn.innerHTML = `<span class="modal-tel-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.09 6.09l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span class="modal-tel-body"><span class="modal-tel-label">ご予約</span><span class="modal-tel-num">096-356-3444</span></span>`;
+    telBtn.innerHTML = `<span class="modal-tel-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.09 6.09l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span class="modal-tel-body"><span class="modal-tel-label">預約</span><span class="modal-tel-num">096-356-3444</span></span>`;
     footer.insertBefore(telBtn, closeBtn);
 
     function openModal(card) {
@@ -3983,12 +3963,12 @@
   function openDrawer() {
     if (!drawer) return;
     drawer.classList.add('open');
-    if (hamburger) { hamburger.classList.add('open'); hamburger.setAttribute('aria-label', 'メニューを閉じる'); }
+    if (hamburger) { hamburger.classList.add('open'); hamburger.setAttribute('aria-label', '關閉選單'); }
   }
   function closeDrawer() {
     if (!drawer) return;
     drawer.classList.remove('open');
-    if (hamburger) { hamburger.classList.remove('open'); hamburger.setAttribute('aria-label', 'メニューを開く'); }
+    if (hamburger) { hamburger.classList.remove('open'); hamburger.setAttribute('aria-label', '開啟選單'); }
   }
   if (hamburger) {
     hamburger.addEventListener('click', () => {
@@ -4000,12 +3980,12 @@
   function openFloatMenu() {
     if (!floatMenu) return;
     floatMenu.classList.add('open');
-    if (floatMenuTrigger) floatMenuTrigger.setAttribute('aria-label', 'メニューを閉じる');
+    if (floatMenuTrigger) floatMenuTrigger.setAttribute('aria-label', '關閉選單');
   }
   function closeFloatMenu() {
     if (!floatMenu) return;
     floatMenu.classList.remove('open');
-    if (floatMenuTrigger) floatMenuTrigger.setAttribute('aria-label', 'メニューを開く');
+    if (floatMenuTrigger) floatMenuTrigger.setAttribute('aria-label', '開啟選單');
   }
   if (floatMenuTrigger) {
     floatMenuTrigger.addEventListener('click', () => {
@@ -4023,17 +4003,16 @@
     }
   });
 
-  // 言語切り替え時はローディング画面をスキップする
+  // 言語切り替え時はローディング畫面をスキップする
   function goLang(url) {
     location.href = url + '?noload=1';
   }
 
   // ローディングアニメーション
-  var _skipLangPopup = location.search.indexOf('noload=1') !== -1;
   (function() {
     var screen = document.getElementById('loading-screen');
 
-    if (_skipLangPopup) {
+    if (location.search.indexOf('noload=1') !== -1) {
       screen.style.display = 'none';
       if (window.history && history.replaceState) {
         history.replaceState(null, '', location.pathname + location.hash);
@@ -4053,12 +4032,8 @@
     setTimeout(function() { ll3.classList.add('show'); }, 1500);
     setTimeout(function() {
       screen.classList.add('hide');
-      // フェードアウト開始と同時にスクロール有効化（言語ポップアップ表示中は無効のまま維持）
-      var lp = document.getElementById('langPopup');
-      if (!lp || !lp.classList.contains('show')) {
-        document.body.style.overflow = '';
-        document.documentElement.style.overflow = '';
-      }
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }, 3800);
     setTimeout(function() { screen.style.display = 'none'; }, 5000);
   })();
@@ -4084,10 +4059,10 @@
     Please select your language.
   </span>
   <div class="lang-popup-btns notranslate" translate="no">
-    <button onclick="switchLang('')">日本語</button>
+    <button onclick="goLang('index.html')">日本語</button>
     <button onclick="goLang('en.html')">EN</button>
     <button onclick="goLang('zh-CN.html')">简体中文</button>
-        <button onclick="goLang('zh-TW.html')">繁體中文</button>
+    <button onclick="goLang('zh-TW.html')">繁體中文</button>
     <button onclick="goLang('ko.html')">한국어</button>
   </div>
 </div>
@@ -4098,10 +4073,6 @@
     document.body.style.overflow = 'hidden';
     document.documentElement.style.overflow = 'hidden';
   }
-  (function(){
-    if (_skipLangPopup) return;
-    setTimeout(openLangPopup, 800);
-  })();
   function closeLangPopup() {
     document.getElementById('langPopup').classList.remove('show');
     document.getElementById('langPopupBackdrop').classList.remove('show');
