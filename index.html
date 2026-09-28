@@ -30,6 +30,139 @@
   @media(max-width:900px){ html { font-size: 20px; } }
   body { font-family:'Noto Sans JP',sans-serif; background:var(--warm-white); color:var(--dark); overflow-x:hidden; }
 
+  /* 料金改定のお知らせ */
+  .price-notice {
+    background: #fffaf3;
+    border-top: 1px solid #d9c7a8;
+    border-bottom: 1px solid #d9c7a8;
+    color: #2f4033;
+  }
+  .price-notice-inner {
+    width: min(100% - 2rem, 920px);
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+  .price-notice summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    list-style: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: .85rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+  }
+  .price-notice summary::-webkit-details-marker { display: none; }
+  .price-notice-title { font-weight: 700; }
+  .price-notice-date { color: #b34d3d; }
+  .price-notice-more {
+    display: inline-block;
+    padding-bottom: .1rem;
+    border-bottom: 1px solid currentColor;
+    font-size: .72rem;
+    white-space: nowrap;
+  }
+  .price-notice-body {
+    max-width: 760px;
+    margin: 1rem auto 0;
+    padding: 1.2rem 1.4rem;
+    background: rgba(255,255,255,.72);
+    border-radius: 8px;
+    font-size: .78rem;
+    line-height: 2;
+  }
+  .price-notice-prices {
+    margin: 1rem 0 .5rem;
+    padding: 1rem 1.2rem;
+    border-left: 3px solid var(--clay);
+    background: #f4f8f4;
+  }
+  .price-notice-prices-title { font-weight: 700; margin-bottom: .35rem; }
+  .price-notice-price {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px dotted #bdc9bf;
+    padding: .3rem 0;
+  }
+  .price-notice-price:last-child { border-bottom: 0; }
+  .price-notice-price strong { color: #b34d3d; white-space: nowrap; }
+  .price-notice-note { font-size: .72rem; color: #526457; }
+  .price-notice-closing { margin-top: 1rem; }
+  .price-notice-sign { margin-top: .5rem; text-align: right; font-weight: 500; }
+  @media(max-width:600px) {
+    .price-notice-inner { width: min(100% - 1.2rem, 920px); padding: .8rem 0; }
+    .price-notice summary { flex-wrap: wrap; gap: .25rem .55rem; font-size: .78rem; }
+    .price-notice-title { width: 100%; }
+    .price-notice-body { padding: 1rem; font-size: .72rem; line-height: 1.9; }
+    .price-notice-price { display: block; }
+    .price-notice-price strong { display: block; margin-top: .1rem; }
+  }
+
+  /* ヒーロー内では予約欄の下にコンパクト表示 */
+  .hero .price-notice {
+    width: 100%;
+    margin-top: .35rem;
+    background: #fffaf3;
+    border: 1px solid #d9c7a8;
+    border-radius: 8px;
+  }
+  .hero .price-notice-inner {
+    width: 100%;
+    padding: .65rem .75rem;
+    flex-wrap: wrap;
+    gap: .15rem .5rem;
+  }
+  .hero .price-notice-title { width: 100%; }
+  .hero .price-notice-date { font-size: .72rem; }
+  .hero .price-notice-more { font-size: .65rem; }
+  .price-notice[open]::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(15,25,18,.55);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+  }
+  .hero .price-notice-body {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1001;
+    width: min(calc(100% - 2rem), 760px);
+    max-height: min(82vh, 720px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 1.6rem;
+    transform: translate(-50%, -50%);
+    background: #fffaf3;
+    box-shadow: 0 18px 60px rgba(0,0,0,.28);
+  }
+  .price-notice-close {
+    display: block;
+    margin: 1.2rem auto 0;
+    padding: .55rem 1.8rem;
+    border: 1px solid #2d5a3d;
+    border-radius: 999px;
+    background: #2d5a3d;
+    color: white;
+    font: inherit;
+    font-size: .72rem;
+    cursor: pointer;
+  }
+  @media(max-width:600px) {
+    .hero .price-notice { margin-bottom: 1.5rem; }
+    .hero .price-notice-inner { padding: .55rem .7rem; }
+    .hero .price-notice-body {
+      width: calc(100% - 1.2rem);
+      max-height: 86vh;
+      padding: 1.1rem;
+    }
+  }
+
   /* FIXED HEADER（廃止） */
   .site-header { display: none; }
   .mobile-drawer { display: none !important; }
@@ -2862,6 +2995,30 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </a>
       </div>
+      <!-- 料金改定のお知らせ -->
+      <details class="price-notice">
+        <summary class="price-notice-inner">
+          <span class="price-notice-title">一部料金改定のお知らせ</span>
+          <span class="price-notice-date">2026年10月1日より</span>
+          <span class="price-notice-more">詳しく見る</span>
+        </summary>
+        <div class="price-notice-body">
+          <p>日頃よりリラックスMをご愛顧いただき、誠にありがとうございます。</p>
+          <p>インボイス制度における仕入税額控除率の変更に伴い、制度変更への対応と、施術品質・セラピストの環境を守るため、2026年10月1日より一部メニューの料金を改定させていただきます。</p>
+          <div class="price-notice-prices">
+            <p class="price-notice-prices-title">【改定後の料金】</p>
+            <p class="price-notice-price"><span>もみほぐし　60分</span><strong>4,750円</strong></p>
+            <p class="price-notice-price"><span>もみほぐし＆足つぼSET　60分</span><strong>5,150円</strong></p>
+          </div>
+          <p class="price-notice-note">※他の料金はお気軽にお問い合わせください。</p>
+          <div class="price-notice-closing">
+            <p>今後もセラピスト一同、技術・接客・サービスの向上に努め、皆様により一層ご満足いただける癒しの時間をご提供してまいります。</p>
+            <p>何卒ご理解賜りますようお願い申し上げます。</p>
+            <p class="price-notice-sign">リラックスM</p>
+          </div>
+          <button type="button" class="price-notice-close" onclick="this.closest('details').removeAttribute('open')">閉じる</button>
+        </div>
+      </details>
     </div>
     <a href="javascript:void(0)" class="hero-scroll-btn" onclick="goTo('intro')">
       <span class="hero-scroll-label">SCROLL</span>
