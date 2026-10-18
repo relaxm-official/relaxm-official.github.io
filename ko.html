@@ -1084,6 +1084,39 @@
     text-align: center; line-height: 1.5;
   }
   .roomtherapis-btn:hover { background: #1a1005; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
+  /* ===== リラックスMとは ===== */
+  .au-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 20px; }
+  .au-stat { background:#e8efe9; border-radius:16px; padding:20px 12px; text-align:center; }
+  .au-stat-label { text-wrap:balance; display:block; font-size:13px; color:#3a3a3a; line-height:1.5; margin-bottom:6px; }
+  .au-stat-value { display:block; font-size:28px; font-weight:700; color:#2d5a3d; line-height:1.3; }
+  .au-stat-value small { font-size:15px; font-weight:700; margin-left:2px; }
+  .au-stat-value.au-text-only { font-size:20px; }
+  .au-text { margin:0 0 28px; text-align:left; background:#fff; border:none; border-radius:8px; padding:1.2rem 1.5rem; font-family:'Noto Sans JP',sans-serif; font-size:14px; font-weight:400; line-height:1.9; color:#333; -webkit-font-smoothing:antialiased; }
+  .au-text strong { color:#2d5a3d; font-weight:700; }
+  .au-ichiban { text-align:center; }
+  .au-pill { display:inline-block; background:#2d5a3d; color:#fff; font-size:14px; font-weight:700; padding:6px 22px; border-radius:999px; margin-bottom:18px; }
+  .au-cols { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .au-col { background:#fff; border-top:4px solid #2d5a3d; border-radius:6px 6px 14px 14px; padding:18px 10px 20px; }
+  .au-col h3 { font-size:18px; font-weight:700; color:#2d5a3d; margin-bottom:8px; }
+  .au-col p { font-size:13px; line-height:1.8; color:#333; }
+  @media(min-width:900px){
+    .au-stat-label { font-size:12px; }
+    .au-stat-value { font-size:24px; }
+    .au-stat-value.au-text-only { font-size:17px; }
+    .au-col h3 { font-size:16px; }
+    .au-col p { font-size:12px; }
+  }
+  @media(max-width:900px){
+    .au-stats, .au-cols { gap:8px; }
+    .au-stat { padding:14px 6px; border-radius:12px; }
+    .au-stat-label { font-size:11px; }
+    .au-stat-value { font-size:20px; white-space:nowrap; }
+    .au-stat-value small { font-size:12px; }
+    .au-stat-value.au-text-only { font-size:15px; }
+    .au-col { padding:14px 6px 16px; }
+    .au-col h3 { font-size:15px; }
+    .au-col p { font-size:12px; line-height:1.7; }
+  }
   /* ===== CONCEPT / INTRO ===== */
   #intro { background: #f5f0eb; }
   .concept-img-wrap {
@@ -2885,14 +2918,16 @@
         <h2 class="concept-headline">시술・서비스・환대를 갖춘<br>최고의 살롱</h2>
         <div class="concept-divider"></div>
       </div>
-      <div class="concept-desc-wrap" id="conceptDescWrap">
-        <p class="concept-desc">구마모토 시모도리 아케이드에 위치한 올핸드 전문 바디케어 살롱입니다.<br><br>전신 마사지, 발 지압, 눈 피로 케어, 림프 마사지, 골반 교정, 헤드 스파, 개인 맞춤 스트레칭까지. 숙련된 테라피스트가 뭉친 곳의 원인을 정확히 파악하여 한 분 한 분 정성껏 시술해 드립니다.</p>
-        <div class="concept-desc-fade"></div>
+      <div class="au-stats">
+        <div class="au-stat"><span class="au-stat-label">테라피스트 평균 경력</span><span class="au-stat-value">11<small>년</small></span></div>
+        <div class="au-stat"><span class="au-stat-label">월평균 방문 고객</span><span class="au-stat-value">약 1,300<small>명</small></span></div>
+        <div class="au-stat"><span class="au-stat-label">위치</span><span class="au-stat-value au-text-only">시모도리 중심</span></div>
       </div>
-      <button class="concept-read-more" onclick="toggleConceptDesc()">
-        <span class="concept-read-more-text">더 보기</span>
-        <span class="concept-read-more-arrow">▼</span>
-      </button>
+      <p class="au-text">Relax M은 구마모토 최대의 번화가 <strong>시모도리 아케이드의 중심</strong>에서 <strong>평균 경력 11년의 숙련된 테라피스트</strong>가 올핸드로 시술하며, <strong>월 약 1,300명</strong>의 고객이 찾는 정통파 살롱입니다.<br>시술・서비스・환대로 거리를 찾는 분들을 편안하게 하고, <strong>시모도리의 활기</strong>를 이어 가겠습니다.</p>
+      <div class="au-ichiban">
+        <span class="au-pill">3가지 “No.1”</span>
+        <div class="au-cols"><div class="au-col"><h3>시술</h3><p>배움을 멈추지 않는<br>기술과 마음을<br>손끝에 담다</p></div><div class="au-col"><h3>접객</h3><p>누가 해도<br>같은 품질,<br>그것이 “당연함”</p></div><div class="au-col"><h3>환대</h3><p>당신을 위해<br>한 걸음 앞서 생각하는<br>“플러스 알파”</p></div></div>
+      </div>
     </div>
   </div>
 </section>

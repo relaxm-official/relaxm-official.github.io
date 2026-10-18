@@ -1084,6 +1084,39 @@
     text-align: center; line-height: 1.5;
   }
   .roomtherapis-btn:hover { background: #1a1005; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
+  /* ===== リラックスMとは ===== */
+  .au-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 20px; }
+  .au-stat { background:#e8efe9; border-radius:16px; padding:20px 12px; text-align:center; }
+  .au-stat-label { text-wrap:balance; display:block; font-size:13px; color:#3a3a3a; line-height:1.5; margin-bottom:6px; }
+  .au-stat-value { display:block; font-size:28px; font-weight:700; color:#2d5a3d; line-height:1.3; }
+  .au-stat-value small { font-size:15px; font-weight:700; margin-left:2px; }
+  .au-stat-value.au-text-only { font-size:20px; }
+  .au-text { margin:0 0 28px; text-align:left; background:#fff; border:none; border-radius:8px; padding:1.2rem 1.5rem; font-family:'Noto Sans JP',sans-serif; font-size:14px; font-weight:400; line-height:1.9; color:#333; -webkit-font-smoothing:antialiased; }
+  .au-text strong { color:#2d5a3d; font-weight:700; }
+  .au-ichiban { text-align:center; }
+  .au-pill { display:inline-block; background:#2d5a3d; color:#fff; font-size:14px; font-weight:700; padding:6px 22px; border-radius:999px; margin-bottom:18px; }
+  .au-cols { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .au-col { background:#fff; border-top:4px solid #2d5a3d; border-radius:6px 6px 14px 14px; padding:18px 10px 20px; }
+  .au-col h3 { font-size:18px; font-weight:700; color:#2d5a3d; margin-bottom:8px; }
+  .au-col p { font-size:13px; line-height:1.8; color:#333; }
+  @media(min-width:900px){
+    .au-stat-label { font-size:12px; }
+    .au-stat-value { font-size:24px; }
+    .au-stat-value.au-text-only { font-size:17px; }
+    .au-col h3 { font-size:16px; }
+    .au-col p { font-size:12px; }
+  }
+  @media(max-width:900px){
+    .au-stats, .au-cols { gap:8px; }
+    .au-stat { padding:14px 6px; border-radius:12px; }
+    .au-stat-label { font-size:11px; }
+    .au-stat-value { font-size:20px; white-space:nowrap; }
+    .au-stat-value small { font-size:12px; }
+    .au-stat-value.au-text-only { font-size:15px; }
+    .au-col { padding:14px 6px 16px; }
+    .au-col h3 { font-size:15px; }
+    .au-col p { font-size:12px; line-height:1.7; }
+  }
   /* ===== CONCEPT / INTRO ===== */
   #intro { background: #f5f0eb; }
   .concept-img-wrap {
@@ -2885,14 +2918,16 @@
         <h2 class="concept-headline">技術、服務與款待<br>兼備的頂級沙龍</h2>
         <div class="concept-divider"></div>
       </div>
-      <div class="concept-desc-wrap" id="conceptDescWrap">
-        <p class="concept-desc">位於熊本下通拱廊的全手法身體護理專門沙龍。<br><br>提供全身按摩、足底反射區按摩、眼部疲勞護理、淋巴按摩、骨盆調整、頭部按摩以及個人拉伸。經驗豐富的按摩師會精準找到您身體緊繃的根源，一對一悉心為您服務。</p>
-        <div class="concept-desc-fade"></div>
+      <div class="au-stats">
+        <div class="au-stat"><span class="au-stat-label">按摩師平均經驗</span><span class="au-stat-value">11<small>年</small></span></div>
+        <div class="au-stat"><span class="au-stat-label">月均到店客人</span><span class="au-stat-value">約1,300<small>人</small></span></div>
+        <div class="au-stat"><span class="au-stat-label">位置</span><span class="au-stat-value au-text-only">下通中心</span></div>
       </div>
-      <button class="concept-read-more" onclick="toggleConceptDesc()">
-        <span class="concept-read-more-text">閱讀更多</span>
-        <span class="concept-read-more-arrow">▼</span>
-      </button>
+      <p class="au-text">Relax M位於熊本最大的繁華街區——<strong>下通拱廊的中心</strong>，由<strong>平均經驗11年的資深按摩師</strong>以全手法為您服務，每月有<strong>約1,300位客人</strong>選擇我們，是一家專業的正統沙龍。<br>我們以技術、服務與款待，讓來到這座城市的人安心放鬆，持續為<strong>下通帶來熱鬧</strong>。</p>
+      <div class="au-ichiban">
+        <span class="au-pill">三個「第一」</span>
+        <div class="au-cols"><div class="au-col"><h3>技術</h3><p>持續學習，<br>將技術與用心<br>握於掌中</p></div><div class="au-col"><h3>服務</h3><p>無論誰來服務，<br>品質始終如一的<br>「理所當然」</p></div><div class="au-col"><h3>款待</h3><p>為您多想一步的<br>「額外驚喜」</p></div></div>
+      </div>
     </div>
   </div>
 </section>
